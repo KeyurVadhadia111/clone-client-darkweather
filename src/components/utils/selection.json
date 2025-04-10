@@ -1,0 +1,236 @@
+{
+	"generatorSource": "svgps.app",
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M153.6 768C153.6 739.7 176.5 716.8 204.8 716.8H819.2C847.5 716.8 870.4 739.7 870.4 768 870.4 796.3 847.5 819.2 819.2 819.2H204.8C176.5 819.2 153.6 796.3 153.6 768ZM153.6 256C153.6 227.7 176.5 204.8 204.8 204.8H819.2C847.5 204.8 870.4 227.7 870.4 256 870.4 284.3 847.5 307.2 819.2 307.2H204.8C176.5 307.2 153.6 284.3 153.6 256ZM153.6 512C153.6 483.7 176.5 460.8 204.8 460.8H819.2C847.5 460.8 870.4 483.7 870.4 512 870.4 540.3 847.5 563.2 819.2 563.2H204.8C176.5 563.2 153.6 540.3 153.6 512Z"
+				],
+				"attrs": [{ "fillRule": "evenodd", "clipRule": "evenodd" }],
+				"width": 1024
+			},
+			"properties": { "name": "hamburger" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M511.8 85.3V128M511.8 896V938.7M881.3 298.7L844.4 320M179.3 704L142.3 725.3M142.3 298.7L179.3 320M844.4 704L881.3 725.3M767.8 512C767.8 653.4 653.2 768 511.8 768 370.5 768 255.8 653.4 255.8 512 255.8 370.6 370.5 256 511.8 256 653.2 256 767.8 370.6 767.8 512Z"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": { "name": "sun" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M703.9 0c-54.6 3.8-118.4 38.7-155.6 84.2-33.9 41.3-61.8 102.6-50.9 162.2 59.6 1.9 121.3-33.9 157-80.2C687.8 123.1 713.1 62.2 703.9 0Z",
+					"M919.8 343.6C867.4 277.8 793.7 239.7 724.1 239.7c-91.8 0-130.7 44-194.5 44-65.8 0-115.8-43.8-195.2-43.9-78 0-161.1 47.7-213.7 129.2-74 114.8-61.4 330.7 58.6 514.6 42.9 65.8 100.3 139.8 175.3 140.4 66.8 0.6 85.6-42.8 176-43.3 90.4-0.5 107.6 43.8 174.2 43.2 75.1-0.6 135.5-82.6 178.5-148.4 30.8-47.2 42.2-70.9 66.1-124.1-173.6-66.1-201.5-313-29.6-407.8z",
+					"M0 0L0 1024 1024 1024 1024 0 0 0"
+				],
+				"attrs": [
+					{
+						"fill": "#1b1b1b",
+						"id": "path1",
+						"sodipodiDocname": "apple.svg",
+						"inkscapeVersion": "1.3.2 (091e20e, 2023-11-25)",
+						"xmlnsInkscape": "http://www.inkscape.org/namespaces/inkscape",
+						"xmlnsSodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+						"xmlnsSvg": "http://www.w3.org/2000/svg"
+					},
+					{
+						"fill": "#1b1b1b",
+						"id": "path2",
+						"sodipodiDocname": "apple.svg",
+						"inkscapeVersion": "1.3.2 (091e20e, 2023-11-25)",
+						"xmlnsInkscape": "http://www.inkscape.org/namespaces/inkscape",
+						"xmlnsSodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+						"xmlnsSvg": "http://www.w3.org/2000/svg"
+					},
+					{
+						"fill": "white",
+						"id": "rect2",
+						"sodipodiDocname": "apple.svg",
+						"inkscapeVersion": "1.3.2 (091e20e, 2023-11-25)",
+						"xmlnsInkscape": "http://www.inkscape.org/namespaces/inkscape",
+						"xmlnsSodipodi": "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
+						"xmlnsSvg": "http://www.w3.org/2000/svg"
+					}
+				],
+				"width": 1024
+			},
+			"properties": { "name": "apple" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M169.809 350.83c-39.386 46.56-69.44 101.266-87.278 161.234 55.095 185.024 226.507 319.936 429.43 319.936 42.347 0 83.324-5.875 122.159-16.858M265.711 265.712c70.667-46.594 155.31-73.712 246.285-73.712 202.923 0 374.336 134.914 429.431 319.936-30.374 102.118-96.179 188.979-183.155 246.336M265.711 265.712l-137.712-137.712M265.711 265.712l155.778 155.778M758.272 758.272l137.728 137.728M758.272 758.272l-155.763-155.763M602.509 602.509c23.164-23.164 37.491-55.164 37.491-90.509 0-70.694-57.31-128-128-128-35.349 0-67.349 14.327-90.511 37.49M602.509 602.509l-181.020-181.018"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeLinejoin": "round",
+						"strokeLinecap": "round",
+						"strokeMiterlimit": "4",
+						"strokeWidth": 64
+					}
+				],
+				"isMulticolor": false,
+				"isMulticolor2": false,
+				"grid": 24,
+				"tags": ["eye-slash"]
+			},
+			"attrs": [
+				{
+					"fill": "none",
+					"strokeLinejoin": "round",
+					"strokeLinecap": "round",
+					"strokeMiterlimit": "4",
+					"strokeWidth": 64
+				}
+			],
+			"properties": {
+				"order": 50,
+				"id": 31,
+				"name": "eye-slash",
+				"prevSize": 24,
+				"code": 59654
+			},
+			"setIdx": 0,
+			"setId": 5,
+			"iconIdx": 10
+		},
+		{
+			"icon": {
+				"paths": [
+					"M86.851 525.756c-2.947-8.845-2.95-18.419-0.008-27.264 59.237-178.077 227.218-306.492 425.191-306.492 197.884 0 365.798 128.295 425.109 306.244 2.948 8.845 2.953 18.419 0.009 27.264-59.234 178.078-227.217 306.492-425.19 306.492-197.883 0-365.801-128.294-425.111-306.244z",
+					"M640 512c0 70.694-57.306 128-128 128-70.69 0-128-57.306-128-128s57.309-128 128-128c70.694 0 128 57.306 128 128z"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeLinejoin": "round",
+						"strokeLinecap": "round",
+						"strokeMiterlimit": "4",
+						"strokeWidth": 64
+					},
+					{
+						"fill": "none",
+						"strokeLinejoin": "round",
+						"strokeLinecap": "round",
+						"strokeMiterlimit": "4",
+						"strokeWidth": 64
+					}
+				],
+				"isMulticolor": false,
+				"isMulticolor2": false,
+				"grid": 24,
+				"tags": ["eye"]
+			},
+			"attrs": [
+				{
+					"fill": "none",
+					"strokeLinejoin": "round",
+					"strokeLinecap": "round",
+					"strokeMiterlimit": "4",
+					"strokeWidth": 64
+				},
+				{
+					"fill": "none",
+					"strokeLinejoin": "round",
+					"strokeLinecap": "round",
+					"strokeMiterlimit": "4",
+					"strokeWidth": 64
+				}
+			],
+			"properties": {
+				"order": 51,
+				"id": 32,
+				"name": "eye",
+				"prevSize": 24,
+				"code": 59653
+			},
+			"setIdx": 0,
+			"setId": 5,
+			"iconIdx": 9
+		},
+		{
+			"icon": {
+				"paths": [
+					"M501.5 252C558.9 251.9 614.5 272.2 658.4 309.3L781.4 192.2C734.1 148.6 677.4 116.7 615.7 98.9 554.1 81.1 489.1 78 425.9 89.7 362.8 101.4 303.3 127.7 252.1 166.4 200.8 205.1 159.4 255.3 130.9 312.8L269.5 419.7C285.7 370.9 316.8 328.5 358.4 298.4 400.1 268.3 450.1 252.1 501.5 252Z",
+					"M257 496.4C257 470.3 261.2 444.4 269.5 419.7L130.9 312.8C102.5 369.9 87.8 432.7 87.8 496.4 87.8 560.1 102.5 623 130.9 680L269.5 573.1C261.2 548.4 257 522.5 257 496.4Z",
+					"M898.1 421.2H503.3V590.4H727C713.7 638.3 683.2 679.5 641.4 706.3L778.9 812.3C866.8 733.4 918.5 605.1 898.1 421.2Z",
+					"M641.4 706.3C598.9 730.6 550.4 742.6 501.5 740.9 450.1 740.8 400.1 724.5 358.4 694.4 316.8 664.3 285.7 621.9 269.5 573.2L130.9 680C165.2 749 218 807.1 283.4 847.8 348.9 888.4 424.4 910 501.5 910.1 602.8 912.8 701.7 878 778.9 812.3L641.4 706.3Z"
+				],
+				"attrs": [{ "fill": "#D94F3D" }, { "fill": "#F2C042" }, { "fill": "#5085ED" }, { "fill": "#57A75C" }],
+				"width": 1024
+			},
+			"properties": { "name": "google" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M83 509.2C97.8 720.2 276.8 891.8 491 901.2 642.1 907.8 777.3 837.3 858.4 726.3 892 680.9 874 650.5 817.9 660.8 790.4 665.7 762.2 667.7 732.7 666.5 532.4 658.3 368.5 490.8 367.7 293 367.3 239.7 378.4 189.3 398.4 143.5 420.5 92.7 393.9 68.5 342.7 90.2 180.5 158.6 69.5 322 83 509.2Z"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 81.92,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 983
+			},
+			"properties": { "name": "moon" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M501.9 502.1m-383.5 0a383.5 383.5 0 1 0 767 0 383.5 383.5 0 1 0-767 0",
+					"M768.8 788.7L919.2 938.7"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 102.4,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 102.4,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": { "name": "search" }
+		},
+		{
+			"icon": {
+				"paths": ["M141.3 462.6L353.1 674.4 882.8 144.8"],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 153.60000000000002,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "check"
+			}
+		}
+	]
+}

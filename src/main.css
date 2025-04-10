@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 47.4% 11.2%;
+
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 47.4% 11.2%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 47.4% 11.2%;
+
+		--primary: 222.2 47.4% 11.2%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+
+		--destructive: 0 100% 50%;
+		--destructive-foreground: 210 40% 98%;
+
+		--ring: 215 20.2% 65.1%;
+
+		--radius: 0.5rem;
+	}
+
+	body {
+		@apply font-sans;
+	}
+}
+
+@layer utilities {
+	.container {
+		/* Center the container */
+		margin-left: auto;
+		margin-right: auto;
+
+		/* Apply padding */
+		padding-left: 24px;
+		padding-right: 24px;
+
+		/* Apply custom breakpoints */
+		width: 100%;
+		max-width: 1170px; /* Apply 1170px max-width on large screens */
+	}
+	/* Custom breakpoints */
+	@media (min-width: 600px) {
+		.container {
+			max-width: 600px;
+		}
+	}
+	@media (min-width: 1170px) {
+		.container {
+			max-width: 1170px;
+		}
+	}
+	@media (min-width: 1240px) {
+		.container {
+			max-width: 1170px;
+		}
+	}
+	@media (min-width: 1496px) {
+		.container {
+			max-width: 1170px;
+		}
+	}
+}
+
+@theme {
+	--color-primary: var(--primary);
+	--color-text: #1c282b;
+	--color-text-dark: #ffffff;
+}
