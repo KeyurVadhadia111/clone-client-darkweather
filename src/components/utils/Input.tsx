@@ -16,7 +16,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type 
 			<input
 				type={inputType == "password" && showPassword ? "text" : inputType}
 				className={cn(
-					"bg-neutral-50 flex w-full rounded-xl text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-0 py-[9px] sm:py-[18px] px-5 font-normal text-text ",
+					"bg-fgc dark:bg-fgcDark flex w-full rounded-xl text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-textSecondary dark:placeholder:text-textDark  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-0 py-[9px] sm:py-[18px] px-5 font-normal text-text dark:text-textDark",
 					className,
 					error ? "!border !border-red-500 focus-visible:!ring-red-500" : "focus-visible:ring-neutral-300",
 				)}
@@ -27,7 +27,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type 
 				<Icon
 					icon={showPassword ? "eye" : "eye-slash"}
 					onClick={() => setShowPassword(!showPassword)}
-					className="absolute sm:top-7 top-5 right-3 z-10 h-5 w-5 -translate-y-1/2 cursor-pointer dark:text-darkPrimary text-neutral-400"
+					className="absolute sm:top-7 top-[22px] right-3 z-10 h-5 w-5 -translate-y-1/2 cursor-pointer  text-neutral-400"
 				/>
 			)}
 			{error && (

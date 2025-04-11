@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
+import Icon from "components/utils/Icon";
 
 function Login() {
 	const schema = yup.object({
@@ -37,40 +38,38 @@ function Login() {
 
 	return (
 		<>
-			<div
-				className="flex justify-between items-center sm:py-20
-			py-6">
+			<div className="grid sm:grid-cols-2 grid-cols-1 justify-between">
 				{/* Left Side Image */}
 				<img
-					className="w-full max-w-[720px] sm:block hidden -ml-[150px]"
+					className="w-[784px] max-w-[784px] sm:block hidden -ml-[210px]"
 					alt="Person with umbrella"
 					src="/assets/images/person-with-umbrella.svg"
 				/>
 
 				{/* Login Card */}
-				<div className="w-full max-w-[570px] relative">
+				<div className="w-full max-w-[570px] relative sm:mt-20 mt-6">
 					<img
-						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 -sm:top-14 z-0 -top-6"
+						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-14 z-0 -top-6"
 						alt="Weather icon"
 						src="/assets/images/sun.png"
 					/>
 
 					<Card className="w-full rounded-[20px] relative z-0">
-						<CardContent className="sm:!p-10 space-y-6 sm:space-y-10 !p-4">
+						<CardContent className="sm:!p-10 flex flex-col sm:gap-10 gap-6 !p-4">
 							{/* Card Header */}
 							<div className="text-center space-y-4">
 								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl">
-									<span className="text-[#1c282b]">Welcome </span>
-									<span className="text-[#ffa500]">Back!</span>
+									<span className="text-text dark:text-textDark">Welcome </span>
+									<span className="text-primary">Back!</span>
 								</h1>
-								<p className="font-normal text-[#808080] sm:text-base text-xs tracking-[0.80px] leading-6">
+								<p className="font-normal text-textSecondary dark:text-textDark sm:text-base text-xs tracking-[0.80px] leading-6">
 									Please Enter Your Details to Log In.
 								</p>
 							</div>
 
 							{/* Login Form */}
-							<form onSubmit={handleSubmit(onSubmit)} className="sm:space-y-[30px] space-y-4">
-								<div className="sm:space-y-[30px] space-y-4">
+							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-[30px] gap-4">
+								<div className="flex flex-col sm:gap-[30px] gap-4">
 									<div className="">
 										<Input
 											placeholder="Email"
@@ -93,13 +92,13 @@ function Login() {
 											<Checkbox id="remember" className="" defaultChecked />
 											<label
 												htmlFor="remember"
-												className="font-normal text-[#1b1b1b] sm:text-base text-sm">
+												className="font-normal text-text dark:text-textDark sm:text-base text-sm">
 												Remember me
 											</label>
 										</div>
 										<Link
 											to={"#"}
-											className="h-auto font-medium text-[#1b1b1b] sm:text-base text-sm leading-6">
+											className="h-auto font-medium text-text dark:text-textDark sm:text-base text-sm leading-6">
 											Forgot Password?
 										</Link>
 									</div>
@@ -107,8 +106,9 @@ function Login() {
 
 								{/* Login Button */}
 								<Button
+									type="submit"
 									variant="none"
-									className="w-full px-8 bg-[#FFA500] text-[#1c282b] rounded-xl hover:bg-[#ffa500]/90 font-semibold text-base">
+									className="w-full px-8 bg-primary text-text rounded-xl hover:bg-primary/90 font-semibold text-base">
 									Log In
 								</Button>
 							</form>
@@ -116,40 +116,40 @@ function Login() {
 							{/* Or Divider */}
 							<div className="flex items-center justify-center gap-2">
 								<Separator className="!w-[50px]" />
-								<span className="font-medium text-[#808080] text-sm text-center leading-[21px]">
+								<span className="font-medium text-textSecondary dark:text-textDark text-sm text-center leading-[21px]">
 									Or Log In With
 								</span>
-								<Separator className="!w-[50px]" />
+								<Separator className="!w-[50px] !bg-gradient-to-r" />
 							</div>
 
 							{/* Social Login Options */}
 							<div className="flex items-start sm:gap-6 gap-4">
 								<Button
 									variant="outline"
-									className="flex-1 justify-center sm:gap-4 px-4 bg-neutral-50 rounded-xl border-0 hover:bg-neutral-100 gap-2 py-6 sm:py-4">
+									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4 ">
 									<img className="w-6 sm:w-auto" src="/assets/images/google-logo.svg" />
-									<span className="font-normal text-[#868686] text-base text-center leading-6">
+									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center leading-6">
 										Google
 									</span>
 								</Button>
 								<Button
 									variant="outline"
-									className="flex-1 justify-center sm:gap-4 px-4 bg-neutral-50 rounded-xl border-0 hover:bg-neutral-100 gap-2 py-6 sm:py-4">
-									<img className="w-6 sm:w-auto" src="/assets/images/apple-logo.svg" />
-									<span className="font-normal text-[#868686] text-base text-center leading-6">
+									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
+									<Icon className="w-6 sm:w-8 text-text dark:text-textDark" icon="apple-logo" />
+									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center">
 										Apple
 									</span>
 								</Button>
 							</div>
 
 							{/* Register Link */}
-							<div className="flex items-center justify-center gap-2">
-								<span className="font-normal text-[#1c282b] text-base text-center leading-6">
+							<div className="flex items-center justify-center gap-2 ">
+								<span className="font-normal text-text dark:text-textDark text-base text-center leading-6">
 									Don&apos;t have an account?
 								</span>
 								<Link
-									to={"/"}
-									className="!p-0 h-auto font-medium !text-[#ffa500] text-base leading-6">
+									to={"/register"}
+									className="!p-0 h-auto font-medium !text-primary text-base leading-6">
 									Register
 								</Link>
 							</div>

@@ -4,6 +4,7 @@ import type { Dispatch, Reducer } from "react";
 export const StateContext = createContext<any>({});
 
 export const initialState: any = {
+	isDark: false,
 	isLoading: false,
 	isUserDetails: false,
 	userDetails: {},

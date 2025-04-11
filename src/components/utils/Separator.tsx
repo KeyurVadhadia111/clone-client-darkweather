@@ -13,14 +13,14 @@ const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
 				role="separator"
 				aria-orientation={orientation}
 				className={cn(
-					"shrink-0 bg-border",
+					"shrink-0 bg-gradient-to-l from-textSecondary/30 dark:from-fgcDark to-transparent",
 					orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
-					className
+					className,
 				)}
 				{...props}
 			/>
 		);
-	}
+	},
 );
 
 Separator.displayName = "Separator";

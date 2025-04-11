@@ -80,7 +80,13 @@
 }
 
 @theme {
-	--color-primary: var(--primary);
 	--color-text: #1c282b;
-	--color-text-dark: #ffffff;
+	--color-textSecondary: #808080;
+	--color-textTurnery: #868686;
+	--color-primary: #ffa500;
+	--color-textDark: #ffffff;
+	--color-bgc: #ffffff;
+	--color-bgcDark: #272727;
+	--color-fgc: #fafafa;
+	--color-fgcDark: #303030;
 }
