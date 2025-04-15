@@ -90,3 +90,7 @@
 	--color-fgc: #fafafa;
 	--color-fgcDark: #303030;
 }
+
+button {
+	cursor: pointer;
+}

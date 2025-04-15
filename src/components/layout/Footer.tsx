@@ -1,20 +1,29 @@
 import { Button } from "components/utils/Button";
 import { useAppState } from "components/utils/useAppState";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
-	const [{ isDark }, setAppState] = useAppState();
-
+	const [{ isDark, userDetails }, setAppState] = useAppState();
+	const [isAuthPage, setIsAuthPage] = useState(false);
+	const location = useLocation();
 	// Navigation menu items
 	const navItems = [
-		{ title: "Home", href: "#" },
-		{ title: "Radar & Maps", href: "#" },
-		{ title: "Weather A.I.", href: "#" },
-		{ title: "Go Premium", href: "#" },
-		{ title: "Top Stories", href: "#" },
-		{ title: "Alerts", href: "#" },
+		{ title: "Home", href: "/", authRequired: false },
+		{ title: "Radar & Maps", href: "#", authRequired: true },
+		{ title: "Weather A.I.", href: "#", authRequired: false },
+		{ title: "Go Premium", href: "#", authRequired: true },
+		{ title: "Top Stories", href: "#", authRequired: false },
+		{ title: "Alerts", href: "#", authRequired: false },
 	];
+
+	useEffect(() => {
+		setIsAuthPage(prev => location.pathname === "/login" || location.pathname === "/register");
+		return () => {
+			true;
+		}
+	}, [location.pathname])
+
 
 	const setThemeMode = (isDark: boolean) => {
 		if (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -30,25 +39,36 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className="flex flex-col w-full items-start relative overflow-hidden pt-0">
-			<img
+		<footer className={`flex flex-col w-full items-start relative ${isAuthPage && 'overflow-hidden'} pt-0`}>
+			<div
+				className={`absolute bottom-0 left-0 w-full h-[702px] scale-x-[-1] overflow-hidden bg-no-repeat bg-bottom rotate-180 bg-[length:450%] ${isAuthPage ? 'sm:bg-[length:115%]' : 'sm:bg-[length:140%]'} bg-[url('/assets/images/footer-bg.png')]`}
+				style={{
+					backgroundPosition: 'center top', // Center horizontally, align bottom
+				}}
+			/>
+			{/* <div className="sm:hidden block absolute w-full h-full rotate-180 bottom-0 left-0 overflow-visible bg-no-repeat bg-top sm:bg-cover bg-[length:auto] bg-[url('/assets/images/footer-bg.png')] " /> */}
+			<div className={`absolute w-full ${isAuthPage ? 'h-full' : 'h-[702px]'} bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark`}></div>
+
+			{/* <img
 				className="hidden sm:block absolute w-auto sm:w-full auto rotate-180 bottom-0 left-0 "
 				alt="Footer background"
 				src="assets/images/footer-bg.png"
 			/>
 			<div className="sm:hidden block absolute w-full h-full rotate-180 bottom-0 left-0 overflow-visible bg-no-repeat bg-top sm:bg-cover bg-[length:auto] bg-[url('/assets/images/footer-bg.png')] " />
-			<div className="absolute dark:z-[1] w-full h-full bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark"></div>
+			<div className="absolute dark:z-[1] w-full h-full bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark"></div> */}
 
 			{/* Footer Navigation */}
 			<div className="z-[1] gap-4 sm:gap-[30px] px-6 sm:px-[135px] py-6 sm:py-12 border-b border-white/16 flex flex-col items-center relative self-stretch w-full flex-[0_0_auto]">
-				<img
-					className="relative h-8 sm:h-[60px]"
-					alt="Dark Weather Logo"
-					src={`assets/images/logo-${isDark ? "dark" : "light"}.svg`}
-				/>
+				<Link to={"/"}>
+					<img
+						className="relative h-8 sm:h-[60px]"
+						alt="Dark Weather Logo"
+						src={`assets/images/logo-${isDark ? "dark" : "light"}.svg`}
+					/>
+				</Link>
 
 				<nav className="w-full flex items-center justify-center flex-wrap gap-4 sm:gap-12 text-text dark:text-textDark text-sm sm:text-base">
-					{navItems.map((item, index) => (
+					{navItems.filter(item => !userDetails?._id ? !item.authRequired : true).map((item, index) => (
 						<Link
 							key={index}
 							to={item.href}
@@ -60,7 +80,7 @@ export default function Footer() {
 				</nav>
 
 				<Button
-					variant="outline"
+					variant="none"
 					className="inline-flex items-center justify-center gap-4 px-6 !py-0 !bg-white/20 rounded-xl border-0 text-text dark:text-textDark !cursor-pointer !h-[42px] sm:!h-14"
 					onClick={() => {
 						localStorage.setItem("theme", !isDark ? "dark" : "light");

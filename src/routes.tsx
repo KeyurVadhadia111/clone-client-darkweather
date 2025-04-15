@@ -1,10 +1,13 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { initialState, StateProvider } from "components/utils/useAppState";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { initialState, StateProvider, useAppState } from "components/utils/useAppState";
 import AccessDisabled from "pages/AccessDisabled";
 import App from "pages/App";
 import Login from "pages/Login";
 import Register from "pages/Register";
+import HomePage from "pages/HomePage";
+import LandingPage from "pages/LandingPage";
+import ForecastPage from "pages/ForecastPage";
 
 declare global {
 	interface Window {
@@ -20,12 +23,33 @@ const reducer = (state: any, action = {}) => {
 	};
 };
 
-const ProtectedRoute: React.FC<{ children: any }> = ({ children }) => {
-	// const response = checkTelegramValidation();
-	// if (!response.isAllow) {
-	// 	return <Navigate to="/access_disabled" />;
-	// }
-	return children;
+
+const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+	const location = useLocation();
+	const [{ userDetails }, setAppState] = useAppState();
+	const user = JSON.parse(localStorage.getItem("auth") || '{}');
+
+	const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+
+	if (location.pathname === "/") {
+		return <>{children}</>;
+	}
+	if (user?._id) {
+		// User is logged in, block access to login/register
+		if (isAuthPage) {
+			return <Navigate to="/" replace />;
+		}
+		// Allow access to other routes
+		return <>{children}</>;
+	} else {
+		// Not logged in, allow access only to login/register
+		if (isAuthPage) {
+			return <>{children}</>;
+		}
+		setAppState({ userDetails: {} });
+		// Redirect to login for protected routes
+		return <Navigate to="/login" replace />;
+	}
 };
 
 const createRoutes: React.FC = () => {
@@ -39,6 +63,22 @@ const createRoutes: React.FC = () => {
 								path="/"
 								element={
 									<ProtectedRoute>
+										<LandingPage />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/home"
+								element={
+									<ProtectedRoute>
+										<HomePage />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/login"
+								element={
+									<ProtectedRoute>
 										<Login />
 									</ProtectedRoute>
 								}
@@ -48,6 +88,15 @@ const createRoutes: React.FC = () => {
 								element={
 									<ProtectedRoute>
 										<Register />
+									</ProtectedRoute>
+								}
+							/>
+
+							<Route
+								path="/forecast"
+								element={
+									<ProtectedRoute>
+										<ForecastPage />
 									</ProtectedRoute>
 								}
 							/>

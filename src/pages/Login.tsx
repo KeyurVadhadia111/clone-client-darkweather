@@ -8,8 +8,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Icon from "components/utils/Icon";
+import { useAppState } from "components/utils/useAppState";
+import { toast } from "components/utils/toast";
 
 function Login() {
+	const [{ userDetails }, setAppState] = useAppState();
+
 	const schema = yup.object({
 		email: yup.string().email("Invalid email").required("Email is required"),
 		password: yup.string().min(8, "Password must be at least 6 characters").required("Password is required"),
@@ -32,13 +36,17 @@ function Login() {
 	});
 
 	const onSubmit = (data: ILoginFormData) => {
-		console.log("Form Data", data);
+		const userDetails = JSON.parse(JSON.stringify(data));
+		userDetails._id = Math.floor(Math.random() * 10000000000).toString();
+		localStorage.setItem("auth", JSON.stringify(userDetails));
+		setAppState({ userDetails: userDetails });
+		toast.success("Login successful!");
 		reset();
 	};
 
 	return (
 		<>
-			<div className="grid sm:grid-cols-2 grid-cols-1 justify-between">
+			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between">
 				{/* Left Side Image */}
 				<img
 					className="w-[784px] max-w-[784px] sm:block hidden -ml-[210px]"
@@ -105,12 +113,7 @@ function Login() {
 								</div>
 
 								{/* Login Button */}
-								<Button
-									type="submit"
-									variant="none"
-									className="w-full px-8 bg-primary text-text rounded-xl hover:bg-primary/90 font-semibold text-base">
-									Log In
-								</Button>
+								<Button type="submit">Log In</Button>
 							</form>
 
 							{/* Or Divider */}
@@ -125,18 +128,18 @@ function Login() {
 							{/* Social Login Options */}
 							<div className="flex items-start sm:gap-6 gap-4">
 								<Button
-									variant="outline"
+									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4 ">
 									<img className="w-6 sm:w-auto" src="/assets/images/google-logo.svg" />
-									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center leading-6">
+									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center leading-6">
 										Google
 									</span>
 								</Button>
 								<Button
-									variant="outline"
+									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
 									<Icon className="w-6 sm:w-8 text-text dark:text-textDark" icon="apple-logo" />
-									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center">
+									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
 										Apple
 									</span>
 								</Button>

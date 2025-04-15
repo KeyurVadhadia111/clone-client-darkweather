@@ -221,6 +221,97 @@
 			"properties": {
 				"name": "check"
 			}
+		},
+		{
+			"icon": {
+				"paths": ["M832 352l-320 320-320-320"],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 64,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "chevron-down"
+			},
+			"__meta": {
+				"content": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\r\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 8.25l-7.5 7.5-7.5-7.5\" />\r\n</svg>\r\n",
+				"id": "ig8x_eKmN_s9TONUQHIVN",
+				"_selected": true
+			}
+		},
+		{
+			"icon": {
+				"paths": ["M192 448L512 128m0 0l320 320M512 128v768"],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 64,
+						"dataSlot": "icon",
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "arrow-up"
+			},
+			"__meta": {
+				"content": "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" data-slot=\"icon\" class=\"w-6 h-6\">\r\n  <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18\" />\r\n</svg>\r\n",
+				"id": "ZvA0S8kXd8_Rdmryry_A9",
+				"_selected": true
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M831.9 340.9L512 652.7 192.1 340.9a30.6 30.6 0 0 0-42.7 0 29.1 29.1 0 0 0 0 41.6L489.7 714.2a32 32 0 0 0 44.6 0l340.3-331.7a29.1 29.1 0 0 0 0-41.7 30.6 30.6 0 0 0-42.7 0z"
+				],
+				"attrs": [{}],
+				"width": 1024
+			},
+			"properties": { "name": "arrow-down" }
+		},
+		{
+			"icon": {
+				"paths": ["M128 544h768a32 32 0 1 0 0-64H128a32 32 0 0 0 0 64z"],
+				"attrs": [{}],
+				"width": 1024
+			},
+			"properties": { "name": "minus" }
+		},
+		{
+			"icon": {
+				"paths": ["M170.7 512H853.3M512 170.7V853.3"],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": { "name": "plus" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M68.4 112.1V375.5H156.2V156H375.6V68.3H112.3C100.6 68.3 89.5 72.9 81.3 81.1 73 89.3 68.4 100.5 68.4 112.1Z",
+					"M911.7 68.3H648.4V156H867.8V375.5H955.6V112.1C955.6 100.5 951 89.3 942.7 81.1 934.5 72.9 923.4 68.3 911.7 68.3Z",
+					"M156.2 648.6H68.4V911.9C68.4 923.5 73 934.7 81.3 942.9 89.5 951.1 100.6 955.8 112.3 955.8H375.6V868H156.2V648.6Z",
+					"M867.8 868H648.4V955.8H911.7C923.4 955.8 934.5 951.1 942.7 942.9 951 934.7 955.6 923.5 955.6 911.9V648.6H867.8V868Z"
+				],
+				"attrs": [{}, {}, {}, {}],
+				"width": 1024
+			},
+			"properties": { "name": "zoom" }
 		}
 	]
 }

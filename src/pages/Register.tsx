@@ -7,8 +7,11 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Icon from "components/utils/Icon";
+import { useAppState } from "components/utils/useAppState";
+import { toast } from "components/utils/toast";
 
 function Register() {
+	const [{ userDetails }, setAppState] = useAppState();
 	const weatherCards = [
 		{
 			id: 1,
@@ -60,13 +63,18 @@ function Register() {
 	});
 
 	const onSubmit = (data: IRegisterFormData) => {
-		console.log("Form Data", data);
+		const userDetails = JSON.parse(JSON.stringify(data));
+		userDetails._id = Math.floor(Math.random() * 10000000000).toString();
+		localStorage.setItem("auth", JSON.stringify(userDetails));
+		setAppState({ userDetails: userDetails });
+		toast.success("Registration successful!");
+		console.log("userDetails", userDetails);
 		reset();
 	};
 
 	return (
 		<>
-			<div className="grid sm:grid-cols-2 grid-cols-1 justify-between sm:pt-20 pt-6">
+			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between sm:pt-20 pt-6">
 				{/* Left Side Image */}
 
 				<div className="w-[150%] max-w-[771px] relative mt-8 -ml-[180px] sm:block hidden">
@@ -144,10 +152,7 @@ function Register() {
 								</div>
 
 								{/* Login Button */}
-								<Button
-									type="submit"
-									variant="none"
-									className="w-full px-8 bg-primary text-text rounded-xl hover:bg-primary/90 font-semibold text-base">
+								<Button type="submit" className="!px-8">
 									Register
 								</Button>
 							</form>
@@ -164,18 +169,18 @@ function Register() {
 							{/* Social Login Options */}
 							<div className="flex items-start sm:gap-6 gap-4">
 								<Button
-									variant="outline"
+									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4 ">
 									<img className="w-6 sm:w-auto" src="/assets/images/google-logo.svg" />
-									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center leading-6">
+									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center leading-6">
 										Google
 									</span>
 								</Button>
 								<Button
-									variant="outline"
+									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
 									<Icon className="w-6 sm:w-8 text-text dark:text-textDark" icon="apple-logo" />
-									<span className="font-normal text-textTurnery dark:text-textDark text-base text-center">
+									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
 										Apple
 									</span>
 								</Button>
@@ -186,7 +191,7 @@ function Register() {
 								<span className="font-normal text-text dark:text-textDark text-base text-center leading-6">
 									Already Have an Account?
 								</span>
-								<Link to={"/"} className="h-auto font-medium !text-primary text-base leading-6">
+								<Link to={"/login"} className="h-auto font-medium !text-primary text-base leading-6">
 									Log In
 								</Link>
 							</div>
