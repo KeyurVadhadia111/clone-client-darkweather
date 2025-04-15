@@ -74,11 +74,11 @@ function Register() {
 
 	return (
 		<>
-			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between sm:pt-20 pt-6">
+			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between">
 				{/* Left Side Image */}
 
-				<div className="w-[150%] max-w-[771px] relative mt-8 -ml-[180px] sm:block hidden">
-					<img className="w-full" alt="Person In Snow" src="/assets/images/snow-falling-bro 1.svg" />
+				<div className="w-[789px] relative -ml-[164px] sm:block hidden">
+					<img className="w-[789px]" alt="Person In Snow" src="/assets/images/snow-falling-bro.svg" />
 
 					{/* Weather Information Cards */}
 					{weatherCards.map(card => (
@@ -101,18 +101,18 @@ function Register() {
 				</div>
 
 				{/* Login Card */}
-				<div className="w-full max-w-[570px] relative">
+				<div className="w-full max-w-[570px] sm:mt-[54px] mt-6 relative justify-self-end">
 					<img
-						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-14 z-0 -top-6"
+						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-[38px] z-0 -top-6"
 						alt="Weather icon"
 						src="/assets/images/sun.png"
 					/>
 
 					<Card className="w-full bg-white rounded-[20px] relative z-0">
-						<CardContent className="sm:!p-10 flex flex-col sm:gap-10 gap-6 !p-4">
+						<CardContent className="sm:!p-8 flex flex-col sm:gap-6 gap-6 !p-4">
 							{/* Card Header */}
-							<div className="text-center space-y-4">
-								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl">
+							<div className="text-center">
+								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl mb-2.5">
 									<span className="text-text dark:text-textDark">Create </span>
 									<span className="text-primary">Account</span>
 								</h1>
@@ -122,8 +122,8 @@ function Register() {
 							</div>
 
 							{/* Login Form */}
-							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-[30px] gap-5">
-								<div className="flex flex-col sm:gap-[30px] gap-5">
+							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-8 gap-5">
+								<div className="flex flex-col sm:gap-5 gap-5">
 									<Input
 										placeholder="Full Name"
 										{...register("fullName")}
@@ -179,7 +179,10 @@ function Register() {
 								<Button
 									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
-									<Icon className="w-6 sm:w-8 text-text dark:text-textDark" icon="apple-logo" />
+									<Icon
+										className="w-6 h-6 sm:w-8 sm:h-8 text-text dark:text-textDark"
+										icon="apple-logo"
+									/>
 									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
 										Apple
 									</span>

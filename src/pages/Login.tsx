@@ -49,24 +49,24 @@ function Login() {
 			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between">
 				{/* Left Side Image */}
 				<img
-					className="w-[784px] max-w-[784px] sm:block hidden -ml-[210px]"
+					className="max-w-[784px] sm:block hidden -ml-[134px]"
 					alt="Person with umbrella"
-					src="/assets/images/person-with-umbrella.svg"
+					src="/assets/images/person-with-umbrella-new.svg"
 				/>
 
 				{/* Login Card */}
-				<div className="w-full max-w-[570px] relative sm:mt-20 mt-6">
+				<div className="w-full max-w-[570px] relative sm:mt-[54px] mt-6 justify-self-end">
 					<img
-						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-14 z-0 -top-6"
+						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-[38px] z-0 -top-6"
 						alt="Weather icon"
 						src="/assets/images/sun.png"
 					/>
 
 					<Card className="w-full rounded-[20px] relative z-0">
-						<CardContent className="sm:!p-10 flex flex-col sm:gap-10 gap-6 !p-4">
+						<CardContent className="sm:!p-8 flex flex-col sm:gap-6 gap-6 !p-4">
 							{/* Card Header */}
-							<div className="text-center space-y-4">
-								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl">
+							<div className="text-center">
+								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl mb-2.5">
 									<span className="text-text dark:text-textDark">Welcome </span>
 									<span className="text-primary">Back!</span>
 								</h1>
@@ -76,8 +76,8 @@ function Login() {
 							</div>
 
 							{/* Login Form */}
-							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-[30px] gap-4">
-								<div className="flex flex-col sm:gap-[30px] gap-4">
+							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-[32px] gap-4">
+								<div className="flex flex-col sm:gap-5 gap-4">
 									<div className="">
 										<Input
 											placeholder="Email"
@@ -138,7 +138,10 @@ function Login() {
 								<Button
 									variant="none"
 									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
-									<Icon className="w-6 sm:w-8 text-text dark:text-textDark" icon="apple-logo" />
+									<Icon
+										className="w-6 h-6 sm:w-8 sm:h-8 text-text dark:text-textDark"
+										icon="apple-logo"
+									/>
 									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
 										Apple
 									</span>
