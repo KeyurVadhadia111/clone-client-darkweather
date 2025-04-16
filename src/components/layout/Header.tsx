@@ -13,7 +13,7 @@ export default function Header() {
 		{ title: "Weather A.I.", href: "#", authRequired: false },
 		{ title: "Go Premium", href: "#", authRequired: true },
 		{ title: "Top Stories", href: "#", authRequired: false },
-		{ title: "Alerts", href: "#", authRequired: false },
+		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
 
 	useEffect(() => {

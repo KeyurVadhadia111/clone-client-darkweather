@@ -13,6 +13,10 @@ const getToastConfig = () => ({
 		(!localStorage.theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
 			? "dark"
 			: "light",
+	toastClassName: ({ theme }: { theme: string }) =>
+		`${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"} !rounded-2xl shadow-lg`,
+	/*
+	progressClassName: ({ theme }: { theme: string }) => `${theme === "dark" ? "bg-blue-500" : "bg-blue-600"}`, */
 });
 
 export const toast = {

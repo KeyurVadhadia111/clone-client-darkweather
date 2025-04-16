@@ -9,9 +9,16 @@ import { useForm } from "react-hook-form";
 import Icon from "components/utils/Icon";
 import { useAppState } from "components/utils/useAppState";
 import { toast } from "components/utils/toast";
+import { useEffect, useState } from "react";
+import OtpInput from "components/common/otpInput";
+import CountDown from "components/common/CountDown";
 
 function Register() {
 	const [{ userDetails }, setAppState] = useAppState();
+	const [step, setStep] = useState(1);
+	const [isLoading, setIsLoading] = useState(false);
+	const [countDownTimer, setCountDownTimer] = useState(Date.now() + 10);
+
 	const weatherCards = [
 		{
 			id: 1,
@@ -44,6 +51,20 @@ function Register() {
 			.string()
 			.oneOf([yup.ref("password")], "Passwords must match")
 			.required("Confirm password is required"),
+
+		otp: yup
+			.string()
+			.optional()
+			.when([], {
+				is: () => step === 2,
+				then: schema =>
+					schema
+						.required("OTP is required")
+						.matches(/^\d{6}$/, "*Invalid OTP. Please re-enter to confirm.")
+						.min(6, "OTP must be 6 digits")
+						.max(6, "OTP must be 6 digits"),
+				otherwise: schema => schema.optional(),
+			}),
 	});
 
 	type IRegisterFormData = yup.InferType<typeof registerSchema>;
@@ -52,17 +73,26 @@ function Register() {
 		register,
 		handleSubmit,
 		reset,
+		setValue,
+		trigger,
 		formState: { errors },
-	} = useForm<IRegisterFormData>({
+	} = useForm<any>({
 		resolver: yupResolver(registerSchema),
 		defaultValues: {
 			email: "",
 			password: "",
+			confirmPassword: "",
 			// remember: false,
+			otp: "",
 		},
 	});
 
 	const onSubmit = (data: IRegisterFormData) => {
+		console.log("step", step);
+		if (step === 1) {
+			setStep(2);
+			return;
+		}
 		const userDetails = JSON.parse(JSON.stringify(data));
 		userDetails._id = Math.floor(Math.random() * 10000000000).toString();
 		localStorage.setItem("auth", JSON.stringify(userDetails));
@@ -70,6 +100,17 @@ function Register() {
 		toast.success("Registration successful!");
 		console.log("userDetails", userDetails);
 		reset();
+	};
+
+	const resendOtp = async () => {
+		setIsLoading(true);
+		try {
+			setIsLoading(false);
+			setCountDownTimer(Date.now() + 60000);
+		} catch (error: any) {
+			toast.error(error?.response?.data?.error || error?.response?.data?.message || "Something went wrong.");
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -110,91 +151,138 @@ function Register() {
 
 					<Card className="w-full bg-white rounded-[20px] relative z-0">
 						<CardContent className="sm:!p-8 flex flex-col sm:gap-6 gap-6 !p-4">
-							{/* Card Header */}
-							<div className="text-center">
-								<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl mb-2.5">
-									<span className="text-text dark:text-textDark">Create </span>
-									<span className="text-primary">Account</span>
-								</h1>
-								<p className="font-normal text-textSecondary dark:text-textDark sm:text-base text-xs tracking-[0.80px] leading-6">
-									Please Enter Your Details to Create Account.
-								</p>
-							</div>
-
 							{/* Login Form */}
-							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-8 gap-5">
-								<div className="flex flex-col sm:gap-5 gap-5">
-									<Input
-										placeholder="Full Name"
-										{...register("fullName")}
-										error={errors?.fullName?.message?.toString()}
-									/>
+							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-6 gap-6">
+								{step === 1 ? (
+									<>
+										{/* Card Header */}
+										<div className="text-center">
+											<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl mb-2.5">
+												<span className="text-text dark:text-textDark">Create </span>
+												<span className="text-primary">Account</span>
+											</h1>
+											<p className="font-normal text-textSecondary dark:text-textDark sm:text-base text-xs tracking-[0.80px] leading-6">
+												Please Enter Your Details to Create Account.
+											</p>
+										</div>
 
-									<Input
-										placeholder="Email"
-										{...register("email")}
-										error={errors?.email?.message?.toString()}
-									/>
+										<div className="flex flex-col sm:gap-5 gap-5">
+											<Input
+												placeholder="Full Name"
+												{...register("fullName")}
+												error={errors?.fullName?.message?.toString()}
+											/>
 
-									<Input
-										type="password"
-										placeholder="Password"
-										{...register("password")}
-										error={errors?.password?.message?.toString()}
-									/>
+											<Input
+												placeholder="Email"
+												{...register("email")}
+												error={errors?.email?.message?.toString()}
+											/>
 
-									<Input
-										type="password"
-										placeholder="Confirm Password"
-										{...register("confirmPassword")}
-										error={errors?.confirmPassword?.message?.toString()}
-									/>
-								</div>
+											<Input
+												type="password"
+												placeholder="Password"
+												{...register("password")}
+												error={errors?.password?.message?.toString()}
+											/>
 
-								{/* Login Button */}
-								<Button type="submit" className="!px-8">
-									Register
-								</Button>
+											<Input
+												type="password"
+												placeholder="Confirm Password"
+												{...register("confirmPassword")}
+												error={errors?.confirmPassword?.message?.toString()}
+											/>
+										</div>
+
+										{/* Login Button */}
+										<Button type="submit" className="!px-8">
+											Register
+										</Button>
+
+										{/* Or Divider */}
+										<div className="flex items-center justify-center gap-2">
+											<Separator className="!w-[50px] " />
+											<span className="font-medium text-textSecondary dark:text-textDark text-sm text-center leading-[21px]">
+												Or Register With
+											</span>
+											<Separator className="!w-[50px] !bg-gradient-to-r" />
+										</div>
+
+										{/* Social Login Options */}
+										<div className="flex items-start sm:gap-6 gap-4">
+											<Button
+												variant="none"
+												className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4 ">
+												<img className="w-6 sm:w-auto" src="/assets/images/google-logo.svg" />
+												<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center leading-6">
+													Google
+												</span>
+											</Button>
+											<Button
+												variant="none"
+												className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
+												<Icon
+													className="w-6 h-6 sm:w-8 sm:h-8 text-text dark:text-textDark"
+													icon="apple-logo"
+												/>
+												<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
+													Apple
+												</span>
+											</Button>
+										</div>
+									</>
+								) : (
+									<>
+										{/* Card Header */}
+										<div className="text-center flex flex-col items-center ">
+											<h1 className="font-bold sm:text-5xl sm:leading-[72px] text-2xl mb-2.5">
+												<span className="text-text dark:text-textDark">OTP</span>
+											</h1>
+											<p className="font-normal text-textSecondary dark:text-textDark sm:text-base text-xs tracking-[0.80px] leading-6 w-2/3">
+												We have sent a verification code to your email ID. Please check.
+											</p>
+										</div>
+										<div>
+											<OtpInput
+												onOtpChange={(otp: string) => {
+													setValue("otp", otp);
+													trigger("otp");
+												}}
+												disbaled={isLoading}
+											/>
+
+											<div className="text-sm !text-red-500 px-5 sm:px-9 mt-1">
+												{errors?.otp?.message?.toString()}
+											</div>
+										</div>
+
+										{/* Login Button */}
+										<Button type="submit" className="!px-8">
+											Submit
+										</Button>
+
+										{/* Resend Link */}
+										<div className="flex items-center justify-center gap-2 text-sm sm:text-base">
+											<span className="font-normal text-text dark:text-textDark text-center">
+												Didn’t receive the email?
+											</span>
+											<CountDown
+												targetTime={countDownTimer}
+												onCountDownComplete={() => {
+													resendOtp();
+												}}
+											/>
+										</div>
+									</>
+								)}
 							</form>
 
-							{/* Or Divider */}
-							<div className="flex items-center justify-center gap-2">
-								<Separator className="!w-[50px] " />
-								<span className="font-medium text-textSecondary dark:text-textDark text-sm text-center leading-[21px]">
-									Or Register With
-								</span>
-								<Separator className="!w-[50px] !bg-gradient-to-r" />
-							</div>
-
-							{/* Social Login Options */}
-							<div className="flex items-start sm:gap-6 gap-4">
-								<Button
-									variant="none"
-									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4 ">
-									<img className="w-6 sm:w-auto" src="/assets/images/google-logo.svg" />
-									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center leading-6">
-										Google
-									</span>
-								</Button>
-								<Button
-									variant="none"
-									className="flex-1 justify-center sm:gap-4 px-4 bg-fgc dark:bg-fgcDark rounded-xl border-0 hover:bg-neutral-100 dark:hover:bg-neutral-700 gap-2 py-6 sm:py-4">
-									<Icon
-										className="w-6 h-6 sm:w-8 sm:h-8 text-text dark:text-textDark"
-										icon="apple-logo"
-									/>
-									<span className="font-semibold text-textTurnery dark:text-textDark text-base text-center">
-										Apple
-									</span>
-								</Button>
-							</div>
-
 							{/* Register Link */}
-							<div className="flex items-center justify-center gap-2">
-								<span className="font-normal text-text dark:text-textDark text-base text-center leading-6">
+							<div className="flex items-center justify-center gap-2 text-sm sm:text-base">
+								<span className="font-normal text-text dark:text-textDark text-center">
 									Already Have an Account?
 								</span>
-								<Link to={"/login"} className="h-auto font-medium !text-primary text-base leading-6">
+								<Link to={"/login"} className="h-auto font-medium !text-primary">
 									Log In
 								</Link>
 							</div>

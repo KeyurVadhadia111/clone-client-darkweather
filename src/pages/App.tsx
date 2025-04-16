@@ -4,6 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import "swiper/css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastIcons } from "components/utils/toast-icons";
 
 function App() {
 	const location = useLocation();
@@ -50,7 +51,7 @@ function App() {
 
 					{/* Footer Section */}
 					<Footer />
-					<ToastContainer />
+					<ToastContainer toastClassName={"!rounded-2xl"} icon={({ type }) => ToastIcons[type]?.() || null} />
 				</div>
 			</div>
 		</div>

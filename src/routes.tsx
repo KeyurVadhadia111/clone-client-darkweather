@@ -5,9 +5,9 @@ import AccessDisabled from "pages/AccessDisabled";
 import App from "pages/App";
 import Login from "pages/Login";
 import Register from "pages/Register";
-import HomePage from "pages/HomePage";
 import LandingPage from "pages/LandingPage";
 import ForecastPage from "pages/ForecastPage";
+import AlertsPage from "pages/AlertsPage";
 
 declare global {
 	interface Window {
@@ -23,11 +23,10 @@ const reducer = (state: any, action = {}) => {
 	};
 };
 
-
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const location = useLocation();
 	const [{ userDetails }, setAppState] = useAppState();
-	const user = JSON.parse(localStorage.getItem("auth") || '{}');
+	const user = JSON.parse(localStorage.getItem("auth") || "{}");
 
 	const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
@@ -68,14 +67,6 @@ const createRoutes: React.FC = () => {
 								}
 							/>
 							<Route
-								path="/home"
-								element={
-									<ProtectedRoute>
-										<HomePage />
-									</ProtectedRoute>
-								}
-							/>
-							<Route
 								path="/login"
 								element={
 									<ProtectedRoute>
@@ -97,6 +88,14 @@ const createRoutes: React.FC = () => {
 								element={
 									<ProtectedRoute>
 										<ForecastPage />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/alerts"
+								element={
+									<ProtectedRoute>
+										<AlertsPage />
 									</ProtectedRoute>
 								}
 							/>

@@ -14,16 +14,15 @@ export default function Footer() {
 		{ title: "Weather A.I.", href: "#", authRequired: false },
 		{ title: "Go Premium", href: "#", authRequired: true },
 		{ title: "Top Stories", href: "#", authRequired: false },
-		{ title: "Alerts", href: "#", authRequired: false },
+		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
 
 	useEffect(() => {
 		setIsAuthPage(prev => location.pathname === "/login" || location.pathname === "/register");
 		return () => {
 			true;
-		}
-	}, [location.pathname])
-
+		};
+	}, [location.pathname]);
 
 	const setThemeMode = (isDark: boolean) => {
 		if (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -39,15 +38,16 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className={`flex flex-col w-full items-start relative ${isAuthPage && 'overflow-hidden'} pt-0`}>
+		<footer className={`flex flex-col w-full items-start relative ${isAuthPage && "overflow-hidden"} pt-0`}>
 			<div
-				className={`absolute bottom-0 left-0 w-full h-[702px] scale-x-[-1] overflow-hidden bg-no-repeat bg-bottom rotate-180 bg-[length:450%] ${isAuthPage ? 'sm:bg-[length:115%]' : 'sm:bg-[length:140%]'} bg-[url('/assets/images/footer-bg.png')]`}
+				className={`absolute bottom-0 left-0 w-full h-[702px] scale-x-[-1] overflow-hidden bg-no-repeat bg-bottom rotate-180 bg-[length:450%] ${isAuthPage ? "sm:bg-[length:115%]" : "sm:bg-[length:140%]"} bg-[url('/assets/images/footer-bg.png')]`}
 				style={{
-					backgroundPosition: 'center top', // Center horizontally, align bottom
+					backgroundPosition: "center top", // Center horizontally, align bottom
 				}}
 			/>
 			{/* <div className="sm:hidden block absolute w-full h-full rotate-180 bottom-0 left-0 overflow-visible bg-no-repeat bg-top sm:bg-cover bg-[length:auto] bg-[url('/assets/images/footer-bg.png')] " /> */}
-			<div className={`absolute w-full ${isAuthPage ? 'h-full' : 'h-[702px]'} bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark`}></div>
+			<div
+				className={`absolute w-full ${isAuthPage ? "h-full" : "h-[702px]"} bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark`}></div>
 
 			{/* <img
 				className="hidden sm:block absolute w-auto sm:w-full auto rotate-180 bottom-0 left-0 "
@@ -68,15 +68,17 @@ export default function Footer() {
 				</Link>
 
 				<nav className="w-full flex items-center justify-center flex-wrap gap-4 sm:gap-12 text-text dark:text-textDark text-sm sm:text-base">
-					{navItems.filter(item => !userDetails?._id ? !item.authRequired : true).map((item, index) => (
-						<Link
-							key={index}
-							to={item.href}
-							aria-label={item.title}
-							className="tracking-[0.80px] text-text dark:text-textDark dark:hover:text-gray-200 hover:text-gray-600">
-							{item.title}
-						</Link>
-					))}
+					{navItems
+						.filter(item => (!userDetails?._id ? !item.authRequired : true))
+						.map((item, index) => (
+							<Link
+								key={index}
+								to={item.href}
+								aria-label={item.title}
+								className="tracking-[0.80px] text-text dark:text-textDark dark:hover:text-gray-200 hover:text-gray-600">
+								{item.title}
+							</Link>
+						))}
 				</nav>
 
 				<Button

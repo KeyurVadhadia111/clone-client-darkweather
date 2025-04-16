@@ -312,6 +312,197 @@
 				"width": 1024
 			},
 			"properties": { "name": "zoom" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 512m-426.7 0a426.7 426.7 0 1 0 853.4 0 426.7 426.7 0 1 0-853.4 0",
+					"M384 512l85.3 85.3 170.7-170.6"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "circle-check"
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M927.1 768l-341.3-597.3a85.3 85.3 0 0 0-148.5 0l-341.3 597.3A85.3 85.3 0 0 0 170.7 896h682.6a85.3 85.3 0 0 0 73.8-128",
+					"M512 384v170.7",
+					"M512 725.3h0.4"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "triangle-alert"
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M164.3 367.8a170.7 170.7 0 0 1 203.9-203.5 170.7 170.7 0 0 1 287.6 0 170.7 170.7 0 0 1 203.9 203.9 170.7 170.7 0 0 1 0 287.6 170.7 170.7 0 0 1-203.5 203.9 170.7 170.7 0 0 1-288 0 170.7 170.7 0 0 1-203.9-203.5 170.7 170.7 0 0 1 0-288.4Z",
+					"M384 512l85.3 85.3 170.7-170.6"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "badge-check"
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 512m-426.7 0a426.7 426.7 0 1 0 853.4 0 426.7 426.7 0 1 0-853.4 0",
+					"M512 341.3L512 512",
+					"M512 682.7L512.4 682.7"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "circle-alert"
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 512m-426.7 0a426.7 426.7 0 1 0 853.4 0 426.7 426.7 0 1 0-853.4 0",
+					"M512 682.7v-170.7",
+					"M512 341.3h0.4"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "info"
+			}
+		},
+		{
+			"icon": {
+				"paths": [
+					"M96 512c0-229.8 186.2-416 416-416s416 186.2 416 416-186.2 416-416 416S96 741.8 96 512ZM512 352a32 32 0 0 1 32 32v160a32 32 0 0 1-64 0V384a32 32 0 0 1 32-32Zm0 352a32 32 0 1 0 0-64 32 32 0 0 0 0 64Z"
+				],
+				"attrs": [
+					{
+						"fillRule": "evenodd",
+						"clipRule": "evenodd"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "info-fill"
+			}
+		},
+		{
+			"icon": {
+				"paths": ["M768 256L256 768", "M256 256l512 512"],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 85.33333333333333,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 1024
+			},
+			"properties": {
+				"name": "close"
+			}
 		}
 	]
 }
