@@ -8,6 +8,7 @@ import Register from "pages/Register";
 import LandingPage from "pages/LandingPage";
 import ForecastPage from "pages/ForecastPage";
 import AlertsPage from "pages/AlertsPage";
+import ForgotPasswordPage from "pages/ForgotPasswordPage";
 
 declare global {
 	interface Window {
@@ -28,7 +29,8 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 	const [{ userDetails }, setAppState] = useAppState();
 	const user = JSON.parse(localStorage.getItem("auth") || "{}");
 
-	const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
+	const isAuthPage =
+		location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password";
 
 	if (location.pathname === "/") {
 		return <>{children}</>;
@@ -71,6 +73,14 @@ const createRoutes: React.FC = () => {
 								element={
 									<ProtectedRoute>
 										<Login />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/forgot-password"
+								element={
+									<ProtectedRoute>
+										<ForgotPasswordPage />
 									</ProtectedRoute>
 								}
 							/>

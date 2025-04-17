@@ -16,7 +16,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type 
 			<input
 				type={inputType == "password" && showPassword ? "text" : inputType}
 				className={cn(
-					"bg-fgc dark:bg-fgcDark flex w-full rounded-xl text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-textSecondary dark:placeholder:text-textDark  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-0 py-[9px] sm:py-[18px] px-5 font-normal text-text dark:text-textDark",
+					"bg-fgc dark:bg-fgcDark flex w-full rounded-xl text-sm sm:text-base transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-textSecondary dark:placeholder:text-textDark  focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border-0 py-[11px] sm:py-[18px] px-5 font-normal text-text dark:text-textDark",
 					className,
 					error ? "!border !border-red-500 focus-visible:!ring-red-500" : "focus-visible:ring-neutral-300",
 				)}
