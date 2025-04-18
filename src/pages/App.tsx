@@ -8,8 +8,7 @@ import { ToastIcons } from "components/utils/toast-icons";
 
 function App() {
 	const location = useLocation();
-	const isAuthPage =
-		location.pathname === "/login" || location.pathname === "/register" || location.pathname === "/forgot-password";
+	const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
 
 	return (
 		<div className="bg-white dark:bg-bgcDark flex flex-row justify-center w-full">

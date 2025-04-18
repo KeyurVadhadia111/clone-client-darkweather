@@ -14,7 +14,7 @@ const getToastConfig = () => ({
 			? "dark"
 			: "light",
 	toastClassName: ({ theme }: { theme: string }) =>
-		`${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"} !rounded-2xl shadow-lg`,
+		`${theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-900"} !rounded-2xl shadow-[0_20px_35px_rgba(0,0,0,0.05)]`,
 	/*
 	progressClassName: ({ theme }: { theme: string }) => `${theme === "dark" ? "bg-blue-500" : "bg-blue-600"}`, */
 });

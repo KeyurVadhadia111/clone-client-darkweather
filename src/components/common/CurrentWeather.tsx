@@ -18,17 +18,6 @@ const bgColor = {
 	[AlertType.Warning]: "bg-warning",
 	[AlertType.Success]: "bg-success",
 };
-
-const bgShade = {
-	[AlertType.Error]: "bg-errorShade",
-	[AlertType.Warning]: "bg-warningShade",
-	[AlertType.Success]: "bg-successShade",
-};
-const alertTextColor = {
-	[AlertType.Error]: "text-error",
-	[AlertType.Warning]: "text-warning",
-	[AlertType.Success]: "text-success",
-};
 export default function CurrentWeather() {
 	const mockWeatherData = {
 		location: {
@@ -123,37 +112,39 @@ export default function CurrentWeather() {
 		<section
 			className={`py-6 sm:pb-[84px] w-full ${alertType ? "sm:pt-[22px]" : "sm:pt-[100px]"} mx-auto sm:px-10 relative`}>
 			{alertType ? (
-				<div className="container relative">
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-						className={`flex items-center justify-between gap-2 py-2 px-3 sm:py-3 sm:px-4 mb-6 sm:mb-[22px] ${bgShade[alertType]} rounded-[10px] sm:rounded-2xl`}>
-						<span
-							className={`flex items-center justify-center w-4 sm:w-8 h-4 sm:h-8 rounded-full self-start ${bgColor[alertType]}/10`}>
-							<Icon
-								icon="info-fill"
-								className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full ${alertTextColor[alertType]}`}
-							/>
-						</span>
-						<div className="grow text-xs sm:text-base">
-							A tornado has been spotted nearby. Seek shelter immediately in a safe location.
-						</div>
-						<div
-							className={`flex items-end sm:flex-row flex-col-reverse justify-center gap-2 ${alertTextColor[alertType]}`}>
-							<Link
-								to={"/alerts"}
-								className="underline text-[8px] sm:text-base font-semibold text-nowrap">
-								View Details
-							</Link>
-							<Icon
-								icon="close"
-								className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full cursor-pointer ${alertTextColor[alertType]}`}
-								onClick={() => setAlertType(null)}
-							/>
-						</div>
-					</motion.div>
-				</div>
+				<>
+					<div className="container relative text-bgc">
+						<motion.div
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5 }}
+							className={`flex items-center justify-between gap-2 py-2 px-3 sm:py-3 sm:px-4 mb-6 sm:mb-[22px] ${bgColor[alertType]} rounded-[10px] sm:rounded-2xl`}>
+							<span
+								className={`flex items-center justify-center w-4 sm:w-8 h-4 sm:h-8 rounded-full self-start ${bgColor[alertType]}/10`}>
+								<Icon
+									icon="info-fill"
+									className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full `}
+								/>
+							</span>
+							<div className="grow text-xs sm:text-base">
+								A tornado has been spotted nearby. Seek shelter immediately in a safe location.
+							</div>
+							<div
+								className={`flex items-end sm:flex-row flex-col-reverse justify-center gap-2`}>
+								<Link
+									to={"/alerts"}
+									className="underline text-[8px] sm:text-base font-semibold text-nowrap">
+									View Details
+								</Link>
+								<Icon
+									icon="close"
+									className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full cursor-pointer`}
+									onClick={() => setAlertType(null)}
+								/>
+							</div>
+						</motion.div>
+					</div>
+				</>
 			) : (
 				""
 			)}

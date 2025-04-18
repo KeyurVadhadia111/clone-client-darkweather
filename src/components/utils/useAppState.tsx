@@ -8,6 +8,7 @@ export const initialState: any = {
 	isLoading: false,
 	isUserDetails: false,
 	userDetails: {},
+	forecastTab: "Hourly",
 };
 
 let globalState: any = initialState;

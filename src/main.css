@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
+/* Import Rubik font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
 @custom-variant dark (&:where(.dark, .dark *));
 /* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
 
 @layer base {
+	/* Set Rubik as default font */
+	body {
+		font-family:
+			"Rubik",
+			system-ui,
+			-apple-system,
+			sans-serif;
+	}
+
 	:root {
 		--background: 0 0% 100%;
 		--foreground: 222.2 47.4% 11.2%;
@@ -37,9 +49,9 @@
 		--radius: 0.5rem;
 	}
 
-	body {
+	/* body {
 		@apply font-sans;
-	}
+	} */
 }
 
 @layer utilities {
@@ -96,9 +108,6 @@
 	--color-error: #f04349;
 	--color-warning: #ffa500;
 	--color-success: #00a157;
-	--color-errorShade: #fffaf1;
-	--color-warningShade: #f5fffa;
-	--color-successShade: #f5fffa;
 }
 
 button {

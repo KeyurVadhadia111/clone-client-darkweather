@@ -32,14 +32,14 @@ export default function AIWeatherAssistant() {
 					<motion.div
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
-						className="rounded-xl hover:shadow-lg transition-all w-fit">
+						className="rounded-xl hover:shadow-[0_20px_35px_rgba(0,0,0,0.05)] transition-all w-fit">
 						<Button size="lg" className="">
 							Ask the AI
 						</Button>
 					</motion.div>
 				</div>
 
-				<div className="p-4 col-span-7 bg-bgc dark:bg-fgcDark rounded-xl  flex flex-col shadow-xl relative h-auto sm:h-[500px] gap-8">
+				<div className="p-4 col-span-7 bg-bgc dark:bg-fgcDark rounded-xl  flex flex-col shadow-[0_20px_35px_rgba(0,0,0,0.05)] relative h-auto sm:h-[500px] gap-8">
 					<img
 						className="absolute w-[136px] sm:w-[240px] h-auto -top-14 sm:top-64 right-20 sm:-left-[140px] scale-x-[-1] z-[-1]"
 						alt="Weather icon"
@@ -93,7 +93,7 @@ export default function AIWeatherAssistant() {
 			{userDetails?._id && (
 				<>
 					<div className="flex flex-col sm:flex-row items-center mt-8 gap-4 sm:gap-[30px]">
-						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-lg">
+						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-[0_20px_35px_rgba(0,0,0,0.05)]">
 							<div className="flex items-center justify-between mb-4">
 								<p className="font-medium text-base sm:text-xl">Air Quality Index</p>
 								<a href="#" className="text-sm underline text-text dark:text-textDark">
@@ -136,7 +136,7 @@ export default function AIWeatherAssistant() {
 							</div>
 						</div>
 
-						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-lg">
+						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-[0_20px_35px_rgba(0,0,0,0.05)]">
 							<div className="flex items-center justify-between mb-4">
 								<p className="font-medium text-base sm:text-xl">Health & Activities</p>
 								<a href="#" className="text-sm underline text-text dark:text-textDark">

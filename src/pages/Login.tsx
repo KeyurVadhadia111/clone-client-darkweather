@@ -46,7 +46,7 @@ function Login() {
 
 	return (
 		<>
-			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between min-h-[calc(100dvh-311px)] sm:min-h-auto">
+			<div className="container grid sm:grid-cols-2 grid-cols-1 justify-between">
 				{/* Left Side Image */}
 				<img
 					className="max-w-[784px] sm:block hidden -ml-[134px]"
@@ -105,7 +105,7 @@ function Login() {
 											</label>
 										</div>
 										<Link
-											to={"/forgot-password"}
+											to={"#"}
 											className="h-auto font-medium text-text dark:text-textDark sm:text-base text-sm leading-6">
 											Forgot Password?
 										</Link>

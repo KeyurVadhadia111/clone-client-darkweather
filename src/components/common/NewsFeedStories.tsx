@@ -38,7 +38,7 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 			<div className="container !px-0">
 				<div className={`flex items-center justify-between relative self-stretch w-full mb-6 sm:mb-12`}>
 					<h2
-						className={`font-medium text-text dark:text-textDark sm:text-[40px] text-2xl leading-10 font-['Rubik',Helvetica]`}>
+						className={`font-medium text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
 						Top Stories
 					</h2>
 					{!isVertical ? (

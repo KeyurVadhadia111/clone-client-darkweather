@@ -37,21 +37,21 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical",
 			<div className="flex flex-col items-start gap-y-3 gap-x-5">
 				{item.date && (
 					<span
-						className={`font-['Rubik',Helvetica] font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
+						className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
 						{item.date}
 					</span>
 				)}
 
 				{item.title && (
 					<h3
-						className={`font-['Rubik',Helvetica] font-medium text-text dark:text-textDark text-base sm:text-xl leading-[26px] line-clamp-2`}>
+						className={`font-medium text-text dark:text-textDark text-base sm:text-xl leading-[26px] line-clamp-2`}>
 						{item.title}
 					</h3>
 				)}
 
 				{item.content && (
 					<p
-						className={`font-['Rubik',Helvetica] font-normal dark:text-textDark text-textSecondary text-sm sm:text-base leading-[21px] sm:line-clamp-none line-clamp-4`}>
+						className={`font-normal dark:text-textDark text-textSecondary text-sm sm:text-base leading-[21px] sm:line-clamp-none line-clamp-4`}>
 						{item.content}
 						<span className="font-bold"> Read More</span>
 					</p>
@@ -59,7 +59,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical",
 
 				{item.timeAgo && (
 					<span
-						className={`font-['Rubik',Helvetica] font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
+						className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
 						{item.timeAgo}
 					</span>
 				)}

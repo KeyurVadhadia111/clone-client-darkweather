@@ -115,7 +115,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 						</motion.button>
 
 						{locationDropdownOpen && (
-							<div className="absolute mt-2 w-full bg-white dark:bg-text text-bgcDark dark:text-textDark  rounded-md shadow-lg border border-gray-300 dark:border-gray-600 z-10">
+							<div className="absolute mt-2 w-full bg-white dark:bg-text text-bgcDark dark:text-textDark  rounded-md shadow-[0_20px_35px_rgba(0,0,0,0.05)] border border-gray-300 dark:border-gray-600 z-10">
 								{locations.map(location => (
 									<div
 										key={location}
@@ -140,43 +140,47 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 					className="relative">
 					<div className="rounded-xl">
 						<div className="relative" ref={containerRef}>
-							<img src="/assets/images/map.png" alt="Weather radar map" className="h-auto w-full" />
+							<img src={`/assets/images/${openFrom === "forecast" ? 'map-forecast.png' : 'map.png'}`} alt="Weather radar map" className="h-auto w-full" />
 
 							{/* Layer Controls */}
-							<div className="absolute w-full -bottom-3.5 sm:-bottom-7 left-1/2 transform -translate-x-1/2 z-20">
-								<div className="flex w-fit mx-auto justify-center flex-row bg-bgc dark:bg-fgcDark rounded-md sm:rounded-xl overflow-hidden shadow-md">
-									<LayerButton
-										active={selectedLayer === "precipitation"}
-										onClick={() => setSelectedLayer("precipitation")}>
-										<img
-											src="/assets/images/rain-cloud.png"
-											alt="Rain"
-											className="w-[14px] sm:w-[30px] h-auto"
-										/>
-										<span>Precipitation</span>
-									</LayerButton>
-									<LayerButton
-										active={selectedLayer === "wind"}
-										onClick={() => setSelectedLayer("wind")}>
-										<img
-											src="/assets/images/wind-cloud-sun.png"
-											alt="Wind"
-											className="w-[14px] sm:w-[30px] h-auto"
-										/>
-										<span>Wind</span>
-									</LayerButton>
-									<LayerButton
-										active={selectedLayer === "temperature"}
-										onClick={() => setSelectedLayer("temperature")}>
-										<img
-											src="/assets/images/thermometer-show-hot-cold.png"
-											alt="Temperature"
-											className="w-[14px] sm:w-[30px] h-auto"
-										/>
-										<span>Temperature</span>
-									</LayerButton>
+							{openFrom !== "forecast" ? (
+								<div className="absolute w-full -bottom-3.5 sm:-bottom-7 left-1/2 transform -translate-x-1/2 z-20">
+									<div className="flex w-fit mx-auto justify-center flex-row bg-bgc dark:bg-fgcDark rounded-md sm:rounded-xl overflow-hidden shadow-[0_35px_35px_rgba(0,0,0,0.05)]">
+										<LayerButton
+											active={selectedLayer === "precipitation"}
+											onClick={() => setSelectedLayer("precipitation")}>
+											<img
+												src="/assets/images/rain-cloud.png"
+												alt="Rain"
+												className="w-[14px] sm:w-[30px] h-auto"
+											/>
+											<span>Precipitation</span>
+										</LayerButton>
+										<LayerButton
+											active={selectedLayer === "wind"}
+											onClick={() => setSelectedLayer("wind")}>
+											<img
+												src="/assets/images/wind-cloud-sun.png"
+												alt="Wind"
+												className="w-[14px] sm:w-[30px] h-auto"
+											/>
+											<span>Wind</span>
+										</LayerButton>
+										<LayerButton
+											active={selectedLayer === "temperature"}
+											onClick={() => setSelectedLayer("temperature")}>
+											<img
+												src="/assets/images/thermometer-show-hot-cold.png"
+												alt="Temperature"
+												className="w-[14px] sm:w-[30px] h-auto"
+											/>
+											<span>Temperature</span>
+										</LayerButton>
+									</div>
 								</div>
-							</div>
+							) : (
+								""
+							)}
 						</div>
 					</div>
 				</motion.div>
@@ -329,7 +333,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 							<motion.button
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
-								className="rounded-xl hover:shadow-lg transition-all">
+								className="rounded-xl hover:shadow-[0_20px_35px_rgba(0,0,0,0.05)] transition-all">
 								<Button className=" !px-6 py-3">View Full Radar</Button>
 							</motion.button>
 						</div>
@@ -354,9 +358,8 @@ function LayerButton({
 	return (
 		<motion.button
 			whileTap={{ scale: 0.95 }}
-			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${
-				active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
-			}`}
+			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
+				}`}
 			onClick={onClick}>
 			{children}
 		</motion.button>

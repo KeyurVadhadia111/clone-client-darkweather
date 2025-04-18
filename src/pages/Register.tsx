@@ -129,10 +129,10 @@ function Register() {
 							<CardContent className="flex items-center gap-6 !p-0 !w-max">
 								<img className="w-14 h-14" alt={card.subtitle} src={card.image} />
 								<div className="flex flex-col gap-1">
-									<h3 className="font-['Rubik',Helvetica] font-semibold text-text dark:text-textDark text-2xl leading-6">
+									<h3 className="font-semibold text-text dark:text-textDark text-2xl leading-6">
 										{card.title}
 									</h3>
-									<p className="font-['Rubik',Helvetica] font-normal text-textSecondary dark:text-textDark text-base tracking-[0.80px] leading-6">
+									<p className="font-normal text-textSecondary dark:text-textDark text-base tracking-[0.80px] leading-6">
 										{card.subtitle}
 									</p>
 								</div>

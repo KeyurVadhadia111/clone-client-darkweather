@@ -18,12 +18,7 @@ export default function Footer() {
 	];
 
 	useEffect(() => {
-		setIsAuthPage(
-			prev =>
-				location.pathname === "/login" ||
-				location.pathname === "/register" ||
-				location.pathname === "/forgot-password",
-		);
+		setIsAuthPage(prev => location.pathname === "/login" || location.pathname === "/register");
 		return () => {
 			true;
 		};
