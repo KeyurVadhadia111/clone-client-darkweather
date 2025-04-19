@@ -99,7 +99,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 					transition={{ duration: 0.5 }}
 					className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-3 sm:mb-6">
 					{/* Heading */}
-					<h2 className="text-2xl sm:text-[40px] font-semibold text-text dark:text-textDark">
+					<h2 className={`${openFrom === "forecast" ? 'text-2xl sm:text-[30px]' : 'text-2xl sm:text-[40px]'} font-semibold text-text dark:text-textDark`}>
 						Live Weather Radar
 					</h2>
 

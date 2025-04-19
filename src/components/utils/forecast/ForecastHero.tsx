@@ -33,7 +33,7 @@ const ForecastHero = (): JSX.Element => {
 							<div className="flex items-center h-11 lg:h-12 bg-bgc dark:bg-fgcDark rounded-[10px] shadow-[0_35px_35px_rgba(0,0,0,0.05)] overflow-hidden">
 								<input
 									className="h-full border-none pl-4 outline-0 ring-0 lg:pl-6 font-normal text-text dark:text-textDark text-[12px] lg:text-sm w-[350px] "
-									placeholder="SearchIcon City or Zip Code"
+									placeholder="Search City or Zip Code"
 								/>
 								<Button className=" !min-w-9 !h-9  lg:!min-w-10 lg:!h-10 !border-none  flex items-center justify-center !p-0 !bg-text dark:!bg-bgc !rounded-lg mr-[2px] lg:mr-1">
 									<Icon
@@ -97,16 +97,16 @@ const ForecastHero = (): JSX.Element => {
 								{/* High temperature */}
 								<div className="flex items-center pr-[38px] lg:pr-12 gap-2 lg:gap-[30px] ">
 									<img
-										className="w-[47px] h-[29.43px] lg:w-[77px] lg:h-12"
+										className="w-8 sm:w-12"
 										alt="High temperature icon"
 										src="assets/images/cloud-cover.svg"
 									/>
 									<div className="flex flex-col gap-1 lg:gap-2">
-										<span className="font-semibold text-text dark:text-textDark text-[28px] text-3xl leading-[30px] flex items-start">
+										<span className="font-semibold text-text dark:text-textDark text-[28px] sm:text-[30px] text-3xl leading-[30px] flex items-start">
 											{weatherData.highTemp}
 											<span className="text-lg -mt-1">°F</span>
 										</span>
-										<span className="font-medium text-textSecondary dark:text-textDark text-[14px] text-base leading-6">
+										<span className="font-medium text-textSecondary dark:text-textDark text-[14px] sm:text-base text-base leading-6">
 											High
 										</span>
 									</div>
@@ -117,16 +117,16 @@ const ForecastHero = (): JSX.Element => {
 								{/* Low temperature */}
 								<div className="flex items-center pl-[38px] lg:pl-12 gap-2 lg:gap-[30px]">
 									<img
-										className="w-[47px] h-[29.43px] lg:w-[77px] lg:h-12"
+										className="w-8 sm:w-12"
 										alt="Low temperature icon"
 										src="assets/images/cloud-cover.svg"
 									/>
 									<div className="flex flex-col gap-1 lg:gap-2">
-										<span className="font-semibold text-text dark:text-textDark text-[28px] text-3xl leading-[30px] flex items-start">
+										<span className="font-semibold text-text dark:text-textDark text-[28px] sm:text-[30px] text-3xl leading-[30px] flex items-start">
 											{weatherData.lowTemp}
 											<span className="text-lg -mt-1">°F</span>
 										</span>
-										<span className="font-medium text-textSecondary dark:text-textDark text-[14px] text-base leading-6">
+										<span className="font-medium text-textSecondary dark:text-textDark text-[14px] sm:text-base text-base leading-6">
 											Low
 										</span>
 									</div>

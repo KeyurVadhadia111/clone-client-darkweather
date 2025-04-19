@@ -1,7 +1,7 @@
-@import "tailwindcss";
-
 /* Import Rubik font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 /* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
@@ -9,11 +9,7 @@
 @layer base {
 	/* Set Rubik as default font */
 	body {
-		font-family:
-			"Rubik",
-			system-ui,
-			-apple-system,
-			sans-serif;
+		font-family: "Rubik", sans-serif;
 	}
 
 	:root {

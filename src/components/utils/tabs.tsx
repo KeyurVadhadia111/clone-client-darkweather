@@ -27,7 +27,7 @@ interface TabsContentProps {
 const TabsContext = React.createContext<{
 	activeTab: string;
 	setActiveTab: (val: string) => void;
-}>({ activeTab: "", setActiveTab: () => {} });
+}>({ activeTab: "", setActiveTab: () => { } });
 
 export const Tabs = ({ defaultValue = "", children, className }: TabsProps & { className?: string }) => {
 	const [activeTab, setActiveTab] = useState(defaultValue);
@@ -62,10 +62,10 @@ export const TabsTrigger = ({ value, children, className, onClick }: TabsTrigger
 				onClick && onClick(event);
 			}}
 			className={cn(
-				"inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-1 text-sm font-semibold transition-all",
+				"inline-flex items-center justify-center whitespace-nowrap rounded-lg px-2 py-1.4 sm:px-6 sm:py-2.5 text-xs sm:text-sm transition-all",
 				"ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
 				"disabled:pointer-events-none disabled:opacity-50 ",
-				isActive && "bg-primary text-text dark:!text-text",
+				isActive && "bg-primary text-text dark:!text-text font-semibold",
 				className,
 			)}>
 			{children}
