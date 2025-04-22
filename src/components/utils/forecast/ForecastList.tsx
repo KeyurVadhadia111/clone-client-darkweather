@@ -51,7 +51,7 @@ const ForecastList: React.FC<Props> = ({ forecasts, weatherDetails, SevendayFore
 
 	return (
 		<div className="flex flex-col gap-6">
-			{forecastTab === "Today" || forecastTab === "Weekend" || forecastTab === "Monthly" || forecastTab === "7 Day" ? (
+			{forecastTab === "Today" || forecastTab === "Weekend" || forecastTab === "Monthly" ? (
 				<div className="text-3xl text-center">Coming Soon</div>
 			) : ''}
 
@@ -90,6 +90,23 @@ const ForecastList: React.FC<Props> = ({ forecasts, weatherDetails, SevendayFore
 				""
 			)}
 
+			{forecastTab === "7 Day" ? (
+				<>
+					<WeatherForecast
+						day="7-Day Weather"
+						forecastData={SevendayForecast}
+						expandedIndex={expandedIndex}
+						handleToggle={handleToggle}
+						weatherDetails={weatherDetails}
+					/>
+
+					<Button className=" bg-primary hover:bg-primary/60 self-center text-text text-xs sm:text-base w-[104px] h-[42px] lg:w-[112px] lg:h-14 font-semibold rounded-xl">
+						Monthly
+					</Button>
+				</>
+			) : (
+				""
+			)}
 		</div>
 	);
 };

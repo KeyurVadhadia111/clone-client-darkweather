@@ -3,6 +3,7 @@ import { Card, CardContent } from "../Card";
 import { Separator } from "../Separator";
 import Icon from "../Icon";
 import HourlyForecastDetails from "./details/HourlyForecastDetails";
+import SevenDaysForecastDetails from "./details/SevenDaysForecastDetails";
 import { useAppState } from "../useAppState";
 
 interface ForecastProps {
@@ -24,7 +25,19 @@ const WeatherForecast: React.FC<ForecastProps> = ({
 
 	return (
 		<div className="flex flex-col gap-4">
-
+			{forecastTab === "7 Day" && (
+				<div className="flex items-center justify-between sm:justify-start sm:gap-6">
+					<h2 className="font-semibold text-xl lg:text-2xl text-text dark:text-textDark ">
+						{day}
+						<p className="   text-textSecondary dark:text-textDark text-xs lg:text-[14px] tracking-[1px]">
+							As of 11:47 IST
+						</p>
+					</h2>
+					<p className="   text-text dark:text-textDark text-base lg:text-xl tracking-[1px]">
+						New York, NY
+					</p>
+				</div>
+			)}
 			{forecastTab === "Hourly" && (
 				<h2 className="font-semibold text-xl lg:text-2xl text-text dark:text-textDark ">
 					{day}
@@ -39,6 +52,11 @@ const WeatherForecast: React.FC<ForecastProps> = ({
 							{forecastTab === "Hourly" && (
 								<div className=" w-[48px] lg:w-[60px]  text-textSecondary dark:text-textDark text-base lg:text-xl tracking-[1px]">
 									{forecast.time}
+								</div>
+							)}
+							{forecastTab === "7 Day" && (
+								<div className=" w-[61px] whitespace-nowrap lg:w-[75px]  text-textSecondary dark:text-textDark text-base lg:text-xl tracking-[1px]">
+									{forecast.day}
 								</div>
 							)}
 							<div className="lg:w-14  font-semibold text-text dark:text-textDark text-xl lg:text-2xl flex items-start">
@@ -85,6 +103,7 @@ const WeatherForecast: React.FC<ForecastProps> = ({
 								) : (
 									""
 								)}
+								{forecastTab === "7 Day" ? <SevenDaysForecastDetails /> : ""}
 							</>
 						)}
 
