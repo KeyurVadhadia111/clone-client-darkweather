@@ -150,7 +150,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 											active={selectedLayer === "precipitation"}
 											onClick={() => setSelectedLayer("precipitation")}>
 											<img
-												src="/assets/images/rain-cloud.png"
+												src="/assets/images/rain-amount.svg"
 												alt="Rain"
 												className="w-[14px] sm:w-[30px] h-auto"
 											/>
@@ -160,7 +160,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 											active={selectedLayer === "wind"}
 											onClick={() => setSelectedLayer("wind")}>
 											<img
-												src="/assets/images/wind-cloud-sun.png"
+												src="/assets/images/wind.svg"
 												alt="Wind"
 												className="w-[14px] sm:w-[30px] h-auto"
 											/>
@@ -170,7 +170,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 											active={selectedLayer === "temperature"}
 											onClick={() => setSelectedLayer("temperature")}>
 											<img
-												src="/assets/images/thermometer-show-hot-cold.png"
+												src="/assets/images/feels-like.svg"
 												alt="Temperature"
 												className="w-[14px] sm:w-[30px] h-auto"
 											/>
@@ -208,7 +208,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Morning */}
 								<div className="flex items-center">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={50}
 										height={50}
@@ -230,7 +230,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Afternoon */}
 								<div className="flex items-center">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={48}
 										height={48}
@@ -252,7 +252,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Evening */}
 								<div className="flex items-center">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={50}
 										height={50}
@@ -273,7 +273,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Morning */}
 								<div className="flex items-center w-1/2 sm:w-1/3">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={50}
 										height={50}
@@ -292,7 +292,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Afternoon */}
 								<div className="flex items-center w-1/2 sm:w-1/3 border-l border-textSecondary/50 pl-2">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={48}
 										height={48}
@@ -311,7 +311,7 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 								{/* Evening */}
 								<div className="flex items-center w-full border-t border-textSecondary/50 mt-2 justify-center">
 									<img
-										src="/assets/images/cloud.png"
+										src="/assets/images/cloud-cover.svg"
 										alt="Cloud Icon"
 										width={50}
 										height={50}
@@ -764,86 +764,4 @@ function drawTemperatureGraph(ctx: CanvasRenderingContext2D, width: number, heig
 	ctx.textAlign = "left";
 	ctx.font = "bold 14px Inter, sans-serif";
 	ctx.fillText("Temperature Forecast (°F)", padding.left, 20);
-}
-
-function DropIcon({ className }: { className?: string }) {
-	return (
-		<svg
-			width="16"
-			height="16"
-			viewBox="0 0 16 16"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className={className}>
-			<path
-				d="M8 1.5C8 1.5 3 6.5 3 10.5C3 12.9853 5.01472 15 7.5 15C9.98528 15 12 12.9853 12 10.5C12 6.5 8 1.5 8 1.5Z"
-				fill="currentColor"
-			/>
-		</svg>
-	);
-}
-
-function WindIcon({ className }: { className?: string }) {
-	return (
-		<svg
-			width="16"
-			height="16"
-			viewBox="0 0 16 16"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className={className}>
-			<path
-				d="M1.5 8H10.5C11.8807 8 13 6.88071 13 5.5C13 4.11929 11.8807 3 10.5 3C9.11929 3 8 4.11929 8 5.5"
-				stroke="currentColor"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M1.5 11H12.5C13.8807 11 15 12.1193 15 13.5C15 14.8807 13.8807 16 12.5 16C11.1193 16 10 14.8807 10 13.5"
-				stroke="currentColor"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-			/>
-		</svg>
-	);
-}
-
-function ThermometerIcon({ className }: { className?: string }) {
-	return (
-		<svg
-			width="16"
-			height="16"
-			viewBox="0 0 16 16"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className={className}>
-			<path
-				d="M8 2C8 1.44772 8.44772 1 9 1C9.55228 1 10 1.44772 10 2V9.58579C10.6224 10.1047 11 10.8954 11 11.7574C11 13.2426 9.76142 14.4812 8.27614 14.4812C6.79086 14.4812 5.55228 13.2426 5.55228 11.7574C5.55228 10.8954 5.92982 10.1047 6.55228 9.58579V2C6.55228 1.44772 7 1 7.55228 1C8.10457 1 8.55228 1.44772 8.55228 2"
-				stroke="currentColor"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-			/>
-			<path
-				d="M8 12C8.55228 12 9 11.5523 9 11C9 10.4477 8.55228 10 8 10C7.44772 10 7 10.4477 7 11C7 11.5523 7.44772 12 8 12Z"
-				fill="currentColor"
-			/>
-		</svg>
-	);
-}
-
-function CloudIcon({ className }: { className?: string }) {
-	return (
-		<svg
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			className={className}>
-			<path
-				d="M18.5 15C20.433 15 22 13.433 22 11.5C22 9.567 20.433 8 18.5 8C18.5 4.962 16.038 2.5 13 2.5C10.431 2.5 8.26 4.252 7.635 6.636C7.089 6.539 6.557 6.5 6 6.5C3.239 6.5 1 8.739 1 11.5C1 14.261 3.239 16.5 6 16.5H18.5V15Z"
-				fill="currentColor"
-			/>
-		</svg>
-	);
 }

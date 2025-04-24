@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
-	const [{ isDark, userDetails }, setAppState] = useAppState();
+	const [{ isDark, userDetails, premiumStep }, setAppState] = useAppState();
 	const [isAuthPage, setIsAuthPage] = useState(false);
 	const location = useLocation();
 	// Navigation menu items
@@ -12,7 +12,7 @@ export default function Footer() {
 		{ title: "Home", href: "/", authRequired: false },
 		{ title: "Radar & Maps", href: "#", authRequired: true },
 		{ title: "Weather A.I.", href: "#", authRequired: false },
-		{ title: "Go Premium", href: "#", authRequired: true },
+		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
 		{ title: "Top Stories", href: "#", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
@@ -52,7 +52,7 @@ export default function Footer() {
 			/>
 			{/* <div className="sm:hidden block absolute w-full h-full rotate-180 bottom-0 left-0 overflow-visible bg-no-repeat bg-top sm:bg-cover bg-[length:auto] bg-[url('/assets/images/footer-bg.png')] " /> */}
 			<div
-				className={`absolute w-full ${isAuthPage ? "h-full" : "h-[702px]"} bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark`}></div>
+				className={`absolute w-full ${isAuthPage ? "h-full" : "h-[702px]"} bottom-0 left-0 bg-gradient-to-t from-white/0 to-white dark:from-bgcDark/70 dark:to-bgcDark `}></div>
 
 			{/* <img
 				className="hidden sm:block absolute w-auto sm:w-full auto rotate-180 bottom-0 left-0 "
@@ -94,21 +94,21 @@ export default function Footer() {
 						setThemeMode(!isDark);
 					}}>
 					<span className="!font-semibold text-text dark:text-textDark">
-						{isDark ? "Dark" : "Light"} Mode
+						{!isDark ? "Dark" : "Light"} Mode
 					</span>
-					<img className="w-6 h-6" alt="Sun icon" src={`assets/images/${isDark ? "moon" : "sun"}.png`} />
+					<img className="w-6 h-6" alt="Sun icon" src={`assets/images/${!isDark ? "moonset.svg" : "sunny.svg"}`} />
 				</Button>
 
 				<img
 					className="absolute w-[136px] sm:w-[214px] h-auto top-20 sm:top-[45px] -left-20 sm:-left-24"
 					alt="Weather icon"
-					src="assets/images/cloud.png"
+					src="assets/images/cloud-cover.svg"
 				/>
 
 				<img
 					className="absolute w-[136px] sm:w-[214px] h-auto top-20 sm:top-[15px] -right-20 sm:-right-24"
 					alt="Weather icon"
-					src="assets/images/cloud.png"
+					src="assets/images/cloud-cover.svg"
 				/>
 			</div>
 

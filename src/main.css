@@ -144,3 +144,33 @@ button {
 .Toastify__toast--error.Toastify__toast-theme--dark {
 	background: #24110f;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+	background-color: var(--color-bgc);
+	width: 42px;
+	height: 42px;
+	border-radius: 100%;
+	box-shadow: 0 6px 32px rgba(0, 0, 0, 0.1);
+}
+.dark .swiper-button-prev,
+.dark .swiper-button-next {
+	background-color: var(--color-bgcDark);
+	color: var(--color-text);
+	box-shadow: 0 6px 32px rgba(255, 255, 255, 0.1);
+}
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+	opacity: 0.4;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	font-size: 16px;
+	color: var(--color-text);
+}
+.dark .swiper-button-prev::after,
+.dark .swiper-button-next::after {
+	font-size: 16px;
+	color: var(--color-textDark) !important;
+}

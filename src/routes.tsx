@@ -7,6 +7,7 @@ import Login from "pages/Login";
 import Register from "pages/Register";
 import LandingPage from "pages/LandingPage";
 import ForecastPage from "pages/ForecastPage";
+import PremiumPlanPage from "pages/PremiumPlanPage";
 import AlertsPage from "pages/AlertsPage";
 import ForgotPasswordPage from "pages/ForgotPasswordPage";
 
@@ -96,8 +97,16 @@ const createRoutes: React.FC = () => {
 							<Route
 								path="/forecast"
 								element={
+									// <ProtectedRoute>
+									<ForecastPage />
+									// </ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/premium-plan"
+								element={
 									<ProtectedRoute>
-										<ForecastPage />
+										<PremiumPlanPage />
 									</ProtectedRoute>
 								}
 							/>

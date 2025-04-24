@@ -2,6 +2,7 @@ import AIWeatherAssistant from "components/common/AIWeatherAssistant";
 import CurrentWeather from "components/common/CurrentWeather";
 import HourlyForecast from "components/common/HourlyForecast";
 import { NewsFeedStories } from "components/common/NewsFeedStories";
+import { NewsFeedStoriesOne } from "components/common/NewsFeedStoriesOne";
 import { WeatherInfo } from "components/common/WeatherInfo";
 import { WeatherRadar } from "components/common/WeatherRadar";
 import { useAppState } from "components/utils/useAppState";
@@ -20,8 +21,13 @@ export const LandingPage = (): JSX.Element => {
 					<AIWeatherAssistant />
 				</>
 			)}
+			{!userDetails?._id && (
+				<>
+					<NewsFeedStoriesOne />
+				</>
+			)}
 			<WeatherInfo />
-			<NewsFeedStories />
+			{userDetails?._id && <NewsFeedStories />}
 			{!userDetails?._id && <AIWeatherAssistant />}
 		</div>
 	);

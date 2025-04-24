@@ -41,9 +41,9 @@ export default function AIWeatherAssistant() {
 
 				<div className="p-4 col-span-7 bg-bgc dark:bg-fgcDark rounded-xl  flex flex-col shadow-[0_20px_35px_rgba(0,0,0,0.05)] relative h-auto sm:h-[500px] gap-8">
 					<img
-						className="absolute w-[136px] sm:w-[240px] h-auto -top-14 sm:top-64 right-20 sm:-left-[140px] scale-x-[-1] z-[-1]"
+						className="absolute w-[136px] sm:w-[240px] h-auto -top-14 sm:top-52 right-20 sm:-left-[140px] scale-x-[-1] z-[-1]"
 						alt="Weather icon"
-						src="assets/images/cloud.png"
+						src="assets/images/cloud-cover.svg"
 					/>
 					<div className="flex items-center align-center text-center justify-between">
 						<div className="flex items-center gap-4">

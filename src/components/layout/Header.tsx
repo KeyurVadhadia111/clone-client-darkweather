@@ -11,7 +11,7 @@ export default function Header() {
 		{ title: "Home", href: "/", authRequired: false },
 		{ title: "Radar & Maps", href: "#", authRequired: true },
 		{ title: "Weather A.I.", href: "#", authRequired: false },
-		{ title: "Go Premium", href: "#", authRequired: true },
+		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
 		{ title: "Top Stories", href: "#", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
