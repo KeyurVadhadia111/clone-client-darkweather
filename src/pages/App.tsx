@@ -70,15 +70,19 @@ function App() {
 					)}
 
 					{/* Header Navigation */}
-					<Header />
+					{location.pathname !== '/weather-ai' ? (
+						<Header />
+					) : ''}
 
 					{/* Main Content */}
-					<main className="z-[1] relative w-full min-h-[calc(100vh-470px)]">
+					<main className={`z-[1] relative w-full ${location.pathname !== '/weather-ai' && 'min-h-[calc(100vh-470px)]'}`}>
 						<Outlet />
 					</main>
 
 					{/* Footer Section */}
-					<Footer />
+					{location.pathname !== '/weather-ai' ? (
+						<Footer />
+					) : ''}
 					<ToastContainer toastClassName={"!rounded-2xl"} icon={({ type }) => ToastIcons[type]?.() || null} />
 				</div>
 			</div>

@@ -42,3 +42,4 @@ yarn-error.log*
 proj-start.sh
 package-lock.json
 pnpm-lock.yaml
+/dist

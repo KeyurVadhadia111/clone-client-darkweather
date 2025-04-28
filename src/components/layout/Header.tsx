@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
 	const [{ isDark, userDetails }, setAppState] = useAppState();
+
 	// Navigation menu items
 	const navItems = [
 		{ title: "Home", href: "/", authRequired: false },
 		{ title: "Radar & Maps", href: "#", authRequired: true },
-		{ title: "Weather A.I.", href: "#", authRequired: false },
+		{ title: "Weather A.I.", href: "/weather-ai", authRequired: false },
 		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
 		{ title: "Top Stories", href: "#", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
