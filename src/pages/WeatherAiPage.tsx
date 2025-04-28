@@ -4,7 +4,7 @@ import { useAppState } from "components/utils/useAppState";
 import WeatherAiHeader from "components/weatherAi/WeatherAiHeader";
 import WeatherAiSidebar from "components/weatherAi/WeatherAiSidebar";
 import React, { JSX } from "react";
-import Scrollbars from "react-custom-scrollbars-2";
+import SimpleBar from "simplebar-react";
 
 export const WeatherAiPage = (): JSX.Element => {
 	const [{ isDark, userDetails }, setAppState] = useAppState();
@@ -16,10 +16,7 @@ export const WeatherAiPage = (): JSX.Element => {
 				<div className="w-full relative flex flex-col">
 					<WeatherAiHeader />
 
-					<Scrollbars
-						autoHide
-						autoHideTimeout={1000}
-						autoHideDuration={200}
+					<SimpleBar
 						className="!h-[calc(100dvh-331px)] sm:!h-[calc(100dvh-255px)] !w-full">
 						<div className="flex flex-col gap-4 sm:gap-6 w-full p-6 sm:p-[30px] items-start bg-fgc dark:bg-bgcDark">
 							<div className="w-full flex items-end justify-end">
@@ -135,7 +132,7 @@ export const WeatherAiPage = (): JSX.Element => {
 								</div>
 							</div>
 						</div>
-					</Scrollbars>
+					</SimpleBar>
 
 					<div className="flex flex-col w-full px-6 pb-6 sm:px-[30px] sm:pb-[28px] items-start justify-center  bg-fgc dark:bg-bgcDark">
 						<div className="bg-bgc dark:bg-fgcDark w-full rounded-2xl shadow-[0px_-10px_35px_#00000008]">

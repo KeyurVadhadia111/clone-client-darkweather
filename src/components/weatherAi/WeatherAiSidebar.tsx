@@ -2,7 +2,7 @@ import Icon from "components/utils/Icon";
 import { useAppState } from "components/utils/useAppState";
 import { use, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Scrollbars } from "react-custom-scrollbars-2";
+import SimpleBar from 'simplebar-react';
 
 export default function WeatherAiSidebar() {
 	const [{ isDark, userDetails }, setAppState] = useAppState();
@@ -58,10 +58,7 @@ export default function WeatherAiSidebar() {
 							/>
 						</Link>
 
-						<Scrollbars
-							autoHide
-							autoHideTimeout={1000}
-							autoHideDuration={200}
+						<SimpleBar
 							className="!h-[calc(100dvh-320px)] sm:!h-[calc(100dvh-286px)] w-full">
 							<div className="flex flex-col items-start gap-4 sm:!gap-6 ">
 								<div className="flex items-center justify-center sm:justify-start h-[42px] sm:h-12  gap-3 px-4 py-3 sm:px-[18px] sm:py-4  self-stretch w-full bg-primary sm:rounded-xl rounded-[10px] ">
@@ -194,7 +191,7 @@ export default function WeatherAiSidebar() {
 									</div>
 								</div>
 							</div>
-						</Scrollbars>
+						</SimpleBar>
 					</div>
 
 					<div className="flex flex-col items-start  w-full flex-[0_0_auto] rounded-xl overflow-hidden">

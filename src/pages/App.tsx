@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastIcons } from "components/utils/toast-icons";
 import { useAppState } from "components/utils/useAppState";
+import 'simplebar-react/dist/simplebar.min.css';
 
 function App() {
 	const [{ premiumStep }, setAppState] = useAppState();
