@@ -1,9 +1,11 @@
+import { Button } from "@headlessui/react";
 import Icon from "components/utils/Icon";
 import { Input } from "components/utils/Input";
 import { useAppState } from "components/utils/useAppState";
 import WeatherAiHeader from "components/weatherAi/WeatherAiHeader";
 import WeatherAiSidebar from "components/weatherAi/WeatherAiSidebar";
 import React, { JSX } from "react";
+import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 
 export const WeatherAiPage = (): JSX.Element => {
@@ -16,8 +18,7 @@ export const WeatherAiPage = (): JSX.Element => {
 				<div className="w-full relative flex flex-col">
 					<WeatherAiHeader />
 
-					<SimpleBar
-						className="!h-[calc(100dvh-331px)] sm:!h-[calc(100dvh-255px)] !w-full">
+					<SimpleBar className="!h-[calc(100dvh-331px)] sm:!h-[calc(100dvh-255px)] !w-full">
 						<div className="flex flex-col gap-4 sm:gap-6 w-full p-6 sm:p-[30px] items-start bg-fgc dark:bg-bgcDark">
 							<div className="w-full flex items-end justify-end">
 								<div className="flex flex-col sm:h-20 items-end gap-1 sm:gap-1.5">
@@ -89,9 +90,11 @@ export const WeatherAiPage = (): JSX.Element => {
 												</div>
 											</div>
 
-											<div className="font-medium text-primary text-[10px] sm:text-base text-right">
-												Regenerate response
-											</div>
+											<Link to={"/"}>
+												<div className="font-medium text-primary text-[10px] sm:text-base text-right">
+													Regenerate response
+												</div>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -137,32 +140,37 @@ export const WeatherAiPage = (): JSX.Element => {
 					<div className="flex flex-col w-full px-6 pb-6 sm:px-[30px] sm:pb-[28px] items-start justify-center  bg-fgc dark:bg-bgcDark">
 						<div className="bg-bgc dark:bg-fgcDark w-full rounded-2xl shadow-[0px_-10px_35px_#00000008]">
 							<div className="flex flex-col sm:flex-row items-center gap-4 p-4  w-full flex-[0_0_auto]">
-								<div className="flex items-center w-full sm:w-auto sm:h-[45px] gap-3 sm:gap-4 p-3 sm:p-4  flex-1 grow bg-bgc dark:bg-bgcDark rounded-[10px] border border-solid border-textSecondary/10 dark:border-textSecondary/30">
-									<img
-										className=" w-5 h-5 "
-										alt="Rain Amount"
-										src="/assets/images/partly-cloudy.svg"
-									/>
-									<p className="font-normal text-text dark:text-textDark text-xs sm:text-sm tracking-[0] leading-[21px] whitespace-nowrap">
-										What&#39;s the weather this weekend?
-									</p>
-								</div>
-
-								<div className="flex items-center w-full sm:w-auto sm:h-[45px] gap-3 sm:gap-4 p-3 sm:p-4  flex-1 grow bg-bgc dark:bg-bgcDark rounded-[10px] border border-solid border-textSecondary/10 dark:border-textSecondary/30">
-									<img className=" w-5 h-5 " alt="Rain Amount" src="/assets/images/rain-amount.svg" />
-
-									<p className="font-normal text-text dark:text-textDark text-xs sm:text-sm whitespace-nowrap">
-										Will it snow in Chicago next week?
-									</p>
-								</div>
-
-								<div className="flex items-center w-full sm:w-auto sm:h-[45px] gap-3 sm:gap-4 p-3 sm:p-4  flex-1 grow bg-bgc dark:bg-bgcDark rounded-[10px] border border-solid border-textSecondary/10 dark:border-textSecondary/30">
-									<Icon icon={isDark ? "bag-dark" : "bag"} className="w-5 h-5" />
-
-									<p className=" font-normal text-text dark:text-textDark text-xs sm:text-sm whitespace-nowrap">
-										Is it safe to travel tomorrow?
-									</p>
-								</div>
+								{/* Suggested List */}
+								{[
+									{
+										icon: "/assets/images/partly-cloudy.svg",
+										text: "What's the weather this weekend?",
+									},
+									{
+										icon: "/assets/images/rain-amount.svg",
+										text: "Will it snow in Chicago next week?",
+									},
+									{ icon: isDark ? "bag-dark" : "bag", text: "Is it safe to travel tomorrow?" },
+								].map((item, index) => (
+									<div
+										key={index}
+										className="flex items-center w-full sm:w-auto sm:h-[45px] gap-3 sm:gap-4 p-3 sm:p-4 flex-1 grow bg-bgc dark:bg-bgcDark rounded-[10px] border border-solid border-textSecondary/10 dark:border-textSecondary/30 cursor-pointer"
+										onClick={() => {
+											const input = document.querySelector(
+												'input[placeholder="Ask me anything..."]',
+											) as HTMLInputElement;
+											if (input) input.value = item.text;
+										}}>
+										{item.icon.includes(".svg") ? (
+											<img className="w-5 h-5" alt="" src={item.icon} />
+										) : (
+											<Icon icon={item.icon} className="w-5 h-5" />
+										)}
+										<p className="font-normal text-text dark:text-textDark text-xs sm:text-sm whitespace-nowrap">
+											{item.text}
+										</p>
+									</div>
+								))}
 							</div>
 
 							<div className="flex items-center justify-center  p-2 sm:pl-5 sm:pr-3 sm:py-3 w-full flex-[0_0_auto] bg-bgc dark:bg-fgcDark rounded-2xl shadow-[0px_-10px_35px_#00000008]">
@@ -181,12 +189,12 @@ export const WeatherAiPage = (): JSX.Element => {
 								</div>
 
 								<div className="inline-flex items-center gap-2 px-4 py-2.5  flex-[0_0_auto] bg-primary rounded-lg">
-									<div className="inline-flex items-center gap-2  flex-[0_0_auto]">
+									<Button className="inline-flex items-center gap-2  flex-[0_0_auto]">
 										<div className="font-medium text-text text-sm sm:text-base  whitespace-nowrap">
 											Send
 										</div>
 										<Icon icon="arrow-up" className="w-4 h-4 text-text" />
-									</div>
+									</Button>
 								</div>
 							</div>
 						</div>

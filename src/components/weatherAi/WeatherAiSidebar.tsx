@@ -1,8 +1,9 @@
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Icon from "components/utils/Icon";
 import { useAppState } from "components/utils/useAppState";
 import { use, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import SimpleBar from 'simplebar-react';
+import SimpleBar from "simplebar-react";
 
 export default function WeatherAiSidebar() {
 	const [{ isDark, userDetails }, setAppState] = useAppState();
@@ -39,8 +40,9 @@ export default function WeatherAiSidebar() {
 
 			<div
 				ref={sidebarRef}
-				className={`${isOpen ? "translate-x-0" : "-translate-x-full"
-					}  sm:translate-x-0 top-0 left-0 z-50 transition-transform ease-in-out duration-300 transform fixed sm:relative md:min-h-screen w-[310px]`}>
+				className={`${
+					isOpen ? "translate-x-0" : "-translate-x-full"
+				}  sm:translate-x-0 top-0 left-0 z-50 transition-transform ease-in-out duration-300 transform fixed sm:relative md:min-h-screen w-[310px]`}>
 				<div className="min-w-[300px] max-w-[300px] inline-flex flex-col items-start justify-between p-6 bg-text dark:bg-bgc gap-4">
 					<div className="flex flex-col w-[255px] items-center gap-4 sm:gap-6 flex-[0_0_auto]">
 						{isOpen && (
@@ -58,10 +60,9 @@ export default function WeatherAiSidebar() {
 							/>
 						</Link>
 
-						<SimpleBar
-							className="!h-[calc(100dvh-320px)] sm:!h-[calc(100dvh-286px)] w-full">
+						<SimpleBar className="!h-[calc(100dvh-320px)] sm:!h-[calc(100dvh-286px)] w-full">
 							<div className="flex flex-col items-start gap-4 sm:!gap-6 ">
-								<div className="flex items-center justify-center sm:justify-start h-[42px] sm:h-12  gap-3 px-4 py-3 sm:px-[18px] sm:py-4  self-stretch w-full bg-primary sm:rounded-xl rounded-[10px] ">
+								<Button className="flex items-center justify-center sm:justify-start h-[42px] sm:h-12  gap-3 px-4 py-3 sm:px-[18px] sm:py-4  self-stretch w-full bg-primary sm:rounded-xl rounded-[10px] ">
 									<img
 										className="w-4 h-4 sm:w-5 sm:h-5"
 										alt="Subtract"
@@ -69,7 +70,7 @@ export default function WeatherAiSidebar() {
 									/>
 
 									<div className=" font-medium text-text text-sm  whitespace-nowrap">New Chat</div>
-								</div>
+								</Button>
 
 								<div className="flex flex-col items-start gap-3 sm:gap-[18px] w-full flex-[0_0_auto]">
 									<div className="flex items-center justify-between w-full flex-[0_0_auto]">
@@ -219,9 +220,41 @@ export default function WeatherAiSidebar() {
 								</div>
 							</Link>
 							<div className="sm:hidden flex items-center justify-center gap-4">
-								<div className="relative flex rounded-full bg-text border border-text text-sm focus:ring-0 focus:outline-hidden">
-									<img className="w-12 h-12" alt="Ellipse" src="assets/images/user.png" />
-								</div>
+								<Menu as="div" className="relative">
+									<div>
+										<MenuButton className="relative flex items-center gap-4 rounded-full bg-bgcSecondary border border-text text-sm focus:ring-0 focus:outline-hidden cursor-pointer">
+											<span className="absolute -inset-1" />
+											<span className="sr-only">Open user menu</span>
+											<img alt="" src="assets/images/user.png" className="size-12 rounded-full" />
+										</MenuButton>
+									</div>
+									<MenuItems
+										modal={false}
+										transition
+										anchor="bottom end"
+										className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-bgcDark py-1 shadow-[0_20px_35px_rgba(0,0,0,0.05)] ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in [--anchor-gap:4px] sm:[--anchor-gap:8px]">
+										<MenuItem disabled>
+											<a
+												href="#"
+												className="block px-4 py-2 text-xs text-text/60 dark:text-textDark/60 data-focus:bg-gray-100 data-focus:outline-hidden text-nowrap text-ellipsis overflow-hidden">
+												<div>Welcome, </div>
+												<div className="text-text dark:text-textDark">{userDetails?.email}</div>
+											</a>
+										</MenuItem>
+										<div className="my-1 h-px bg-black/10 dark:bg-textDark/10" />
+										<MenuItem>
+											<a
+												href="#"
+												className="block px-4 py-2 text-sm text-text dark:text-textDark data-focus:bg-gray-100 data-focus:outline-hidden dark:hover:bg-textDark/5"
+												onClick={() => {
+													localStorage.removeItem("auth");
+													setAppState({ userDetails: {} });
+												}}>
+												Logout
+											</a>
+										</MenuItem>
+									</MenuItems>
+								</Menu>
 								<div className=" text-textDark dark:text-text text-base  whitespace-nowrap">
 									Alex Johnson
 								</div>
