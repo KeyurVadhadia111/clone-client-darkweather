@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import { Button } from "components/utils/Button";
 import Icon from "components/utils/Icon";
 import { useAppState } from "components/utils/useAppState";
+import { Link, useLocation } from "react-router-dom";
 
 export default function AIWeatherAssistant() {
 	const [message, setMessage] = useState("");
 	const [{ isDark, userDetails }, setAppState] = useAppState();
+	const location = useLocation();
 
 	return (
 		<motion.section
@@ -90,15 +92,17 @@ export default function AIWeatherAssistant() {
 					</div>
 				</div>
 			</div>
-			{userDetails?._id && (
+			{userDetails?._id && location.pathname !== "/air-quality-index" && (
 				<>
 					<div className="flex flex-col sm:flex-row items-center mt-8 gap-4 sm:gap-[30px]">
 						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-[0_20px_35px_rgba(0,0,0,0.05)]">
 							<div className="flex items-center justify-between mb-4">
 								<p className="font-medium text-base sm:text-xl">Air Quality Index</p>
-								<a href="#" className="text-sm underline text-text dark:text-textDark">
+								<Link
+									to="/air-quality-index"
+									className="text-sm underline text-text dark:text-textDark">
 									View Details
-								</a>
+								</Link>
 							</div>
 							<div className="flex items-center gap-4 sm:gap-6">
 								<div className="relative w-16 h-16">

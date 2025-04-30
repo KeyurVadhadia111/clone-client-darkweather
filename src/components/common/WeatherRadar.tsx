@@ -91,15 +91,26 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 	const locations = ["New York, NY", "Los Angeles, CA", "Chicago, IL", "Houston, TX", "Miami, FL", "Seattle, WA"];
 
 	return (
-		<section className="py-10 w-full mx-auto">
-			<div className="container">
+		<section className="py-10 w-full mx-auto relative">
+			{openFrom !== "forecast" && (
+				<>
+					<div
+						className={`absolute z-0  w-full h-[518px] sm:h-[697px] bottom-0 left-auto overflow-visible bg-no-repeat bg-position-[center_bottom] bg-[length:300%] sm:bg-[length:100%] bg-[url('/assets/images/bg/bg-header.png')]`}
+					/>
+					<div
+						className={`absolute w-full bg-gradient-to-b bottom-0 from-bgc via-bgc/0 to-bgc dark:from-bgcDark via-60% dark:via-bgcDark/80 dark:to-bgcDark h-[518px] sm:h-[697px]`}
+					/>
+				</>
+			)}
+			<div className="container relative z-[1]">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.5 }}
 					className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6 mb-3 sm:mb-6">
 					{/* Heading */}
-					<h2 className={`${openFrom === "forecast" ? 'text-2xl sm:text-[30px]' : 'text-2xl sm:text-[40px]'} font-semibold text-text dark:text-textDark`}>
+					<h2
+						className={`${openFrom === "forecast" ? "text-2xl sm:text-[30px]" : "text-2xl sm:text-[40px]"} font-semibold text-text dark:text-textDark`}>
 						Live Weather Radar
 					</h2>
 
@@ -108,14 +119,14 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 						<motion.button
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
-							className="flex items-center font-bold bg-white dark:bg-bgcDark backdrop-blur-sm rounded-xl px-5 py-3 text-sm sm:text-base text-text dark:text-textDark border border-gray-300 dark:border-gray-600"
+							className="flex items-center font-bold bg-bgc dark:bg-bgcDark backdrop-blur-sm rounded-xl px-5 py-3 text-sm sm:text-base text-text dark:text-textDark border border-gray-300 dark:border-gray-600"
 							onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}>
 							<span>{selectedLocation}</span>
 							<Icon icon="chevron-down" className="w-4 h-4 ml-2" />
 						</motion.button>
 
 						{locationDropdownOpen && (
-							<div className="absolute mt-2 w-full bg-white dark:bg-text text-bgcDark dark:text-textDark  rounded-md shadow-[0_20px_35px_rgba(0,0,0,0.05)] border border-gray-300 dark:border-gray-600 z-10">
+							<div className="absolute mt-2 w-full bg-bgc dark:bg-text text-bgcDark dark:text-textDark  rounded-md shadow-[0_20px_35px_rgba(0,0,0,0.05)] border border-gray-300 dark:border-gray-600 z-10">
 								{locations.map(location => (
 									<div
 										key={location}
@@ -140,7 +151,11 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 					className="relative">
 					<div className="rounded-xl">
 						<div className="relative" ref={containerRef}>
-							<img src={`/assets/images/${openFrom === "forecast" ? 'map-forecast.png' : 'map.png'}`} alt="Weather radar map" className="h-auto w-full" />
+							<img
+								src={`/assets/images/${openFrom === "forecast" ? "map-forecast.png" : "map.png"}`}
+								alt="Weather radar map"
+								className="h-auto w-full"
+							/>
 
 							{/* Layer Controls */}
 							{openFrom !== "forecast" ? (
@@ -358,8 +373,9 @@ function LayerButton({
 	return (
 		<motion.button
 			whileTap={{ scale: 0.95 }}
-			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
-				}`}
+			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${
+				active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
+			}`}
 			onClick={onClick}>
 			{children}
 		</motion.button>

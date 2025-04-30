@@ -36,11 +36,10 @@ export const WeatherInfo: React.FC = () => {
 	];
 
 	return (
-		<section className={`sm:p-0 sm:pb-[72px] p-6 w-full mx-auto bg-white dark:bg-bgcDark relative`}>
+		<section className={`sm:p-0 sm:pb-[72px] p-6 w-full mx-auto relative`}>
 			<div className="container !px-0">
 				<div className="flex items-center justify-between relative self-stretch w-full mb-6 sm:mb-12">
-					<h2
-						className={`font-medium text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
+					<h2 className={`font-medium text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
 						Severe Weather
 					</h2>
 

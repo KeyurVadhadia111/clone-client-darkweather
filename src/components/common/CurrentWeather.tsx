@@ -113,7 +113,7 @@ export default function CurrentWeather() {
 
 	return (
 		<section
-			className={`py-6 sm:pb-[40px] w-full ${alertType ? "pt-1.5 sm:pt-2" : "sm:pt-[100px]"} mx-auto sm:px-10 relative`}>
+			className={`py-6 sm:pb-[40px] w-full ${alertType ? "pt-1.5 sm:pt-2" : "sm:pt-[72px]"} mx-auto sm:px-10 relative`}>
 			{alertType ? (
 				<>
 					<div className="container relative text-bgc">

@@ -30,7 +30,7 @@ export default function HourlyForecast() {
 	}
 
 	return (
-		<section className="w-full mx-auto py-6 bg-white dark:bg-bgcDark relative">
+		<section className="w-full mx-auto py-6 relative">
 			<div className="container">
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -45,20 +45,22 @@ export default function HourlyForecast() {
 						<div className="inline-block bg-bgc dark:bg-fgcDark rounded-xl overflow-hidden shadow-[0_35px_35px_rgba(0,0,0,0.05)]">
 							<motion.button
 								whileTap={{ scale: 0.95 }}
-								className={`cursor-pointer sm:w-auto px-6 sm:px-8 py-3 sm:py-3 text-sm sm:text-base transition-colors duration-200 ${activeTab === "hourly"
-									? "bg-primary text-black font-semibold rounded-xl"
-									: "bg-bgc dark:bg-fgcDark text-black dark:text-textDark"
-									}`}
+								className={`cursor-pointer sm:w-auto px-6 sm:px-8 py-3 sm:py-3 text-sm sm:text-base transition-colors duration-200 ${
+									activeTab === "hourly"
+										? "bg-primary text-black font-semibold rounded-xl"
+										: "bg-bgc dark:bg-fgcDark text-black dark:text-textDark"
+								}`}
 								onClick={() => setActiveTab("hourly")}>
 								Hourly
 							</motion.button>
 
 							<motion.button
 								whileTap={{ scale: 0.95 }}
-								className={`cursor-pointer sm:w-auto px-6 sm:px-8 py-3 sm:py-3 text-sm sm:text-base transition-colors duration-200 ${activeTab === "daily"
-									? "bg-primary text-black font-semibold  rounded-xl"
-									: "bg-white dark:bg-fgcDark text-black dark:text-textDark"
-									}`}
+								className={`cursor-pointer sm:w-auto px-6 sm:px-8 py-3 sm:py-3 text-sm sm:text-base transition-colors duration-200 ${
+									activeTab === "daily"
+										? "bg-primary text-black font-semibold  rounded-xl"
+										: "bg-white dark:bg-fgcDark text-black dark:text-textDark"
+								}`}
 								onClick={() => setActiveTab("daily")}>
 								Daily
 							</motion.button>
@@ -159,7 +161,11 @@ function getWeatherIcon(icon: string) {
 	switch (icon) {
 		case "sun":
 			return (
-				<img src="/assets/images/sunny.svg" alt="Droplet Icon" className="w-auto mx-auto h-[52px] sm:h-[70px]" />
+				<img
+					src="/assets/images/sunny.svg"
+					alt="Droplet Icon"
+					className="w-auto mx-auto h-[52px] sm:h-[70px]"
+				/>
 			);
 		case "partly-cloudy":
 			return (
@@ -187,11 +193,19 @@ function getWeatherIcon(icon: string) {
 			);
 		case "clear":
 			return (
-				<img src="/assets/images/sunny.svg" alt="Droplet Icon" className="w-auto mx-auto h-[52px] sm:h-[70px]" />
+				<img
+					src="/assets/images/sunny.svg"
+					alt="Droplet Icon"
+					className="w-auto mx-auto h-[52px] sm:h-[70px]"
+				/>
 			);
 		default:
 			return (
-				<img src="/assets/images/sunny.svg" alt="Droplet Icon" className="w-auto mx-auto h-[52px] sm:h-[70px]" />
+				<img
+					src="/assets/images/sunny.svg"
+					alt="Droplet Icon"
+					className="w-auto mx-auto h-[52px] sm:h-[70px]"
+				/>
 			);
 	}
 }

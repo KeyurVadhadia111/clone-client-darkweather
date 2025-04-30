@@ -394,9 +394,9 @@ export const ForecastPage = (): JSX.Element => {
 	return (
 		<div className="min-h-screen flex flex-col items-center w-full ">
 			<ForecastHero />
-			{/* bg-white dark:bg-bgcDark */}
+			{/*bg-bgc dark:bg-bgcDark */}
 			<div className="py-6 lg:py-[72px] w-full relative">
-				<div className="absolute inset-0 h-[1000px] sm:h-[1000px] -z-[1]" ></div>
+				<div className="absolute inset-0 h-[1000px] sm:h-[1000px] -z-[1]"></div>
 				<div className="container">
 					<section className="flex flex-col md:flex-row gap-6 lg:gap-8 w-full">
 						{/* Left Column - Weather Forecasts */}

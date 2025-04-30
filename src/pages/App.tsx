@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastIcons } from "components/utils/toast-icons";
 import { useAppState } from "components/utils/useAppState";
-import 'simplebar-react/dist/simplebar.min.css';
+import "simplebar-react/dist/simplebar.min.css";
 
 function App() {
 	const [{ premiumStep }, setAppState] = useAppState();
@@ -19,7 +19,14 @@ function App() {
 		<div className="bg-bgc dark:bg-bgcDark flex flex-row justify-center w-full">
 			<div className="overflow-hidden w-full h-full min-h-screen">
 				<div className="flex flex-col w-full items-end relative">
-					{isAuthPage ? (
+					<div
+						className={`absolute  w-full h-[818px] top-0 left-auto overflow-visible bg-no-repeat bg-position-[center_top] bg-[length:300%] sm:bg-[length:100%] bg-[url('/assets/images/bg/bg-header.png')]`}
+					/>
+					<div
+						className={`absolute inset-0 bg-gradient-to-b from-bgc/0  to-bgc dark:from-bgcDark/70 dark:to-bgcDark h-[818px]`}
+					/>
+
+					{/* {isAuthPage ? (
 						<div
 							className={`w-full fixed bg-cover h-full top-0 left-auto overflow-visible bg-no-repeat bg-top  bg-[url('/assets/images/footer-bg.png')]`}
 						/>
@@ -31,7 +38,7 @@ function App() {
 								/>
 							) : (
 								<div
-									className={`z-[1] w-full absolute bg-[length:100%_275px] sm:bg-[length:100%_735px] bg-repeat-y bg-left-top h-[275px] sm:h-[735px] top-0 left-auto overflow-visible bg-[url('/assets/images/bg/home-header-bg.png')] dark:bg-[url('/assets/images/bg/home-header-bg-dark.png')] bg-bgc dark:bg-bgcDark  ${location.pathname === "/premium-plan" && premiumStep !== 1 && "h-[275px] sm:!h-[575px]"}`}
+									className={`z-[1] w-full absolute bg-[length:100%_275px] sm:bg-[length:100%_735px] bg-repeat-y bg-left-top h-[275px] sm:h-[735px] top-0 left-auto overflow-visible bg-[url('/assets/images/bg/home-header-bg.png')] dark:bg-[url('/assets/images/bg/home-header-bg-dark.png')] bg-bgc dark:bg-bgcDark  ${location.pathname === "/premium-plan" && premiumStep !== 1 && "h-[275px] sm:!h-[575px]"} ${location.pathname === "/air-quality-index" && "h-[275px] sm:!h-[499px]"}`}
 								/>
 							)}
 						</>
@@ -43,13 +50,13 @@ function App() {
 						/>
 					) : (
 						<>
-							{/* {location.pathname === "/" ? '' : (
+							{location.pathname === "/air-quality-index" ? (
 								<div
-									className={`z-[1] hidden dark:block absolute inset-0 bg-gradient-to-b from-white/0 via-white/70 dark:via-bgcDark to-white dark:from-bgcDark/70  sm:dark:via-bgcDark/90 dark:to-bgcDark h-[275px] sm:h-[735px] ${location.pathname === "/premium-plan" && premiumStep !== 1 && "h-[275px] sm:!h-[275px]"}`}
+									className={`z-[1] block absolute inset-0 bg-gradient-to-b from-white/0 via-white/70 dark:via-bgcDark to-white dark:from-bgcDark/70  sm:dark:via-bgcDark/90 dark:to-bgcDark h-[275px] sm:h-[499px]`}
 								/>
-							)} */}
+							) : ''}
 						</>
-					)}
+					)} */}
 
 					{/* Cloud images */}
 					{!isAuthPage && location.pathname !== "/premium-plan" ? (
@@ -71,19 +78,16 @@ function App() {
 					)}
 
 					{/* Header Navigation */}
-					{location.pathname !== '/weather-ai' ? (
-						<Header />
-					) : ''}
+					{location.pathname !== "/weather-ai" ? <Header /> : ""}
 
 					{/* Main Content */}
-					<main className={`z-[1] relative w-full ${location.pathname !== '/weather-ai' && 'min-h-[calc(100vh-470px)]'}`}>
+					<main
+						className={`z-[1] relative w-full ${location.pathname !== "/weather-ai" && "min-h-[calc(100vh-470px)]"}`}>
 						<Outlet />
 					</main>
 
 					{/* Footer Section */}
-					{location.pathname !== '/weather-ai' ? (
-						<Footer />
-					) : ''}
+					{location.pathname !== "/weather-ai" ? <Footer /> : ""}
 					<ToastContainer toastClassName={"!rounded-2xl"} icon={({ type }) => ToastIcons[type]?.() || null} />
 				</div>
 			</div>

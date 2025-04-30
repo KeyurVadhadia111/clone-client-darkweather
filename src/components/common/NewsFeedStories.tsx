@@ -34,11 +34,12 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 	];
 
 	return (
-		<section className={`sm:p-0 sm:pb-[72px] p-6 w-full mx-auto ${!userDetails?._id && 'bg-white dark:bg-bgcDark'} relative`}>
+		<section className={`sm:p-0 sm:pb-[72px] p-6 w-full mx-auto relative`}>
 			<div className="container !px-0">
-				<div className={`flex items-center justify-between relative self-stretch w-full ${isVertical ? 'mb-6 sm:mb-6' : 'mb-6 sm:mb-12'}`}>
+				<div
+					className={`flex items-center justify-between relative self-stretch w-full ${isVertical ? "mb-6 sm:mb-6" : "mb-6 sm:mb-12"}`}>
 					<h2
-						className={`${isVertical ? 'font-medium sm:font-semibold !text-2xl' : 'font-medium'} text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
+						className={`${isVertical ? "font-medium sm:font-semibold !text-2xl" : "font-medium"} text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
 						Top Stories
 					</h2>
 					{!isVertical ? (
@@ -52,7 +53,7 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 
 				<div className={`flex flex-col w-full items-start gap-12`}>
 					<div
-						className={`hidden sm:flex items-center relative w-full  ${isVertical ? "flex-col gap-6" : 'gap-[30px]'}`}>
+						className={`hidden sm:flex items-center relative w-full  ${isVertical ? "flex-col gap-6" : "gap-[30px]"}`}>
 						{newsItems.map(article => (
 							<WeatherCard key={article.id} item={article} size="sm" className="!w-full" />
 						))}

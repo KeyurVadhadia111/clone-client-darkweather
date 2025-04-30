@@ -116,7 +116,7 @@ export default function WeatherAiHeader() {
 								modal={false}
 								transition
 								anchor="bottom end"
-								className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-bgcDark py-1 shadow-[0_20px_35px_rgba(0,0,0,0.05)] ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in [--anchor-gap:4px] sm:[--anchor-gap:8px]">
+								className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-bgc dark:bg-bgcDark py-1 shadow-[0_20px_35px_rgba(0,0,0,0.05)] ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in [--anchor-gap:4px] sm:[--anchor-gap:8px]">
 								<MenuItem disabled>
 									<a
 										href="#"

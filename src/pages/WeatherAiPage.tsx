@@ -4,7 +4,7 @@ import { Input } from "components/utils/Input";
 import { useAppState } from "components/utils/useAppState";
 import WeatherAiHeader from "components/weatherAi/WeatherAiHeader";
 import WeatherAiSidebar from "components/weatherAi/WeatherAiSidebar";
-import React, { JSX } from "react";
+import { JSX } from "react";
 import { Link } from "react-router-dom";
 import SimpleBar from "simplebar-react";
 
@@ -188,14 +188,14 @@ export const WeatherAiPage = (): JSX.Element => {
 									</div>
 								</div>
 
-								<div className="inline-flex items-center gap-2 px-4 py-2.5  flex-[0_0_auto] bg-primary rounded-lg">
-									<Button className="inline-flex items-center gap-2  flex-[0_0_auto]">
+								<Button className="inline-flex items-center gap-2 px-4 py-2.5  flex-[0_0_auto] bg-primary rounded-lg">
+									<div className="inline-flex items-center gap-2  flex-[0_0_auto]">
 										<div className="font-medium text-text text-sm sm:text-base  whitespace-nowrap">
 											Send
 										</div>
 										<Icon icon="arrow-up" className="w-4 h-4 text-text" />
-									</Button>
-								</div>
+									</div>
+								</Button>
 							</div>
 						</div>
 					</div>

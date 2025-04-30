@@ -24,21 +24,21 @@ function Register() {
 			id: 1,
 			title: "40%",
 			subtitle: "Humidity",
-			image: "assets/images/water-drop.png",
+			image: "assets/images/humidity.svg",
 			position: "top-[180px] left-[140px]",
 		},
 		{
 			id: 2,
 			title: "Moderate",
 			subtitle: "UV Index",
-			image: "assets/images/sun.png",
+			image: "assets/images/uv-index.svg",
 			position: "top-[475px] left-[180px]",
 		},
 		{
 			id: 3,
 			title: "6 mph SW",
 			subtitle: "Wind",
-			image: "assets/images/wind-cloud-sun.png",
+			image: "assets/images/wind.svg",
 			position: "top-[310px] left-[435px]",
 		},
 	];
@@ -125,7 +125,7 @@ function Register() {
 					{weatherCards.map(card => (
 						<Card
 							key={card.id}
-							className={`absolute flex items-center gap-y-[30px] gap-x-2 !p-4 bg-white rounded-[20px] border-none shadow-[0px_20px_35px_#0000000d] ${card.position}`}>
+							className={`absolute flex items-center gap-y-[30px] gap-x-2 !p-4 bg-bgc rounded-[20px] border-none shadow-[0px_20px_35px_#0000000d] ${card.position}`}>
 							<CardContent className="flex items-center gap-6 !p-0 !w-max">
 								<img className="w-14 h-14" alt={card.subtitle} src={card.image} />
 								<div className="flex flex-col gap-1">
@@ -146,10 +146,10 @@ function Register() {
 					<img
 						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-[38px] z-0 -top-6"
 						alt="Weather icon"
-						src="/assets/images/sun.png"
+						src="/assets/images/sunny.svg"
 					/>
 
-					<Card className="w-full bg-white rounded-[20px] relative z-0">
+					<Card className="w-full bg-bgc rounded-[20px] relative z-0">
 						<CardContent className="sm:!p-8 flex flex-col sm:gap-6 gap-6 !p-4">
 							{/* Login Form */}
 							<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:gap-6 gap-6">

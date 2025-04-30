@@ -6,7 +6,7 @@ interface Props {
 }
 const HourlyForecastDetails: React.FC<Props> = ({ weatherDetails }) => {
 	return (
-		<div className="relative z-30 grid grid-cols-2 lg:grid-cols-3  gap-x-6 gap-y-5 p-4 lg:p-6 rounded-xl  shadow-[0_20px_35px_rgba(0,0,0,0.05)] bg-white dark:bg-fgcDark">
+		<div className="relative z-30 grid grid-cols-2 lg:grid-cols-3  gap-x-6 gap-y-5 p-4 lg:p-6 rounded-xl  shadow-[0_20px_35px_rgba(0,0,0,0.05)] bg-bgc dark:bg-fgcDark">
 			{weatherDetails.map((detail, index) => (
 				<div key={index} className="flex items-center gap-3">
 					<img src={detail.icon} alt={detail.label} className="w-8 h-8 lg:w-10 lg:h-10" />

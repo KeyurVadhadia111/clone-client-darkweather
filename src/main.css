@@ -105,6 +105,8 @@
 	--color-warning: #ffa500;
 	--color-success: #00a157;
 	--color-bgcSecondary: #28383c;
+	--color-border: #eeeeee;
+	--color-borderDark: #494949;
 }
 
 button {

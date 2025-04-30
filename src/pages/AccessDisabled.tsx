@@ -22,7 +22,7 @@ function AccessDisabled() {
 					<p className="mt-2 text-lg">Use your camera to scan the QR code below</p>
 				</div>
 
-				<div className="p-4 rounded-2xl bg-white">
+				<div className="p-4 rounded-2xl bg-bgc">
 					{/* <img
                         src="https://via.placeholder.com/200"
                         alt="QR Code"

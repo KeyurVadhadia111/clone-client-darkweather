@@ -44,18 +44,19 @@ export default function Header() {
 	};
 
 	return (
-		<header className="relative z-[1] w-full border-b mb-[-1px] shadow-[inset_0px_30px_30px_#ffffff0d] border-white/16">
-			<div className="container flex items-center justify-between py-2 sm:py-5">
+		<header
+			className={`relative z-[1] w-full border-b mb-[-1px] shadow-[inset_0px_30px_30px_#ffffff0d] border-white/16 bg-text dark:bg-bgc text-bgc dark:text-text`}>
+			<div className="container flex items-center justify-between py-2 sm:py-4">
 				<Link to={"/"}>
 					<img
-						className="w-auto h-8 sm:h-[60px] !cursor-pointer"
+						className="w-auto h-8 sm:h-[56px] !cursor-pointer"
 						alt="Dark Weather Logo"
-						src={`assets/images/logo-${isDark ? "dark" : "light"}.svg`}
+						src={`assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
 					/>
 				</Link>
 
 				<div className="flex items-center sm:hidden">
-					<Icon className="w-6 h-6 text-text dark:text-textDark" icon="hamburger" />
+					<Icon className="w-6 h-6" icon="hamburger" />
 				</div>
 				<nav className="items-center gap-7 hidden sm:flex">
 					{navItems
@@ -65,7 +66,7 @@ export default function Header() {
 								key={index}
 								to={item.href}
 								aria-label={item.title}
-								className="text-base tracking-[0.80px] leading-6 font-normal text-text dark:text-textDark dark:hover:text-gray-200 hover:text-gray-600">
+								className="text-base tracking-[0.80px] leading-6 font-normal hover:opacity-90">
 								{item.title}
 							</Link>
 						))}
@@ -73,7 +74,7 @@ export default function Header() {
 
 				<div className="items-center gap-6 hidden sm:flex">
 					<div className="flex items-center cursor-pointer">
-						<Icon className="w-5 h-5 text-text dark:text-textDark" icon="search" />
+						<Icon className="w-5 h-5" icon="search" />
 					</div>
 					<div
 						className="flex items-center cursor-pointer"
@@ -81,14 +82,14 @@ export default function Header() {
 							localStorage.setItem("theme", !isDark ? "dark" : "light");
 							setThemeMode(!isDark);
 						}}>
-						<Icon className="w-6 h-6 text-text dark:text-textDark" icon={isDark ? "moon" : "sun"} />
+						<Icon className="w-6 h-6" icon={isDark ? "moon" : "sun"} />
 					</div>
 
 					{/* Profile dropdown */}
 					{userDetails?._id ? (
 						<Menu as="div" className="relative">
 							<div>
-								<MenuButton className="relative flex rounded-full bg-text border border-text text-sm focus:ring-0 focus:outline-hidden cursor-pointer">
+								<MenuButton className="relative flex rounded-full bg-bgc dark:!bg-text border border-bgc dark:border-text text-sm focus:ring-0 focus:outline-hidden cursor-pointer">
 									<span className="absolute -inset-1" />
 									<span className="sr-only">Open user menu</span>
 									<img alt="" src="assets/images/user.png" className="size-12 rounded-full" />
@@ -98,7 +99,7 @@ export default function Header() {
 								modal={false}
 								transition
 								anchor="bottom end"
-								className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-bgcDark py-1 shadow-[0_20px_35px_rgba(0,0,0,0.05)] ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in [--anchor-gap:4px] sm:[--anchor-gap:8px]">
+								className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-bgc dark:bg-bgcDark py-1 shadow-[0_20px_35px_rgba(0,0,0,0.05)] ring-1 ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in [--anchor-gap:4px] sm:[--anchor-gap:8px]">
 								<MenuItem disabled>
 									<a
 										href="#"

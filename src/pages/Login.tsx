@@ -59,7 +59,7 @@ function Login() {
 					<img
 						className="sm:w-[122px] sm:h-[122px] w-[60px] h-[60px] mx-auto mb-4 absolute left-1/2 transform -translate-x-1/2 sm:-top-[38px] z-0 -top-6"
 						alt="Weather icon"
-						src="/assets/images/sun.png"
+						src="/assets/images/sunny.svg"
 					/>
 
 					<Card className="w-full rounded-[20px] relative z-0">
