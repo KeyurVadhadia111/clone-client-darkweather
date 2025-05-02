@@ -4,6 +4,10 @@ import { Separator } from "components/utils/Separator";
 import React, { useRef, useState } from "react";
 import Icon from "components/utils/Icon";
 import { toast } from "components/utils/toast";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Select from "components/utils/Select";
 
 interface Props {
 	setActiveSection: (section: string) => void;
@@ -19,7 +23,55 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 	const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
-	const locations = ["Portland, OR", "New York", "Los Angeles", "Chicago", "Houston"];
+	const locations = [
+		{
+			value: "Portland, OR",
+			text: "Portland, OR",
+		},
+		{
+			value: "New York, NY",
+			text: "New York, NY",
+		},
+		{
+			value: "Los Angeles, CA",
+			text: "Los Angeles, CA",
+		},
+		{
+			value: "Chicago, IL",
+			text: "Chicago, IL",
+		},
+		{
+			value: "Houston, TX",
+			text: "Houston, TX",
+		},
+		{
+			value: "Phoenix, AZ",
+			text: "Phoenix, AZ",
+		},
+		{
+			value: "Philadelphia, PA",
+			text: "Philadelphia, PA",
+		},
+	];
+
+	const schema = yup.object().shape({
+		mobileNumber: yup.string().required("Mobile number is required"),
+		fullName: yup.string().required("Full Name is required"),
+		email: yup.string().email("Invalid email").required("Email is required"),
+		location: yup.string().required("Location is required"),
+	});
+	type FormData = yup.InferType<typeof schema>;
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		getValues,
+		reset,
+		trigger,
+		formState: { errors },
+	} = useForm<FormData>({
+		resolver: yupResolver(schema),
+	});
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -46,14 +98,12 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 		}
 	};
 
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-		// Here you would typically send the data to your backend
+	const onSubmit = (data: FormData) => {
 		toast.success("Updated success!");
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="flex flex-col items-start gap-4 sm:gap-[30px] w-full">
+		<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4 sm:gap-[30px] w-full">
 			<div className="font-semibold text-text dark:text-textDark text-base sm:text-xl whitespace-nowrap flex items-center">
 				<span className="block sm:hidden">
 					<Icon icon="chevron-down" onClick={() => setActiveSection("")} className="rotate-90 w-4 h-4 mr-2" />
@@ -89,36 +139,60 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 
 			<Separator className="bg-textSecondary/20 dark:!bg-textSecondary/30 !bg-none !w-full !h-px" />
 
-			{Object.entries(formData).map(([key, value]) => (
-				<React.Fragment key={key}>
-					<div className="flex flex-col gap-2 sm:gap-3 w-full flex-[0_0_auto]">
-						<div className=" font-medium text-textSecondary dark:text-textDark text-sm sm:text-sm ">
-							{key.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}
-						</div>
+			<div className="w-full flex flex-col gap-3 relative">
+				<label className="text-sm font-medium text-textSecondary dark:text-textDark">
+					Full Name <span className="text-red-500">*</span>
+				</label>
+				<Input
+					{...register("fullName")}
+					placeholder="Enter full name"
+					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					error={errors?.fullName?.message}
+				/>
+			</div>
 
-						<div className="flex flex-col h-7 sm:h-[60px] items-start justify-center gap-1.5 sm:gap-2.5 p-4 border border-textSecondary/20 w-full rounded-[10px] sm:rounded-xl">
-							<div className="w-full">
-								<Input
-									placeholder={`Enter your ${key}`}
-									type={key === "email" ? "email" : key === "mobileNumber" ? "tel" : "text"}
-									name={key}
-									value={value}
-									onChange={handleInputChange}
-									className=" !text-text dark:!text-textDark !text-xs sm:!text-base !p-0 !bg-transparent !outline-none !ring-0 !rounded-none !border-none !w-full"
-								/>
-							</div>
-						</div>
-					</div>
-				</React.Fragment>
-			))}
+			<div className="w-full flex flex-col gap-3 relative">
+				<label className="text-sm font-medium text-textSecondary dark:text-textDark">
+					Email <span className="text-red-500">*</span>
+				</label>
+				<Input
+					type="email"
+					{...register("email")}
+					placeholder="Enter email"
+					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					error={errors?.email?.message}
+				/>
+			</div>
 
-			<div className="flex flex-col  items-start justify-between gap-2 sm:gap-3 w-full  ">
-				{/* Heading */}
+			<div className="w-full flex flex-col gap-3 relative">
+				<label className="text-sm font-medium text-textSecondary dark:text-textDark">
+					Mobile Number <span className="text-red-500">*</span>
+				</label>
+				<Input
+					{...register("mobileNumber")}
+					placeholder="Enter mobile number"
+					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					error={errors?.mobileNumber?.message}
+				/>
+			</div>
+
+			<div className="w-full flex flex-col gap-3 relative">
+				<Select
+					name={"location"}
+					label={"Primary Location"}
+					items={locations}
+					error={errors?.location?.message?.toString()}
+					register={register}
+					trigger={trigger}
+					required
+				/>
+			</div>
+
+			{/* <div className="flex flex-col  items-start justify-between gap-2 sm:gap-3 w-full  ">
 				<h2 className={`font-medium text-textSecondary dark:text-textDark text-sm sm:text-sm`}>
 					Primary Location
 				</h2>
 
-				{/* Location Dropdown */}
 				<div className="relative w-full" ref={dropdownRef}>
 					<button
 						type="button"
@@ -146,7 +220,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 						</div>
 					)}
 				</div>
-			</div>
+			</div> */}
 			<Separator className="bg-textSecondary/20 dark:!bg-textSecondary/30 !bg-none !w-full !h-px" />
 
 			<Button
