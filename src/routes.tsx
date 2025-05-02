@@ -12,6 +12,7 @@ import AlertsPage from "pages/AlertsPage";
 import ForgotPasswordPage from "pages/ForgotPasswordPage";
 import WeatherAiPage from "pages/WeatherAiPage";
 import { AirQualityIndexPage } from "pages/AirQualityIndexPage";
+import Settings from "pages/Settings";
 
 declare global {
 	interface Window {
@@ -136,6 +137,14 @@ const createRoutes: React.FC = () => {
 								element={
 									<ProtectedRoute>
 										<AirQualityIndexPage />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/settings"
+								element={
+									<ProtectedRoute>
+										<Settings />
 									</ProtectedRoute>
 								}
 							/>

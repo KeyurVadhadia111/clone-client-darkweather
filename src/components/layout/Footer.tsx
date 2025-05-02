@@ -93,18 +93,6 @@ export default function Footer() {
 						src={`assets/images/${!isDark ? "moonset.svg" : "sunny.svg"}`}
 					/>
 				</Button>
-
-				<img
-					className="absolute w-[137px] sm:w-[214px] h-auto opacity-10 dark:opacity-100 top-20 sm:top-[45px] -left-20 sm:-left-24"
-					alt="Weather icon"
-					src="assets/images/cloud-cover.svg"
-				/>
-
-				<img
-					className="absolute w-[137px] sm:w-[214px] h-auto opacity-10 dark:opacity-100  top-20 sm:top-[15px] -right-20 sm:-right-24"
-					alt="Weather icon"
-					src="assets/images/cloud-cover.svg"
-				/>
 			</div>
 
 			{/* Copyright Section */}
