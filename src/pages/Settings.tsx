@@ -22,9 +22,9 @@ const Settings = () => {
 	const nameText = (name: string) => name.toLowerCase().replace(/\s+/g, "");
 
 	return (
-		<div className="container flex gap-4 sm:gap-[30px] mt-4 sm:mt-[60px] mb-4 sm:mb-[64px]">
+		<div className="container flex gap-4 sm:gap-[30px] my-6 sm:mt-[60px]  sm:mb-[64px]">
 			<div
-				className={`flex flex-col w-full sm:w-[370px] items-start gap-4 sm:gap-6 p-4 sm:p-6 bg-bgc dark:bg-fgcDark rounded-2xl sm:rounded-[20px] ${activeSection ? "hidden sm:flex" : "flex sm:flex"}`}>
+				className={`flex flex-col w-full sm:w-[370px] h-[422px] sm:h-[535px] items-start gap-4 sm:gap-6 p-4 sm:p-6 bg-bgc dark:bg-fgcDark rounded-2xl sm:rounded-[20px] ${activeSection ? "hidden sm:flex" : "flex sm:flex"}`}>
 				<div className=" font-medium text-text dark:text-textDark text-base sm:text-lg  whitespace-nowrap">
 					Setting
 				</div>

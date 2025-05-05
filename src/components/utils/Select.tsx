@@ -11,7 +11,7 @@ const Select = (props: any) => {
 			<div className="">
 				<select
 					name={props.name}
-					className={`block px-3 py-3 sm:px-4 sm:py-[18px] w-full rounded-xl border border-textSecondary/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:border-border-dark dark:border-border-dark-dark placeholder: sm:text-base  dark:bg-transparent dark:text-white ${props.error ? "!border !border-red-500 focus-visible:!ring-red-500" : "focus-visible:ring-neutral-300"}`}
+					className={`block px-3 py-3 sm:px-4 sm:py-[18px] w-full rounded-xl text-[14px] bg-bgc text-text dark:bg-fgcDark  border border-textSecondary/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:border-border-dark dark:border-border-dark-dark sm:text-base  dark:text-white ${props.error ? "!border !border-red-500 focus-visible:!ring-red-500" : "focus-visible:ring-neutral-300"}`}
 					{...(props.register &&
 						props.register(props.name, {
 							onChange: (e: any) => {

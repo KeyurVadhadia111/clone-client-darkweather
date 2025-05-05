@@ -104,10 +104,12 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4 sm:gap-[30px] w-full">
-			<div className="font-semibold text-text dark:text-textDark text-base sm:text-xl whitespace-nowrap flex items-center">
-				<span className="block sm:hidden">
-					<Icon icon="chevron-down" onClick={() => setActiveSection("")} className="rotate-90 w-4 h-4 mr-2" />
-				</span>
+			<div className="font-semibold text-text dark:text-textDark text-base sm:text-xl whitespace-nowrap flex items-center gap-3">
+				<Icon
+					icon="chevron-down"
+					onClick={() => setActiveSection("")}
+					className="rotate-90 block sm:hidden w-[18px] h-[18px]"
+				/>
 				Profile
 			</div>
 
