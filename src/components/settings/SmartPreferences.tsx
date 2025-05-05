@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AddressPopup from "./AddressPopup";
 import ActivityPopup from "./ActivityPopup";
 import HealthPopup from "./HealthPopup";
+import { toast } from "components/utils/toast";
 
 interface Props {
 	setActiveSection: (section: string) => void;
@@ -90,7 +91,10 @@ const SmartPreferences: React.FC<Props> = ({ setActiveSection }) => {
 											</button>
 											<button
 												className="w-4 h-4 sm:w-6 sm:h-6 text-red-700"
-												onClick={() => setLocations(locations.filter((_, i) => i !== index))}>
+												onClick={() => {
+													setLocations(locations.filter((_, i) => i !== index));
+													toast.success("Deleted success!");
+												}}>
 												<Icon icon="trash" className="" />
 											</button>
 										</div>
@@ -126,7 +130,10 @@ const SmartPreferences: React.FC<Props> = ({ setActiveSection }) => {
 									<span className="text-sm sm:text-lg text-text dark:text-textDark">{activity}</span>
 									<button
 										className="absolute -top-px -right-[2px] sm:top-[-5px] sm:right-[-5px] w-2.5 h-2.5 sm:w-4 sm:h-4 bg-text dark:bg-bgc flex items-center justify-center rounded-full"
-										onClick={() => setActivities(activities.filter((_, i) => i !== index))}>
+										onClick={() => {
+											setActivities(activities.filter((_, i) => i !== index));
+											toast.success("Deleted success!");
+										}}>
 										<Icon
 											icon="close"
 											className="w-2 h-2 sm:w-3 sm:h-3 text-bgc dark:text-text"></Icon>
@@ -161,7 +168,10 @@ const SmartPreferences: React.FC<Props> = ({ setActiveSection }) => {
 									<span className="text-sm sm:text-lg text-text dark:text-textDark">{condition}</span>
 									<button
 										className="absolute -top-px -right-[2px] sm:top-[-5px] sm:right-[-5px] w-2.5 h-2.5 sm:w-4 sm:h-4 bg-text dark:bg-bgc flex items-center justify-center rounded-full"
-										onClick={() => setConditions(conditions.filter((_, i) => i !== index))}>
+										onClick={() => {
+											setConditions(conditions.filter((_, i) => i !== index));
+											toast.success("Deleted success!");
+										}}>
 										<Icon
 											icon="close"
 											className="w-2 h-2 sm:w-3 sm:h-3 text-bgc dark:text-text"></Icon>
