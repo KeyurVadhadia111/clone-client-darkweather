@@ -64,7 +64,7 @@ const Settings = () => {
 				<div className=" w-full sm:w-[770px] p-4 sm:p-[30px] bg-bgc dark:bg-fgcDark rounded-2xl sm:rounded-[20px]">
 					{activeSection === "profile" && <Profile setActiveSection={setActiveSection} />}
 					{activeSection === "smartpreferences" && <SmartPreferences setActiveSection={setActiveSection} />}
-					{activeSection === "notification" && <Notification />}
+					{activeSection === "notification" && <Notification setActiveSection={setActiveSection} />}
 					{activeSection === "subscription&payments" && <Subscriptions />}
 					{activeSection === "event&calendarsync" && <EventsCalendar />}
 					{activeSection === "security" && <Security />}

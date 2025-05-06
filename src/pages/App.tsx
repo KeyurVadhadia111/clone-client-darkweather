@@ -23,7 +23,7 @@ function App() {
 						className={`absolute  w-full h-[818px] top-0 left-auto overflow-visible bg-no-repeat bg-position-[center_top] bg-[length:300%] sm:bg-[length:100%] bg-[url('/assets/images/bg/bg-header.png')]`}
 					/>
 					<div
-						className={`absolute inset-0 bg-gradient-to-b from-bgc/0  to-bgc dark:from-bgcDark/70 dark:to-bgcDark h-[818px]`}
+						className={`absolute inset-0 bg-gradient-to-b from-bgc/0  to-bgc dark:from-bgcDark/70 dark:to-bgcDark h-[650px] sm:h-[818px]`}
 					/>
 
 					{/* Header Navigation */}

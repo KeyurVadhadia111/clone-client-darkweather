@@ -37,12 +37,14 @@ const SmartPreferences: React.FC<Props> = ({ setActiveSection }) => {
 		<>
 			{/* Main Content */}
 			<div className="flex flex-col items-start gap-4 sm:gap-[30px]">
-				<div className="text-ba	se sm:text-xl font-semibold text-text dark:text-textDark flex items-center gap-3">
-					<Icon
-						icon="chevron-down"
-						onClick={() => setActiveSection("")}
-						className="rotate-90 w-[18px] h-[18px] block sm:hidden"
-					/>
+				<div className="text-base sm:text-xl font-semibold text-text dark:text-textDark flex items-center gap-3">
+					<div className="sm:hidden flex">
+						<Icon
+							icon="chevron-down"
+							onClick={() => setActiveSection("")}
+							className="rotate-90 w-[18px] h-[18px] block sm:hidden"
+						/>
+					</div>
 					Smart Preferences
 				</div>
 				<div className="w-full h-px bg-textSecondary/20" />
