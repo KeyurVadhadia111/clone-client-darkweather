@@ -3,12 +3,20 @@ import PremiumPayment from "components/premiumPlan/PremiumPayment";
 import PremiumPaymentResult from "components/premiumPlan/PremiumPaymentResult";
 import PremiumPlanSelection from "components/premiumPlan/PremiumPlanSelection";
 import { useAppState } from "components/utils/useAppState";
-import React, { JSX, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 
 const PremiumPlanPage = (): JSX.Element => {
 	const [{ premiumStep }, setAppState] = useAppState();
 
 	const [paymentSuccess, setPaymentSuccess] = useState(true);
+
+	useEffect(() => {
+		setAppState({ premiumStep: 1 });
+
+		return () => {
+			true;
+		};
+	}, []);
 
 	return (
 		<div className="flex flex-col items-center ">

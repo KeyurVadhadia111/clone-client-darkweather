@@ -10,6 +10,7 @@ export const initialState: any = {
 	userDetails: {},
 	forecastTab: "Hourly",
 	premiumStep: 1,
+	currentPremiumPlan: {},
 };
 
 let globalState: any = initialState;

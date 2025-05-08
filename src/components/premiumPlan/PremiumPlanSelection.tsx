@@ -50,16 +50,20 @@ const pricingPlans = [
 	},
 ];
 
-interface Props { }
+interface Props {}
 
-const PremiumPlanSelection: React.FC<Props> = ({ }): JSX.Element => {
-	const [{ premiumStep }, setAppState] = useAppState();
+const PremiumPlanSelection: React.FC<Props> = ({}): JSX.Element => {
+	const [{ premiumStep, currentPremiumPlan }, setAppState] = useAppState();
 	const tabs = ["Monthly", "Yearly"];
 	const [activeTab, setActiveTab] = useState("Monthly");
-
 	const selectCard = (value: any) => {
 		setAppState({
 			premiumStep: 2,
+			currentPremiumPlan: {
+				...value,
+				billingCycle: activeTab.toLowerCase(),
+				renewDate: new Date().toISOString(),
+			},
 		});
 	};
 

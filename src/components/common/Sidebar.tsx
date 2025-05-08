@@ -99,7 +99,7 @@ export default function Sidebar() {
 
 						<Separator className="bg-textSecondary/20 dark:!bg-bgc/70 !bg-none" />
 
-						<nav className=" flex flex-col items-start gap-4 w-full h-[calc(100dvh-326px)]  ">
+						<nav className=" flex flex-col items-start gap-4 w-full h-[calc(100dvh-326px)] overflow-auto">
 							{navItems
 								.filter(item => (!userDetails?._id ? !item.authRequired : true))
 								.map((item, index) => {
