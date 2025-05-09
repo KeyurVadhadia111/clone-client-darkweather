@@ -88,7 +88,6 @@ function Register() {
 	});
 
 	const onSubmit = (data: IRegisterFormData) => {
-		console.log("step", step);
 		if (step === 1) {
 			setStep(2);
 			return;

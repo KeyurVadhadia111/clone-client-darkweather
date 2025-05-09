@@ -141,7 +141,7 @@ const AddressPopup: React.FC<Props> = ({ isOpen, setIsOpen, list, setList, editI
 						<Input
 							{...register("address")}
 							placeholder="Select Location"
-							className="!bg-bgc dark:!bg-fgcDark !font-normal !text-sm sm:!text-base !border border-textSecondary/20 !h-[42px] sm:!h-[60px] !p-3 sm:!p-4"
+							className="!bg-bgc dark:!bg-fgcDark !font-normal !text-sm sm:!text-base !border !border-textSecondary/20 !h-[42px] sm:!h-[60px] !p-3 sm:!p-4"
 							error={errors?.address?.message}
 						/>
 						<Icon

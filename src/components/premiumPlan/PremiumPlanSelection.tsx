@@ -50,9 +50,9 @@ const pricingPlans = [
 	},
 ];
 
-interface Props {}
+interface Props { }
 
-const PremiumPlanSelection: React.FC<Props> = ({}): JSX.Element => {
+const PremiumPlanSelection: React.FC<Props> = ({ }): JSX.Element => {
 	const [{ premiumStep, currentPremiumPlan }, setAppState] = useAppState();
 	const tabs = ["Monthly", "Yearly"];
 	const [activeTab, setActiveTab] = useState("Monthly");
@@ -99,8 +99,8 @@ const PremiumPlanSelection: React.FC<Props> = ({}): JSX.Element => {
 			</div>
 
 			<div className="w-full">
-				<div className="container  bg-bgc dark:bg-bgcDark">
-					<div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-[30px]">
+				<div className="container">
+					<div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-[30px]  bg-bgc dark:bg-bgcDark">
 						{pricingPlans.map((plan, index) => (
 							<PricingCard
 								key={plan.name}

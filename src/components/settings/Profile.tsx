@@ -126,7 +126,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 					<img className="w-[52px] h-[52px] sm:w-20 sm:h-20" alt="Profile" src={profilePicture} />
 
 					<div className="flex items-center gap-3 sm:gap-3.5 flex-[0_0_auto]">
-						<label className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-md inline-flex items-center justify-center  whitespace-nowrap flex-[0_0_auto] bg-primary cursor-pointer">
+						<label className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-md inline-flex items-center justify-center  whitespace-nowrap flex-[0_0_auto] bg-primary cursor-pointer h-8 sm:h-[38px]">
 							<Input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
 							<div className="font-medium text-text text-[10px] sm:text-xs">Change Picture</div>
 						</label>
@@ -150,7 +150,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 				<Input
 					{...register("fullName")}
 					placeholder="Enter full name"
-					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					className="!bg-transparent  !border-textSecondary/20 "
 					error={errors?.fullName?.message}
 				/>
 			</div>
@@ -163,7 +163,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 					type="email"
 					{...register("email")}
 					placeholder="Enter email"
-					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					className="!bg-transparent  !border-textSecondary/20"
 					error={errors?.email?.message}
 				/>
 			</div>
@@ -175,7 +175,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 				<Input
 					{...register("mobileNumber")}
 					placeholder="Enter mobile number"
-					className="!bg-transparent !text-sm sm:!text-base !border border-textSecondary/20 !p-3 sm:!p-4"
+					className="!bg-transparent  !border-textSecondary/20 "
 					error={errors?.mobileNumber?.message}
 				/>
 			</div>
@@ -192,39 +192,6 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 				/>
 			</div>
 
-			{/* <div className="flex flex-col  items-start justify-between gap-2 sm:gap-3 w-full  ">
-				<h2 className={`font-medium text-textSecondary dark:text-textDark text-sm sm:text-sm`}>
-					Primary Location
-				</h2>
-
-				<div className="relative w-full" ref={dropdownRef}>
-					<button
-						type="button"
-						className="flex items-center justify-between font-bold  backdrop-blur-sm rounded-xl text-sm sm:text-base text-text dark:text-textDark border border-textSecondary/20 w-full h-7 sm:h-[60px]  gap-1.5 sm:gap-2.5 p-4"
-						onClick={() => setLocationDropdownOpen(!locationDropdownOpen)}>
-						<span className="font-normal text-text dark:text-textDark text-xs sm:text-base ">
-							{selectedLocation}
-						</span>
-						<Icon icon="chevron-down" className="w-[18px] h-[18px] sm:w-6 sm:h-6" />
-					</button>
-
-					{locationDropdownOpen && (
-						<div className="absolute mt-2 w-full bg-bgc dark:bg-text text-bgcDark dark:text-textDark  rounded-md shadow-[0_20px_35px_rgba(0,0,0,0.05)] border-textSecondary/20  z-10 ">
-							{locations.map(location => (
-								<div
-									key={location}
-									onClick={() => {
-										setSelectedLocation(location);
-										setLocationDropdownOpen(false);
-									}}
-									className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 text-black dark:text-textDark">
-									{location}
-								</div>
-							))}
-						</div>
-					)}
-				</div>
-			</div> */}
 			<Separator className="bg-textSecondary/20 dark:!bg-textSecondary/30 !bg-none !w-full !h-px" />
 
 			<Button

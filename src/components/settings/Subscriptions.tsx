@@ -1,5 +1,4 @@
 import { Menu, Transition } from "@headlessui/react";
-import CardPopup from "components/premiumPlan/CardPopup";
 import { Button } from "components/utils/Button";
 import Icon from "components/utils/Icon";
 import { Separator } from "components/utils/Separator";
@@ -11,6 +10,7 @@ import { format } from "date-fns";
 import { toast } from "components/utils/toast";
 import DeleteCardPopup from "./DeleteCardPopup";
 import CancelSubscriptionPopup from "./CancelSubscriptionPopup";
+import CardPopup2 from "./CardPopup2";
 
 interface Props {
 	setActiveSection: (section: string) => void;
@@ -129,7 +129,6 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 	};
 
 	const handleCancelSubscription = () => {
-		console.log("Subscription cancelled");
 		toast.success("Subscription cancelled.");
 		// Add actual cancellation logic here
 	};
@@ -193,7 +192,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 								</p>
 							</div>
 							<Button
-								className="inline-flex flex-col items-center justify-center self-end sm:self-center gap-2.5 !px-4 !py-2 sm:!px-5 sm:!py-3 flex-[0_0_auto] bg-primary rounded-[10px] border border-solid cursor-pointer hover:bg-primary font-medium text-text  !text-sm"
+								className="inline-flex flex-col items-center justify-center self-end sm:self-center gap-2.5 !px-4 !py-2 sm:!px-5 sm:!py-3 flex-[0_0_auto] bg-primary !rounded-[10px] border border-solid cursor-pointer hover:bg-primary font-medium text-text !text-xs sm:!text-sm"
 								onClick={() => navigate("/premium-plan")}>
 								Subscribe
 							</Button>
@@ -211,7 +210,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 								className="flex items-center justify-center gap-2.5 rounded-[10px] cursor-pointer"
 								onClick={() => setShowPopup(true)}>
 								<Icon icon="plus" className="w-[14px] h-[14px] sm:w-5 sm:h-5 text-primary" />
-								<div className="font-medium text-primary text-[14px] sm:text-lg text-center whitespace-nowrap">
+								<div className="font-medium text-primary text-sm sm:text-base text-center whitespace-nowrap">
 									Add New Card
 								</div>
 							</div>
@@ -347,7 +346,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 					</SimpleBar>
 				</div>
 			</div>
-			<CardPopup
+			<CardPopup2
 				isOpen={showPopup}
 				setIsOpen={setShowPopup}
 				cardIndex={editingCardIndex}

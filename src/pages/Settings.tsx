@@ -67,7 +67,7 @@ const Settings = () => {
 					{activeSection === "notification" && <Notification setActiveSection={setActiveSection} />}
 					{activeSection === "subscription&payments" && <Subscriptions setActiveSection={setActiveSection} />}
 					{activeSection === "event&calendarsync" && <EventsCalendar />}
-					{activeSection === "security" && <Security />}
+					{activeSection === "security" && <Security setActiveSection={setActiveSection} />}
 				</div>
 			) : (
 				""

@@ -57,7 +57,7 @@ type RequestType = {
 	setPaymentPageData: (data: any) => void;
 };
 
-const CardPopup: React.FC<RequestType> = ({ isOpen, setIsOpen, cardIndex, paymentPageData, setPaymentPageData }) => {
+const CardPopup2: React.FC<RequestType> = ({ isOpen, setIsOpen, cardIndex, paymentPageData, setPaymentPageData }) => {
 	const {
 		register,
 		handleSubmit,
@@ -220,7 +220,7 @@ const CardPopup: React.FC<RequestType> = ({ isOpen, setIsOpen, cardIndex, paymen
 					<div className="flex justify-end gap-4 mt-3 sm:mt-6">
 						<button
 							type="button"
-							className="text-sm sm:text-base w-full sm:w-auto px-6 py-3 sm:py-4 border border-text dark:border-bgc rounded-xl font-semibold text-text dark:text-textDark"
+							className="text-sm sm:text-base w-full sm:w-[127px] px-6 py-3 sm:py-4 border border-text dark:border-bgc rounded-xl font-semibold text-text dark:text-textDark "
 							onClick={() => setIsOpen(false)}>
 							Cancel
 						</button>
@@ -236,4 +236,4 @@ const CardPopup: React.FC<RequestType> = ({ isOpen, setIsOpen, cardIndex, paymen
 	);
 };
 
-export default CardPopup;
+export default CardPopup2;
