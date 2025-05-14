@@ -345,12 +345,12 @@ export const WeatherRadar: React.FC<Props> = ({ openFrom }) => {
 						</div>
 
 						<div className="flex justify-center mt-6 sm:mt-12">
-							<motion.button
+							<motion.div
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
 								className="rounded-xl hover:shadow-[0_20px_35px_rgba(0,0,0,0.05)] transition-all">
 								<Button className=" !px-6 py-3">View Full Radar</Button>
-							</motion.button>
+							</motion.div>
 						</div>
 					</motion.div>
 				) : (
@@ -373,9 +373,8 @@ function LayerButton({
 	return (
 		<motion.button
 			whileTap={{ scale: 0.95 }}
-			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${
-				active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
-			}`}
+			className={`cursor-pointer flex items-center px-2 py-1.5 gap-0 sm:gap-4 sm:px-6 sm:py-4 text-[10px] sm:text-base font-semibold ${active ? "bg-primary text-black rounded-md sm:rounded-xl" : "text-black dark:text-textDark"
+				}`}
 			onClick={onClick}>
 			{children}
 		</motion.button>

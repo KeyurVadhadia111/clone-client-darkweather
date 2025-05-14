@@ -84,20 +84,43 @@ export default function CurrentWeather() {
 		alerts: {
 			alert: [
 				{
+					id: 1,
+					alertType: "success",
 					headline: "Thunderstorm Warning",
 					severity: "Moderate",
 					urgency: "Expected",
 					areas: "New York City",
-					desc: "Heavy rain and strong winds expected from 3 PM to 9 PM. Stay indoors if possible.",
+					desc: "Heavy1 rain and strong winds expected from 3 PM to 9 PM. Stay indoors if possible.",
 					effective: "2023-07-15T15:00:00",
 					expires: "2023-07-15T21:00:00",
+				},
+				{
+					id: 2,
+					alertType: "warning",
+					headline: "Flood Alert",
+					severity: "Severe",
+					urgency: "Immediate",
+					areas: "Brooklyn",
+					desc: "Flash floods expected due to heavy rainfall. Avoid low-lying areas.",
+					effective: "2023-07-16T10:00:00",
+					expires: "2023-07-16T16:00:00",
+				},
+				{
+					id: 3,
+					alertType: "error",
+					headline: "Heat Advisory",
+					severity: "High",
+					urgency: "Expected",
+					areas: "Manhattan",
+					desc: "High temperatures expected. Stay hydrated and avoid outdoor activities.",
+					effective: "2023-07-17T12:00:00",
+					expires: "2023-07-17T20:00:00",
 				},
 			],
 		},
 	};
 	const [weatherData, setWeatherData] = useState<any>(mockWeatherData);
 	const [loading, setLoading] = useState(false);
-	const [alertType, setAlertType] = useState<AlertType | null>(AlertType.Error);
 
 	if (loading) {
 		return <div className="text-center py-10">Loading weather data...</div>;
@@ -110,46 +133,53 @@ export default function CurrentWeather() {
 	const { location, current } = weatherData;
 
 	const [currentTemperature, setCurrentTemperature] = useState("f");
+	const [alerts, setAlerts] = useState(weatherData.alerts.alert);
 
 	return (
 		<section
-			className={`py-6 sm:pb-[40px] w-full ${alertType ? "pt-1.5 sm:pt-2" : "sm:pt-[72px]"} mx-auto sm:px-10 relative`}>
-			{alertType ? (
-				<>
-					<div className="container relative text-bgc">
-						<motion.div
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-							className={`flex items-center justify-between gap-2 py-2 px-3 sm:py-3 sm:px-4 mb-1.5 sm:mb-2 ${bgColor[alertType]} rounded-[10px] sm:rounded-2xl`}>
-							<span
-								className={`flex items-center justify-center w-4 sm:w-8 h-4 sm:h-8 rounded-full self-start ${bgColor[alertType]}/10`}>
-								<Icon icon="info-fill" className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full `} />
-							</span>
-							<div className="grow text-xs sm:text-base">
-								A tornado has been spotted nearby. Seek shelter immediately in a safe location.
-								<Link
-									to={"/alerts"}
-									className="block sm:hidden underline text-[8px] sm:text-base font-semibold text-nowrap">
-									View Details
-								</Link>
-							</div>
-							<div
-								className={`flex items-end sm:flex-row flex-col-reverse justify-start sm:justify-center gap-2`}>
-								<Link
-									to={"/alerts"}
-									className="hidden sm:block underline text-[8px] sm:text-base font-semibold text-nowrap">
-									View Details
-								</Link>
-								<Icon
-									icon="close"
-									className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full cursor-pointer`}
-									onClick={() => setAlertType(null)}
-								/>
-							</div>
-						</motion.div>
-					</div>
-				</>
+			className={`py-6 sm:pb-[40px] w-full ${alerts.length ? "pt-0 sm:pt-0" : "sm:pt-[72px]"} mx-auto relative`}>
+			{alerts.length ? (
+				<div className="flex flex-col w-full mb-1.5 sm:mb-4 ">
+					{alerts.map((alert: any, index: number) => (
+						<div key={index} className="relative text-bgc">
+							<motion.div
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ duration: 0.5 }}
+								className={`flex items-center justify-between gap-2 py-2 px-3 sm:py-3 sm:px-4 ${bgColor[alert.alertType as AlertType]}`}>
+								<div className="container flex items-center justify-between gap-2 ">
+									<span
+										className={`flex items-center justify-center w-4 sm:w-8 h-4 sm:h-8 rounded-full self-start ${bgColor[alert.alertType as AlertType]}/10`}>
+										<Icon icon="info-fill" className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full `} />
+									</span>
+									<div className="grow text-xs sm:text-base">
+										{alert.desc}
+										<Link
+											to={"/alerts"}
+											className="block sm:hidden underline text-[8px] sm:text-base font-semibold text-nowrap">
+											View Details
+										</Link>
+									</div>
+									<div
+										className={`flex items-end sm:flex-row flex-col-reverse justify-start sm:justify-center gap-2`}>
+										<Link
+											to={"/alerts"}
+											className="hidden sm:block underline text-[8px] sm:text-base font-semibold text-nowrap">
+											View Details
+										</Link>
+										<Icon
+											icon="close"
+											className={`w-3 sm:w-6 h-3 sm:h-6 rounded-full cursor-pointer`}
+											onClick={() =>
+												setAlerts(alerts.filter((item: any, i: number) => i !== index))
+											}
+										/>
+									</div>
+								</div>
+							</motion.div>
+						</div>
+					))}
+				</div>
 			) : (
 				""
 			)}
@@ -289,7 +319,7 @@ export default function CurrentWeather() {
 						{/* Section 1: Humidity */}
 						<div className="flex items-center justify-start w-1/2 sm:w-1/3 gap-3 sm:gap-6">
 							<img
-								src="assets/images/humidity.svg"
+								src="/assets/images/humidity.svg"
 								alt="Droplet Icon"
 								className="w-[42px] h-[42px] sm:w-14 sm:h-14"
 							/>
@@ -304,7 +334,7 @@ export default function CurrentWeather() {
 						{/* Section 2: Wind */}
 						<div className="flex items-center justify-start w-1/2 sm:w-1/3 sm:pl-[30px] pl-[14px] border-l border-gray-300 dark:border-gray-600 gap-3 sm:gap-6">
 							<img
-								src="assets/images/wind.svg"
+								src="/assets/images/wind.svg"
 								alt="Cloud Sun Icon"
 								className="w-[42px] h-[42px] sm:w-14 sm:h-14"
 							/>
@@ -319,7 +349,7 @@ export default function CurrentWeather() {
 						{/* Section 3: UV Index */}
 						<div className="flex items-center sm:justify-start justify-center w-full sm:w-1/3 sm:pt-0 pt-4 sm:pl-[30px] sm:border-l sm:border-t-0 border-t border-gray-300 dark:border-gray-600 sm:mt-0 mt-4 gap-3 sm:gap-6">
 							<img
-								src="assets/images/uv-index.svg"
+								src="/assets/images/uv-index.svg"
 								alt="uv-index Icon"
 								className="w-[42px] h-[42px] sm:w-14 sm:h-14"
 							/>
@@ -379,7 +409,7 @@ function TemperatureCard({
 	return (
 		<div className="bg-bgc dark:bg-fgcDark rounded-2xl sm:rounded-[20px] px-4 py-3 sm:py-4 sm:px-12 w-[100%] h-[auto] flex flex-col items-center justify-center sm:gap-4 gap-2.5">
 			<div className="">
-				<img src="assets/images/cloud-cover.svg" alt="Cloud Icon" className="w-auto sm:h-[52px] h-[32px]" />
+				<img src="/assets/images/cloud-cover.svg" alt="Cloud Icon" className="w-auto sm:h-[52px] h-[32px]" />
 			</div>
 			<div className="text-center flex flex-col gap-0 sm:gap-2">
 				<h3 className="relative inline-block sm:text-5xl text-[32px] font-bold text-text dark:text-textDark">

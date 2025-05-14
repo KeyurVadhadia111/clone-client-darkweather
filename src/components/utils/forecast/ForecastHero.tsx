@@ -80,7 +80,7 @@ const ForecastHero = (): JSX.Element => {
 								<img
 									className="w-[52px] h-[52px] lg:w-[76px] lg:h-[76px]"
 									alt="Sunny weather icon"
-									src="assets/images/sunny.svg"
+									src="/assets/images/sunny.svg"
 								/>
 								<div className="flex flex-col gap-3">
 									<h2 className="font-semibold text-text dark:text-textDark text-2xl lg:text-3xl leading-[30px]">
@@ -99,7 +99,7 @@ const ForecastHero = (): JSX.Element => {
 									<img
 										className="w-8 sm:w-12"
 										alt="High temperature icon"
-										src="assets/images/cloud-cover.svg"
+										src="/assets/images/cloud-cover.svg"
 									/>
 									<div className="flex flex-col gap-1 lg:gap-2">
 										<span className="font-semibold text-text dark:text-textDark text-[28px] sm:text-[30px] text-3xl leading-[30px] flex items-start">
@@ -119,7 +119,7 @@ const ForecastHero = (): JSX.Element => {
 									<img
 										className="w-8 sm:w-12"
 										alt="Low temperature icon"
-										src="assets/images/cloud-cover.svg"
+										src="/assets/images/cloud-cover.svg"
 									/>
 									<div className="flex flex-col gap-1 lg:gap-2">
 										<span className="font-semibold text-text dark:text-textDark text-[28px] sm:text-[30px] text-3xl leading-[30px] flex items-start">

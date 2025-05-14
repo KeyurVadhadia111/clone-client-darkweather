@@ -15,7 +15,7 @@ export default function Header() {
 		{ title: "Radar & Maps", href: "#", authRequired: true },
 		{ title: "Weather A.I.", href: "/weather-ai", authRequired: false },
 		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
-		{ title: "Top Stories", href: "#", authRequired: false },
+		{ title: "Top Stories", href: "/top-stories", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
 
@@ -54,7 +54,7 @@ export default function Header() {
 					<img
 						className="w-auto h-8 sm:h-[56px] !cursor-pointer"
 						alt="Dark Weather Logo"
-						src={`assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
+						src={`/assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
 					/>
 				</Link>
 

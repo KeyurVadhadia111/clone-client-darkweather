@@ -14,10 +14,10 @@ const PremiumPayment = (): JSX.Element => {
 			{
 				method: "Net Banking",
 				selected: true,
-				icon: `assets/images/net-banking` + (isDark ? "-dark" : "") + `.svg`,
+				icon: `/assets/images/net-banking` + (isDark ? "-dark" : "") + `.svg`,
 			},
-			{ method: "Paypal", selected: true, icon: "assets/images/paypal.svg" },
-			{ method: "Debit/Credit card", selected: true, icon: "assets/images/credit-card.svg" },
+			{ method: "Paypal", selected: true, icon: "/assets/images/paypal.svg" },
+			{ method: "Debit/Credit card", selected: true, icon: "/assets/images/credit-card.svg" },
 		],
 		savedCards: [
 			{
@@ -27,7 +27,7 @@ const PremiumPayment = (): JSX.Element => {
 				cvv: "124",
 				cardType: "Visa",
 				isSelected: true,
-				icon: "assets/images/visa-card.svg",
+				icon: "/assets/images/visa-card.svg",
 			},
 			{
 				nameOnCard: "Jane Doe",
@@ -36,7 +36,7 @@ const PremiumPayment = (): JSX.Element => {
 				cvv: "546",
 				cardType: "MasterCard",
 				isSelected: true,
-				icon: "assets/images/master-card.svg",
+				icon: "/assets/images/master-card.svg",
 			},
 		],
 		orderSummary: {
@@ -214,7 +214,7 @@ const PremiumPayment = (): JSX.Element => {
 																						className="flex items-center gap-2 text-sm sm:text-base text-textSecondary dark:text-textDark cursor-pointer">
 																						<img
 																							src={
-																								`assets/images/edit` +
+																								`/assets/images/edit` +
 																								(isDark
 																									? "-dark"
 																									: "") +
@@ -242,7 +242,7 @@ const PremiumPayment = (): JSX.Element => {
 																						}}
 																						className="flex items-center gap-2 text-sm sm:text-base cursor-pointer text-textSecondary dark:text-textDark">
 																						<img
-																							src={`assets/images/trash${isDark ? "-dark" : ""}.svg`}
+																							src={`/assets/images/trash${isDark ? "-dark" : ""}.svg`}
 																							alt=""
 																							className="w-3.5 h-3.5 sm:w-4 sm:h-4"
 																						/>

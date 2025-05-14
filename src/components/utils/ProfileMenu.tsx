@@ -14,7 +14,7 @@ const ProfileMenu: React.FC<Props> = () => {
 				<MenuButton className="relative flex rounded-full bg-bgc dark:!bg-text border border-bgc dark:border-text text-sm focus:ring-0 focus:outline-hidden cursor-pointer">
 					<span className="absolute -inset-1" />
 					<span className="sr-only">Open user menu</span>
-					<img alt="" src="assets/images/user.png" className="size-12 rounded-full" />
+					<img alt="" src="/assets/images/user.png" className="size-12 rounded-full" />
 				</MenuButton>
 			</div>
 			<MenuItems

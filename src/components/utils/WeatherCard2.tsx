@@ -35,7 +35,7 @@ const WeatherCard2: React.FC<WeatherCard2Props> = ({ item, direction = "vertical
 			/>
 
 			<div className="flex flex-col items-start gap-y-3 gap-x-5">
-				<div className="flex flex-col-reverse w-full sm:flex-row gap-2 justify-between">
+				<div className="flex flex-col-reverse w-full sm:flex-row gap-2 justify-between items-center">
 					{item.title && (
 						<h3
 							className={`grow font-medium text-text dark:text-textDark text-base sm:text-xl leading-[26px] line-clamp-2`}>

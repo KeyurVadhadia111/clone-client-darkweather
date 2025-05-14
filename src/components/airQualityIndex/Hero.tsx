@@ -26,12 +26,12 @@ export const Hero = (): JSX.Element => {
 			<img
 				className="hidden sm:block absolute w-[136px] sm:w-[214px] h-auto top-28 sm:top-48 -left-20 sm:-left-28 scale-x-[-1]"
 				alt="Weather icon"
-				src="assets/images/cloud-cover.svg"
+				src="/assets/images/cloud-cover.svg"
 			/>
 			<img
 				className="hidden sm:block absolute w-[136px] sm:w-[214px] h-auto top-28 sm:top-64 -right-16 sm:-right-[120px] scale-x-[-1]"
 				alt="Weather icon"
-				src="assets/images/cloud-cover.svg"
+				src="/assets/images/cloud-cover.svg"
 			/>
 			<div className="w-full p-4 sm:px-10 sm:pt-10 sm:pb-[29px] mt-6 sm:mt-12 bg-bgc dark:bg-bgcDark rounded-t-[20px]">
 				<div className="flex flex-col  gap-10 ">
@@ -175,7 +175,11 @@ export const Hero = (): JSX.Element => {
 						<div className="hidden sm:flex flex-col w-[537px] items-start gap-4 px-0 py-[30px]  rounded-2xl">
 							<div className="flex items-center justify-between  w-full flex-[0_0_auto]">
 								<div className="inline-flex gap-5 items-center  flex-[0_0_auto]">
-									<img className=" w-12 h-12" alt="Cloud cover" src="assets/images/cloud-cover.svg" />
+									<img
+										className=" w-12 h-12"
+										alt="Cloud cover"
+										src="/assets/images/cloud-cover.svg"
+									/>
 
 									<span className="font-semibold text-text dark:text-textDark text-3xl flex">
 										{convertTemp(weatherData.highTemp, currentTemperature)}{" "}
@@ -201,7 +205,7 @@ export const Hero = (): JSX.Element => {
 									<img
 										alt="Droplet Icon"
 										className="w-10 h-10"
-										src="assets/images/humidity.svg"></img>
+										src="/assets/images/humidity.svg"></img>
 
 									<div className="inline-flex flex-col items-start justify-center gap-1  flex-[0_0_auto]">
 										<div className="font-normal text-textSecondary dark:text-textDark text-sm whitespace-nowrap">
@@ -217,7 +221,7 @@ export const Hero = (): JSX.Element => {
 								<Separator orientation="vertical" className="!h-[36px] !w-[1px]" />
 
 								<div className="flex  items-center gap-3 ">
-									<img alt="Cloud Sun Icon" className="w-10 h-10" src="assets/images/wind.svg" />
+									<img alt="Cloud Sun Icon" className="w-10 h-10" src="/assets/images/wind.svg" />
 									<div className="inline-flex flex-col items-start justify-center gap-1  flex-[0_0_auto]">
 										<div className="font-normal text-textSecondary dark:text-textDark text-sm whitespace-nowrap">
 											Wind
@@ -232,7 +236,7 @@ export const Hero = (): JSX.Element => {
 								<Separator orientation="vertical" className="!h-[36px] !w-[1px]" />
 
 								<div className="flex  items-center gap-3 ">
-									<img alt="uv-index Icon" className="w-10 h-10" src="assets/images/uv-index.svg" />
+									<img alt="uv-index Icon" className="w-10 h-10" src="/assets/images/uv-index.svg" />
 
 									<div className="inline-flex flex-col items-start justify-center gap-1  flex-[0_0_auto]">
 										<div className="font-normal text-textSecondary dark:text-textDark text-sm whitespace-nowrap">

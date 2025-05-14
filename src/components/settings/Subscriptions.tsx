@@ -32,7 +32,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 				cvv: "124",
 				cardType: "Visa",
 				isSelected: true,
-				icon: "assets/images/visa-card.svg",
+				icon: "/assets/images/visa-card.svg",
 			},
 			{
 				nameOnCard: "Jane Doe",
@@ -41,7 +41,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 				cvv: "546",
 				cardType: "MasterCard",
 				isSelected: true,
-				icon: "assets/images/master-card.svg",
+				icon: "/assets/images/master-card.svg",
 			},
 		],
 	});
@@ -268,7 +268,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 																		className="flex items-center gap-2 text-sm sm:text-base text-textSecondary dark:text-textDark cursor-pointer">
 																		<img
 																			src={
-																				`assets/images/edit` +
+																				`/assets/images/edit` +
 																				(isDark ? "-dark" : "") +
 																				`.svg`
 																			}
@@ -285,7 +285,7 @@ const Subscriptions: React.FC<Props> = ({ setActiveSection }) => {
 																		}}
 																		className="flex items-center gap-2 text-sm sm:text-base cursor-pointer text-textSecondary dark:text-textDark">
 																		<img
-																			src={`assets/images/trash${isDark ? "-dark" : ""}.svg`}
+																			src={`/assets/images/trash${isDark ? "-dark" : ""}.svg`}
 																			alt=""
 																			className="w-3.5 h-3.5 sm:w-4 sm:h-4"
 																		/>

@@ -41,7 +41,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 
@@ -74,7 +74,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 
@@ -107,7 +107,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 
@@ -142,7 +142,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 
@@ -175,7 +175,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 
@@ -208,7 +208,7 @@ export const MajorAirPollutants = (): JSX.Element => {
 								<img
 									className="w-8 h-8 sm:w-12 sm:h-12"
 									alt="Cloud cover"
-									src="assets/images/cloud-cover.svg"
+									src="/assets/images/cloud-cover.svg"
 								/>
 							</div>
 

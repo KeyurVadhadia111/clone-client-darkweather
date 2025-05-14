@@ -52,7 +52,7 @@ export default function WeatherAiHeader() {
 						<img
 							className="w-auto h-8 sm:h-[42px] !cursor-pointer"
 							alt="Dark Weather Logo"
-							src={`assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
+							src={`/assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
 						/>
 					</Link>
 				</div>

@@ -13,7 +13,7 @@ interface Props {
 	setActiveSection: (section: string) => void;
 }
 const Profile: React.FC<Props> = ({ setActiveSection }) => {
-	const [profilePicture, setProfilePicture] = useState<string>("assets/images/user.png");
+	const [profilePicture, setProfilePicture] = useState<string>("/assets/images/user.png");
 	const [formData, setFormData] = useState({
 		fullName: "Alex Johnson",
 		email: "alexjohnson@example.com",
@@ -94,7 +94,7 @@ const Profile: React.FC<Props> = ({ setActiveSection }) => {
 
 	const handleDeletePicture = () => {
 		if (window.confirm("Are you sure you want to delete your profile picture?")) {
-			setProfilePicture("assets/images/user.png");
+			setProfilePicture("/assets/images/user.png");
 		}
 	};
 

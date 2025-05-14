@@ -4,6 +4,7 @@ import WeatherCard from "components/utils/WeatherCard";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppState } from "components/utils/useAppState";
+import { useNavigate } from "react-router-dom";
 
 export interface Props {
 	isVertical?: boolean;
@@ -11,6 +12,7 @@ export interface Props {
 
 export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 	const [{ isDark, userDetails }, setAppState] = useAppState();
+	const navigate = useNavigate();
 
 	const newsItems = [
 		{
@@ -55,7 +57,19 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 					<div
 						className={`hidden sm:flex items-center relative w-full  ${isVertical ? "flex-col gap-6" : "gap-[30px]"}`}>
 						{newsItems.map(article => (
-							<WeatherCard key={article.id} item={article} size="sm" className="!w-full" />
+							<WeatherCard
+								key={article.id}
+								item={article}
+								size="sm"
+								className="!w-full"
+								onClick={() => {
+									if (article.id) {
+										navigate(`/top-story/${article.id}`);
+									} else {
+										navigate("/");
+									}
+								}}
+							/>
 						))}
 					</div>
 
@@ -71,7 +85,18 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 							}}>
 							{newsItems.map((article: any, index) => (
 								<SwiperSlide className={`pb-6 sm:pb-10`} key={index}>
-									<WeatherCard key={article.id} item={article} size="sm" />
+									<WeatherCard
+										key={article.id}
+										item={article}
+										size="sm"
+										onClick={() => {
+											if (article.id) {
+												navigate(`/top-story/${article.id}`);
+											} else {
+												navigate("/");
+											}
+										}}
+									/>
 								</SwiperSlide>
 							))}
 						</Swiper>

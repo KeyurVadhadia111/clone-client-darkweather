@@ -67,7 +67,7 @@ export const WeatherAiPage = (): JSX.Element => {
 
 												<div className="flex items-center gap-2 sm:gap-5 p-2 sm:p-4 w-full flex-[0_0_auto] bg-bgc dark:bg-bgcDark rounded-xl shadow-[0px_10px_35px_#0000000d]">
 													<img
-														src="assets/images/partly-cloudy.svg"
+														src="/assets/images/partly-cloudy.svg"
 														alt=""
 														className="w-8 h-8 sm:w-[62px] sm:h-[62px]"
 													/>
@@ -178,7 +178,7 @@ export const WeatherAiPage = (): JSX.Element => {
 									<img
 										className="sm:w-5 sm:h-5 w-4 h-4"
 										alt="Subtract"
-										src={`assets/images/plus-bg${isDark ? "-dark" : ""}.svg`}
+										src={`/assets/images/plus-bg${isDark ? "-dark" : ""}.svg`}
 									/>
 									<div className="w-full">
 										<Input

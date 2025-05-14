@@ -251,7 +251,6 @@
 					{
 						"fill": "none",
 						"strokeWidth": 64,
-						"dataSlot": "icon",
 						"strokeLinecap": "round",
 						"strokeLinejoin": "round"
 					}

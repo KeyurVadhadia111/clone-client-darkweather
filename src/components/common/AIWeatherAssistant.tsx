@@ -45,7 +45,7 @@ export default function AIWeatherAssistant() {
 					<img
 						className="absolute w-[136px] sm:w-[240px] h-auto -top-14 sm:top-52 right-20 sm:-left-[140px] scale-x-[-1] z-[-1]"
 						alt="Weather icon"
-						src="assets/images/cloud-cover.svg"
+						src="/assets/images/cloud-cover.svg"
 					/>
 					<div className="flex items-center align-center text-center justify-between">
 						<div className="flex items-center gap-4">
@@ -114,7 +114,7 @@ export default function AIWeatherAssistant() {
               a 15.9155 15.9155 0 0 1 0 -31.831"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="3.8"
+											strokeWidth="3.8"
 										/>
 										{/* <path
 											className="text-yellow-500"
@@ -122,7 +122,7 @@ export default function AIWeatherAssistant() {
               a 15.9155 15.9155 0 0 1 0 29"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="3.8"
+											strokeWidth="3.8"
 											stroke-dasharray="93, 100"
 										/> */}
 									</svg>
@@ -157,7 +157,7 @@ export default function AIWeatherAssistant() {
               a 15.9155 15.9155 0 0 1 0 -31.831"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="3.8"
+											strokeWidth="3.8"
 										/>
 										{/* <path
 											className="text-yellow-500"
@@ -165,7 +165,7 @@ export default function AIWeatherAssistant() {
               a 15.9155 15.9155 0 0 1 0 29"
 											fill="none"
 											stroke="currentColor"
-											stroke-width="3.8"
+											strokeWidth="3.8"
 											stroke-dasharray="93, 100"
 										/> */}
 									</svg>

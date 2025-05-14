@@ -14,7 +14,7 @@ export default function Footer() {
 		{ title: "Radar & Maps", href: "#", authRequired: true },
 		{ title: "Weather A.I.", href: "/weather-ai", authRequired: false },
 		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
-		{ title: "Top Stories", href: "#", authRequired: false },
+		{ title: "Top Stories", href: "/top-stories", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
 	];
 
@@ -61,7 +61,7 @@ export default function Footer() {
 					<img
 						className="relative h-8 sm:h-[60px]"
 						alt="Dark Weather Logo"
-						src={`assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
+						src={`/assets/images/logo-${!isDark ? "dark" : "light"}.svg`}
 					/>
 				</Link>
 
@@ -90,7 +90,7 @@ export default function Footer() {
 					<img
 						className="w-5 h-5 sm:w-6 sm:h-6"
 						alt="Sun icon"
-						src={`assets/images/${!isDark ? "moonset.svg" : "sunny.svg"}`}
+						src={`/assets/images/${!isDark ? "moonset.svg" : "sunny.svg"}`}
 					/>
 				</Button>
 			</div>

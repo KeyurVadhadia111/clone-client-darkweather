@@ -13,9 +13,10 @@ interface WeatherCardProps {
 	direction?: "vertical" | "horizontal";
 	className?: string;
 	size?: "sm" | "lg";
+	onClick?: () => void;
 }
 
-const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical", className, size = "lg" }) => {
+const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical", className, size = "lg", onClick }) => {
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 20 }}
@@ -23,11 +24,12 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical",
 			transition={{ duration: 0.5, type: "spring", stiffness: 400 }}
 			whileHover={{ scale: 1.02 }}
 			className={cn(
-				"sm:w-[570px] h-full dark:bg-fgcDark bg-bgc rounded-[20px] sm:shadow-[0_35px_35px_rgba(0,0,0,0.05)] shadow-[0px_20px_35px_#0000000d] border-none",
+				`${direction === "vertical" ? "w-full" : "sm:w-[570px]"} h-full dark:bg-fgcDark bg-bgc rounded-[20px] sm:shadow-[0_35px_35px_rgba(0,0,0,0.05)] shadow-[0px_20px_35px_#0000000d] border-none cursor-pointer`,
 				className,
 				"sm:p-4 p-2.5 flex gap-5",
 				direction === "vertical" ? "flex-col" : "flex-row",
-			)}>
+			)}
+			onClick={onClick}>
 			<img
 				className={`${direction === "vertical" ? (size === "lg" ? "sm:h-[300px] h-[182px] w-full" : "sm:h-[240px] h-[182px] w-full") : "w-[259px] h-[227px]"} object-cover rounded-2xl`}
 				alt={item.title}
@@ -36,8 +38,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical",
 
 			<div className="flex flex-col items-start gap-y-3 gap-x-5">
 				{item.date && (
-					<span
-						className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
+					<span className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
 						{item.date}
 					</span>
 				)}
@@ -58,8 +59,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ item, direction = "vertical",
 				)}
 
 				{item.timeAgo && (
-					<span
-						className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
+					<span className={`font-normal dark:text-textDark text-textSecondary text-sm leading-[21px]`}>
 						{item.timeAgo}
 					</span>
 				)}

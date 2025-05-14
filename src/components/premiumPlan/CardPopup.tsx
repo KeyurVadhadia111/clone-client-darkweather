@@ -79,7 +79,7 @@ const CardPopup: React.FC<RequestType> = ({ isOpen, setIsOpen, cardIndex, paymen
 			cvv: data.cvv,
 			cardType,
 			isSelected: true,
-			icon: `assets/images/${cardType === "Visa" ? "visa" : "master"}-card.svg`,
+			icon: `/assets/images/${cardType === "Visa" ? "visa" : "master"}-card.svg`,
 			nameOnCard: data.nameOnCard,
 			expiryDate: data.expiryDate,
 		};

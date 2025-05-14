@@ -18,13 +18,9 @@ export const TemperatureTrend: React.FC<Props> = ({ isVertical }) => {
 	return (
 		<Card className="p-4 lg:p-[30px] shadow-[0_20px_35px_rgba(0,0,0,0.05)] dark:!bg-fgcDark">
 			<div className="flex items-center lg:items-start justify-between mb-4 lg:mb-[30px]">
-				<h2 className="font-medium text-base lg:text-2xl text-text dark:text-textDark">
-					Temperature Trend
-				</h2>
+				<h2 className="font-medium text-base lg:text-2xl text-text dark:text-textDark">Temperature Trend</h2>
 				<div className="flex items-center gap-2.5 lg:gap-3 px-2.5 py-2 lg:px-3.5 lg:py-2.5 border border-fgc rounded-[8px] lg:rounded-[10px]">
-					<span className="font-normal text-xs lg:text-sm text-textSecondary dark:text-textDark">
-						Hourly
-					</span>
+					<span className="font-normal text-xs lg:text-sm text-textSecondary dark:text-textDark">Hourly</span>
 					<Icon
 						icon="arrow-down"
 						className="w-2.5 h-2.5 lg:w-3.5 lg:h-3.5 text-textSecondary dark:text-textDark"
@@ -68,7 +64,7 @@ export const TemperatureTrend: React.FC<Props> = ({ isVertical }) => {
 									<img
 										className="absolute w-full h-[70px] lg:h-[188px] top-[49px] left-0"
 										alt="Temperature trend line"
-										src="assets/images/vector.png"
+										src="/assets/images/vector.png"
 									/>
 								</div>
 							</div>

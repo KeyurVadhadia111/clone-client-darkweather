@@ -17,7 +17,7 @@ export default function Sidebar() {
 		{ title: "Radar & Maps", href: "#", authRequired: true },
 		{ title: "Weather A.I.", href: "/weather-ai", authRequired: false },
 		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
-		{ title: "Top Stories", href: "#", authRequired: false },
+		{ title: "Top Stories", href: "/top-stories", authRequired: false },
 		{ title: "Alerts", href: "/alerts", authRequired: false },
 		{ title: "Setting", href: "/settings", authRequired: true },
 	];
@@ -93,7 +93,7 @@ export default function Sidebar() {
 							<img
 								className="w-auto h-12 !cursor-pointer"
 								alt="Dark Weather Logo"
-								src={`assets/images/logo-${!isDark ? "light" : "dark"}.svg`}
+								src={`/assets/images/logo-${!isDark ? "light" : "dark"}.svg`}
 							/>
 						</Link>
 
@@ -137,7 +137,7 @@ export default function Sidebar() {
 						{userDetails?._id ? (
 							<div className="flex items-center gap-3  px-6 py-3 h-[42px] cursor-pointer">
 								<div className=" flex items-center gap-4 rounded-full bg-bgcSecondary dark:bg-bgc border border-text dark:border-bgc text-sm focus:ring-0 focus:outline-hidden cursor-pointer">
-									<img alt="" src="assets/images/user.png" className="size-8 rounded-full" />
+									<img alt="" src="/assets/images/user.png" className="size-8 rounded-full" />
 								</div>
 								<div className="text-text dark:text-textDark"> Logout</div>
 							</div>
