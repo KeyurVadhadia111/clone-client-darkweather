@@ -1,71 +1,71 @@
 import { Separator } from "components/utils/Separator";
 import React from "react";
 
-const cardData = [
-	{
-		date: "Sat 05",
-		period: "Day",
-		temperature: "41",
-		icon: "/assets/images/partly-cloudy.svg",
-		label: "son",
-		condition: "Partly cloudy, Hazy",
-		wind: "W 13 km/h",
-		description: "Partly cloudy. Hazy. High 41°C. Winds WNW at 10 to 15 km/h.",
-		humidity: {
-			label: "Humidity",
-			value: "12%",
-			icon: "/assets/images/humidity.svg",
+const MonthlyForecastDetails: React.FC = () => {
+	const cardData = [
+		{
+			date: "Wed 14",
+			period: "Day",
+			temperature: "41",
+			icon: "/assets/images/partly-cloudy.svg",
+			label: "son",
+			condition: "Partly cloudy, Hazy",
+			wind: "W 13 km/h",
+			description: "Partly cloudy. Hazy. High 41°C. Winds WNW at 10 to 15 km/h.",
+			humidity: {
+				label: "Humidity",
+				value: "12%",
+				icon: "/assets/images/humidity.svg",
+			},
+			uvIndex: {
+				label: "UV Index",
+				value: "4 of 11",
+				icon: "/assets/images/uv-index.svg",
+			},
+			sunrise: {
+				time: "06:28",
+				icon: "/assets/images/sunrise.svg",
+			},
+			sunset: {
+				time: "18:56",
+				icon: "/assets/images/sunset.svg",
+			},
+			timeLabel1: "Sunrise",
+			timeLabel2: "Sunset",
 		},
-		uvIndex: {
-			label: "UV Index",
-			value: "4 of 11",
-			icon: "/assets/images/uv-index.svg",
+		{
+			date: "Wed 14",
+			period: "Night",
+			temperature: "24",
+			icon: "/assets/images/night.svg",
+			label: "moon",
+			condition: "Generally clear, Hazy",
+			wind: "W 09 km/h",
+			description: "Generally clear. Hazy. Low 24°C. Winds W and variable.",
+			moonPhase: "First Quarter",
+			humidity: {
+				label: "Humidity",
+				value: "12%",
+				icon: "/assets/images/humidity.svg",
+			},
+			uvIndex: {
+				label: "UV Index",
+				value: "4 of 11",
+				icon: "/assets/images/uv-index.svg",
+			},
+			moonrise: {
+				time: "12:15",
+				icon: "/assets/images/moonrise.svg",
+			},
+			moonset: {
+				time: "01:32",
+				icon: "/assets/images/moonset.svg",
+			},
+			timeLabel1: "Moonrise",
+			timeLabel2: "Moonset",
 		},
-		sunrise: {
-			time: "06:28",
-			icon: "/assets/images/sunrise.svg",
-		},
-		sunset: {
-			time: "18:56",
-			icon: "/assets/images/sunset.svg",
-		},
-		timeLabel1: "Sunrise",
-		timeLabel2: "Sunset",
-	},
-	{
-		date: "Sat 05",
-		period: "Night",
-		temperature: "24",
-		icon: "/assets/images/night.svg",
-		label: "moon",
-		condition: "Generally clear, Hazy",
-		wind: "W 09 km/h",
-		description: "Generally clear. Hazy. Low 24°C. Winds W and variable.",
-		moonPhase: "First Quarter",
-		humidity: {
-			label: "Humidity",
-			value: "12%",
-			icon: "/assets/images/humidity.svg",
-		},
-		uvIndex: {
-			label: "UV Index",
-			value: "4 of 11",
-			icon: "/assets/images/uv-index.svg",
-		},
-		moonrise: {
-			time: "12:15",
-			icon: "/assets/images/moonrise.svg",
-		},
-		moonset: {
-			time: "01:32",
-			icon: "/assets/images/moonset.svg",
-		},
-		timeLabel1: "Moonrise",
-		timeLabel2: "Moonset",
-	},
-];
+	];
 
-const SevenDaysForecastDetails: React.FC = () => {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-[30px] ">
 			{cardData.map((detail, index) => {
@@ -184,4 +184,4 @@ const SevenDaysForecastDetails: React.FC = () => {
 		</div>
 	);
 };
-export default SevenDaysForecastDetails;
+export default MonthlyForecastDetails;

@@ -135,7 +135,11 @@ const ForecastHero = (): JSX.Element => {
 						</div>
 
 						{/* Forecast view tabs */}
-						<Tabs defaultValue="Hourly" className="w-[280px] lg:w-[471px] mx-auto">
+						<Tabs
+							defaultValue="Today"
+							value={forecastTab}
+							onValueChange={tab => setAppState((prev: any) => ({ ...prev, forecastTab: tab }))}
+							className="w-[280px] lg:w-[471px] mx-auto">
 							<TabsList className="w-full bg-bgc dark:bg-fgcDark !h-[30px] lg:!h-10 rounded-lg shadow-[0_35px_35px_rgba(0,0,0,0.05)] !p-0">
 								{forecastTabs.map(tab => (
 									<TabsTrigger

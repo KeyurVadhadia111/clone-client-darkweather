@@ -8,7 +8,7 @@ export const initialState: any = {
 	isLoading: false,
 	isUserDetails: false,
 	userDetails: {},
-	forecastTab: "Hourly",
+	forecastTab: "Today",
 	premiumStep: 1,
 	currentPremiumPlan: {},
 };

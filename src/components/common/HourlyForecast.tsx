@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,8 +12,9 @@ import { Navigation } from "swiper/modules";
 
 export default function HourlyForecast() {
 	const [activeTab, setActiveTab] = useState("hourly");
+	const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 	const [highlight, setHighlight] = useState(0);
-	const [forecastData, setForecastData] = useState([
+	const hourlyData = [
 		{ time: "12 PM", temp: 72, condition: "Sunny", icon: "sun" },
 		{ time: "1 PM", temp: 74, condition: "Partly Cloudy", icon: "partly-cloudy" },
 		{ time: "2 PM", temp: 75, condition: "Mostly Cloudy", icon: "mostly-cloudy" },
@@ -22,7 +24,21 @@ export default function HourlyForecast() {
 		{ time: "6 PM", temp: 74, condition: "Cloudy", icon: "cloudy" },
 		{ time: "7 PM", temp: 74, condition: "Cloudy", icon: "cloudy" },
 		{ time: "8 PM", temp: 74, condition: "Cloudy", icon: "cloudy" },
-	]);
+	];
+
+	const dailyData = [
+		{ time: "Mon 28", temp: 72, condition: "Sunny", icon: "sun" },
+		{ time: "Tue 29", temp: 61, condition: "Rainy", icon: "cloudy" },
+		{ time: "Wed 30", temp: 64, condition: "Partly Cloudy", icon: "partly-cloudy" },
+		{ time: "Thu 01", temp: 70, condition: "Sunny", icon: "sun" },
+		{ time: "Fri 02", temp: 68, condition: "Partly Cloudy", icon: "partly-cloudy" },
+		{ time: "Sat 03", temp: 65, condition: "Cloudy", icon: "cloudy" },
+		{ time: "Sun 04", temp: 67, condition: "Mostly Cloudy", icon: "mostly-cloudy" },
+		{ time: "Mon 05", temp: 69, condition: "Partly Cloudy", icon: "partly-cloudy" },
+		{ time: "Tue 06", temp: 71, condition: "Sunny", icon: "sun" },
+	];
+
+	const [forecastData, setForecastData] = useState(hourlyData);
 	const [loading, setLoading] = useState(false);
 
 	if (loading) {
@@ -50,7 +66,11 @@ export default function HourlyForecast() {
 										? "bg-primary text-black font-semibold rounded-xl"
 										: "bg-bgc dark:bg-fgcDark text-black dark:text-textDark"
 								}`}
-								onClick={() => setActiveTab("hourly")}>
+								onClick={() => {
+									setActiveTab("hourly");
+									setForecastData(hourlyData);
+									swiperInstance?.slideTo(0);
+								}}>
 								Hourly
 							</motion.button>
 
@@ -61,7 +81,11 @@ export default function HourlyForecast() {
 										? "bg-primary text-black font-semibold  rounded-xl"
 										: "bg-white dark:bg-fgcDark text-black dark:text-textDark"
 								}`}
-								onClick={() => setActiveTab("daily")}>
+								onClick={() => {
+									setActiveTab("daily");
+									setForecastData(dailyData);
+									swiperInstance?.slideTo(0);
+								}}>
 								Daily
 							</motion.button>
 						</div>
@@ -77,6 +101,7 @@ export default function HourlyForecast() {
 						modules={[Navigation]}
 						spaceBetween={20}
 						slidesPerView={2}
+						onSwiper={setSwiperInstance}
 						breakpoints={{
 							640: { slidesPerView: 3.2 },
 							768: { slidesPerView: 4.2 },

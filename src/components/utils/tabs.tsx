@@ -1,9 +1,12 @@
-import React, { useState, ReactNode } from "react";
+import React, { useState, ReactNode, useEffect } from "react";
 import { cn } from "../../lib/utils";
 
 interface TabsProps {
 	defaultValue?: string;
+	value?: string;
+	onValueChange?: (val: string) => void;
 	children: ReactNode;
+	className?: string;
 }
 
 interface TabsListProps {
@@ -27,13 +30,31 @@ interface TabsContentProps {
 const TabsContext = React.createContext<{
 	activeTab: string;
 	setActiveTab: (val: string) => void;
-}>({ activeTab: "", setActiveTab: () => { } });
+}>({ activeTab: "", setActiveTab: () => {} });
 
-export const Tabs = ({ defaultValue = "", children, className }: TabsProps & { className?: string }) => {
+export const Tabs = ({
+	defaultValue = "",
+	value,
+	onValueChange,
+	children,
+	className,
+}: TabsProps & { className?: string }) => {
 	const [activeTab, setActiveTab] = useState(defaultValue);
 
+	// Sync with controlled value
+	useEffect(() => {
+		if (value !== undefined && value !== activeTab) {
+			setActiveTab(value);
+		}
+	}, [value]);
+
+	const handleSetActiveTab = (val: string) => {
+		setActiveTab(val);
+		onValueChange && onValueChange(val);
+	};
+
 	return (
-		<TabsContext.Provider value={{ activeTab, setActiveTab }}>
+		<TabsContext.Provider value={{ activeTab, setActiveTab: handleSetActiveTab }}>
 			<div className={cn(className)}>{children}</div>
 		</TabsContext.Provider>
 	);

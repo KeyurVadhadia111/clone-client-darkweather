@@ -375,6 +375,116 @@ const weatherDetails = [
 	},
 ];
 
+const ThisWeekend = [
+	{
+		day: "Today",
+		temperature: "35",
+		condition: "Partly Cloudy",
+		conditionIcon: "/assets/images/partly-cloudy.svg",
+		precipitation: "0%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 13 km/h",
+	},
+	{
+		day: "Sat 17",
+		temperature: "35",
+		condition: "Mostly Sunny",
+		conditionIcon: "/assets/images/mostly-sunny.svg",
+		precipitation: "5%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 13 km/h",
+	},
+	{
+		day: "Sun 18",
+		temperature: "34",
+		condition: "Clear",
+		conditionIcon: "/assets/images/clear.svg",
+		precipitation: "3%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 17 km/h",
+	},
+];
+
+const NextWeekend = [
+	{
+		day: "Fri 23",
+		temperature: "31",
+		condition: "Mostly Sunny",
+		conditionIcon: "/assets/images/mostly-sunny.svg",
+		precipitation: "0%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 8 km/h",
+	},
+	{
+		day: "Sat 24",
+		temperature: "32",
+		condition: "Clear",
+		conditionIcon: "/assets/images/clear.svg",
+		precipitation: "0%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 5 km/h",
+	},
+	{
+		day: "Sun 25",
+		temperature: "32",
+		condition: "Clear",
+		conditionIcon: "/assets/images/clear.svg",
+		precipitation: "0%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 5 km/h",
+	},
+];
+
+const TodayForecast = [
+	{
+		day: "Morning",
+		temperature: "35",
+		condition: "Mostly Sunny",
+		conditionIcon: "/assets/images/mostly-sunny.svg",
+		precipitation: "5%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 13 km/h",
+	},
+	{
+		day: "Afternoon",
+		temperature: "34",
+		condition: "Clear",
+		conditionIcon: "/assets/images/clear.svg",
+		precipitation: "0%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 17 km/h",
+	},
+	{
+		day: "Evening",
+		temperature: "35",
+		condition: "Mostly Sunny",
+		conditionIcon: "/assets/images/mostly-sunny.svg",
+		precipitation: "5%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 13 km/h",
+	},
+	{
+		day: "Overnight",
+		temperature: "35",
+		condition: "Mostly Sunny",
+		conditionIcon: "/assets/images/mostly-sunny.svg",
+		precipitation: "5%",
+		precipitationIcon: "/assets/images/rain-amount.svg",
+		wind: "W 13 km/h",
+	},
+];
+
+const weekendForecast = [
+	{
+		day: "This Weekend",
+		data: ThisWeekend,
+	},
+	{
+		day: "Next Weekend",
+		data: NextWeekend,
+	},
+];
+
 const forecasts = [
 	{
 		day: "Friday",
@@ -405,6 +515,8 @@ export const ForecastPage = (): JSX.Element => {
 								forecasts={forecasts}
 								weatherDetails={weatherDetails}
 								SevendayForecast={SevendayForecast}
+								WeekendForecast={weekendForecast}
+								TodayForecast={TodayForecast}
 							/>
 							{/* Temperature Trend */}
 							<div className="hidden sm:block">
