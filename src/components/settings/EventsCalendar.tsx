@@ -74,10 +74,12 @@ const EventsCalendar: React.FC<Props> = ({ setActiveSection }) => {
 									<img src={option.icon} alt={option.name} className="w-6 h-6 sm:w-8 sm:h-8" />
 									{option.name === "Google Calendar" && (
 										<Icon
-											icon={showConnected ? "eye" : "eye-slash"}
+											icon={showConnected ? "eye" : ""}
 											onClick={() => {
-												setShowConnected(!showConnected);
-												setGoogleConnected(prev => !prev);
+												// Only open popup if Google Calendar and not connected
+												if (option.name === "Google Calendar" && googleConnected) {
+													setShowCalendarPopup(true);
+												}
 											}}
 											className="w-[22px] h-[22px]  sm:w-6 sm:h-6 cursor-pointer absolute top-0 sm:-top-[13px] left-[234px] sm:left-[283px]  text-neutral-400"
 										/>
@@ -90,9 +92,14 @@ const EventsCalendar: React.FC<Props> = ({ setActiveSection }) => {
 								<Button
 									className={`w-full h-[38px] sm:h-[42px] !rounded-[10px] ${option.buttonStyle}`}
 									onClick={() => {
-										// Only open popup if Google Calendar and not connected
-										if (option.name === "Google Calendar" && !googleConnected) {
-											setShowCalendarPopup(true);
+										if (option.name === "Google Calendar") {
+											if (googleConnected) {
+												setGoogleConnected(false);
+												setShowConnected(false);
+											} else {
+												setGoogleConnected(true);
+												setShowConnected(true);
+											}
 										}
 									}}>
 									{option.buttonLabel}
