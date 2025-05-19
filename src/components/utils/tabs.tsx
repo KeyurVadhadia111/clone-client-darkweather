@@ -43,10 +43,13 @@ export const Tabs = ({
 
 	// Sync with controlled value
 	useEffect(() => {
-		if (value !== undefined && value !== activeTab) {
+		if (value !== undefined) {
 			setActiveTab(value);
+		} else if (defaultValue !== undefined) {
+			setActiveTab(defaultValue);
 		}
-	}, [value]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [value, defaultValue]);
 
 	const handleSetActiveTab = (val: string) => {
 		setActiveTab(val);

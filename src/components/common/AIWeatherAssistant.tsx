@@ -143,9 +143,11 @@ export default function AIWeatherAssistant() {
 						<div className="bg-fgc dark:bg-fgcDark w-full text-text dark:text-textDark rounded-2xl sm:rounded-[20px] p-4 sm:p-6 relative shadow-[0_20px_35px_rgba(0,0,0,0.05)]">
 							<div className="flex items-center justify-between mb-4">
 								<p className="font-medium text-base sm:text-xl">Health & Activities</p>
-								<a href="#" className="text-sm underline text-text dark:text-textDark">
+								<Link
+									to="/health-activities"
+									className="text-sm underline text-text dark:text-textDark">
 									View Details
-								</a>
+								</Link>
 							</div>
 							<div className="flex items-center gap-4 sm:gap-6">
 								<div className="relative w-16 h-16">

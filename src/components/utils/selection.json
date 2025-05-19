@@ -1132,6 +1132,30 @@
 				"width": 1024
 			},
 			"properties": { "name": "invoice" }
+		},
+		{
+			"icon": {
+				"paths": [
+					"M875.9 512.4C875.9 732.2 697.5 910.6 477.7 910.6 257.9 910.6 79.5 732.2 79.5 512.4 79.5 292.5 257.9 114.1 477.7 114.1 697.5 114.1 875.9 292.5 875.9 512.4Z",
+					"M625.4 638.8L502 565.1C480.5 552.4 462.9 521.7 462.9 496.6V333.3"
+				],
+				"attrs": [
+					{
+						"fill": "none",
+						"strokeWidth": 59.733333333333334,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					},
+					{
+						"fill": "none",
+						"strokeWidth": 59.733333333333334,
+						"strokeLinecap": "round",
+						"strokeLinejoin": "round"
+					}
+				],
+				"width": 956
+			},
+			"properties": { "name": "clock" }
 		}
 	]
 }

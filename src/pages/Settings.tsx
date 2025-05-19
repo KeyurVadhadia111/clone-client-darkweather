@@ -66,7 +66,7 @@ const Settings = () => {
 					{activeSection === "smartpreferences" && <SmartPreferences setActiveSection={setActiveSection} />}
 					{activeSection === "notification" && <Notification setActiveSection={setActiveSection} />}
 					{activeSection === "subscription&payments" && <Subscriptions setActiveSection={setActiveSection} />}
-					{activeSection === "event&calendarsync" && <EventsCalendar />}
+					{activeSection === "event&calendarsync" && <EventsCalendar setActiveSection={setActiveSection} />}
 					{activeSection === "security" && <Security setActiveSection={setActiveSection} />}
 				</div>
 			) : (

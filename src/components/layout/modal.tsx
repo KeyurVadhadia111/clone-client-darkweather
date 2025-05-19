@@ -11,6 +11,7 @@ const ModalSize: ModalSizeType = {
 	sm: "w-full sm:w-4/12",
 	md: "w-full lg:w-5/12 sm:w-10/12 md:w-8/12",
 	lg: "lg:w-7/12 sm:w-10/12 md:w-10/12",
+	lx: "w-full sm:w-[1170px] ",
 	xl: "lg:w-8/12 sm:w-10/12 md:w-10/12",
 };
 
@@ -19,16 +20,17 @@ type RequestType = {
 	setOpenModal: (fl: boolean) => void;
 	size: string;
 	children: JSX.Element;
+	className?: string;
 };
 
-const Modal: React.FC<RequestType> = ({ openModal, setOpenModal, size, children }) => {
+const Modal: React.FC<RequestType> = ({ openModal, setOpenModal, size, children, className }) => {
 	const cancelButtonRef = useRef(null);
 	const [{ isDark }] = useAppState();
 	return (
 		<>
 			{size && (
 				<Transition.Root show={openModal} as={Fragment}>
-					<Dialog as="div" className="relative z-40" initialFocus={cancelButtonRef} onClose={setOpenModal}>
+					<Dialog as="div" className="relative z-[100]" initialFocus={cancelButtonRef} onClose={setOpenModal}>
 						<Transition.Child
 							as={Fragment}
 							enter="ease-out duration-300"
@@ -55,6 +57,7 @@ const Modal: React.FC<RequestType> = ({ openModal, setOpenModal, size, children 
 											"relative",
 											`${ModalSize[size]}`,
 											"overflow-hidden p-4 sm:p-8 text-left align-middle bg-bgc rounded-2xl sm:rounded-3xl shadow-xl transition-all transform dark:bg-fgcDark",
+											className,
 										)}>
 										{children}
 									</Dialog.Panel>
