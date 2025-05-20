@@ -13,7 +13,7 @@ const Select = (props: any) => {
 			<div className="relative">
 				<select
 					name={props.name}
-					className={`appearance-none block px-3 py-3 sm:px-4 sm:py-[15px] w-full rounded-xl text-[14px] bg-bgc text-text dark:bg-fgcDark border border-textSecondary/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:border-border-dark dark:border-border-dark-dark sm:text-base dark:text-white  ${
+					className={`appearance-none block px-3 py-3 sm:px-4 sm:py-[15px] w-full rounded-xl text-[14px] bg-bgc text-text dark:bg-fgcDark border border-textSecondary/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring dark:border-border-dark dark:border-border-dark-dark sm:text-base dark:text-white ${props.className || ""}  ${
 						props.error
 							? "!border !border-red-500 focus-visible:!ring-red-500"
 							: "focus-visible:ring-neutral-300"
@@ -24,7 +24,11 @@ const Select = (props: any) => {
 								props.trigger && props.trigger(props.name);
 							},
 						}))}>
-					<option value="">Select {props.label}</option>
+					{props.label === "Choose a topic" ? (
+						<option value="">{props.label}</option>
+					) : (
+						<option value="">Select {props.label}</option>
+					)}
 					{props.items &&
 						props.items.map((item: any) => (
 							<option value={item.value} key={item.value}>
@@ -34,7 +38,8 @@ const Select = (props: any) => {
 				</select>
 
 				{/* Custom dropdown arrow */}
-				<div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2">
+				<div
+					className={`pointer-events-none absolute right-4 ${props.error ? "top-[35%]" : "top-1/2"}  -translate-y-1/2`}>
 					<Icon icon="arrow-down" className="w-4 h-4 sm:w-5 sm:h-5 text-textSecondary dark:text-textDark" />
 				</div>
 

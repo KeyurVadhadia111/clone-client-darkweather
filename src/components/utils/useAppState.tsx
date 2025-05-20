@@ -9,6 +9,7 @@ export const initialState: any = {
 	isUserDetails: false,
 	userDetails: {},
 	forecastTab: "Today",
+	questionTabs: "General Information",
 	premiumStep: 1,
 	currentPremiumPlan: {},
 };
