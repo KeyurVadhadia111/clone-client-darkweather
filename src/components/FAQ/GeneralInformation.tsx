@@ -37,9 +37,8 @@ const GeneralInformation = (): JSX.Element => {
 	return (
 		<div className="flex flex-col w-full sm:w-[706px] items-start gap-2 sm:gap-4">
 			{faqItems.map((item, index) => (
-				<>
+				<div key={index} className="w-full flex-[0_0_auto]">
 					<div
-						key={index}
 						className={`flex flex-col items-start gap-2 sm:gap-3 p-2.5 sm:p-4 w-full flex-[0_0_auto] ${
 							openIndex === index
 								? "bg-fgc dark:bg-fgcDark rounded-lg sm:rounded-xl"
@@ -75,7 +74,7 @@ const GeneralInformation = (): JSX.Element => {
 							</>
 						)}
 					</div>
-				</>
+				</div>
 			))}
 		</div>
 	);

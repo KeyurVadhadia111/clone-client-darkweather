@@ -18,6 +18,7 @@ import TopStoryPage from "pages/TopStoryPage";
 import HealthActivities from "pages/HealthActivities";
 import ContactUs from "pages/ContactUs";
 import FAQ from "pages/FAQPage";
+import AboutUs from "pages/AboutUs";
 
 declare global {
 	interface Window {
@@ -190,6 +191,14 @@ const createRoutes: React.FC = () => {
 								element={
 									<ProtectedRoute>
 										<FAQ />
+									</ProtectedRoute>
+								}
+							/>
+							<Route
+								path="/about-us"
+								element={
+									<ProtectedRoute>
+										<AboutUs />
 									</ProtectedRoute>
 								}
 							/>

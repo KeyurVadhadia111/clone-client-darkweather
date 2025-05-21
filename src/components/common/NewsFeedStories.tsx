@@ -46,7 +46,9 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 					</h2>
 					{!isVertical ? (
 						<div className="sm:block hidden">
-							<Button size="lg">View More</Button>
+							<Button size="lg" onClick={() => navigate("/top-stories")}>
+								View More
+							</Button>
 						</div>
 					) : (
 						""
