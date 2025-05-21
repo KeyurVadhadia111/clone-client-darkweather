@@ -18,13 +18,13 @@ const FAQ = (): JSX.Element => {
 
 	return (
 		<div className="container my-6 sm:my-[60px]">
-			<div className="flex flex-col sm:flex-row items-center gap-8 p-8 bg-bgc dark:bg-fgcDark rounded-[20px]">
-				<div className="flex flex-col items-center gap-[42px] relative self-stretch w-full flex-[0_0_auto]">
-					<div className="relative w-fit mt-[-1.00px] [font-family:'Rubik',Helvetica] font-medium text-text dark:text-textDark text-[40px] text-center tracking-[0] leading-10 whitespace-nowrap">
+			<div className="flex flex-col  items-center gap-8 p-4 sm:p-8 bg-bgc dark:bg-fgcDark rounded-[20px]">
+				<div className="flex flex-col items-center gap-6 sm:gap-[42px]">
+					<div className=" font-medium text-text dark:text-textDark text-2xl sm:text-[40px] text-center tracking-[0] leading-10 whitespace-nowrap">
 						Question? Look here.
 					</div>
-
-					{/* <Tabs defaultValue="General Information" value={questionTabs} className="w-full">
+					{/* Tabs for Desktop */}
+					<Tabs defaultValue="General Information" value={questionTabs} className="w-full hidden sm:block">
 						<TabsList className="w-full bg-bgc dark:bg-fgcDark rounded-lg shadow-[0_35px_35px_rgba(0,0,0,0.05)] !p-0">
 							{QuestionTabs.map(tab => (
 								<TabsTrigger
@@ -36,11 +36,37 @@ const FAQ = (): JSX.Element => {
 								</TabsTrigger>
 							))}
 						</TabsList>
-					</Tabs> */}
+					</Tabs>
 
+					{/* Mobile Tabs */}
+					<div className="flex flex-col gap-4 w-full sm:hidden ">
+						{QuestionTabs.map(tab => (
+							<React.Fragment key={tab}>
+								<button
+									className={`w-full px-6 py-2.5 rounded-xl text-base font-normal shadow-[0_35px_35px_rgba(0,0,0,0.05)] ${
+										questionTabs === tab
+											? "bg-primary text-text font-semibold mb-2"
+											: "bg-bgc text-text dark:text-textDark"
+									}`}
+									onClick={() => setAppState({ questionTabs: tab })}>
+									{tab}
+								</button>
+								{questionTabs === tab && tab === "General Information" && <GeneralInformation />}
+							</React.Fragment>
+						))}
+					</div>
+				</div>
+				<div className="flex flex-col sm:flex-row items-center gap-[30px] ">
 					{/* FAQ Items */}
-					<div className="flex items-center gap-[30px] relative self-stretch w-full flex-[0_0_auto]">
+					<div className="hidden sm:flex items-center gap-[30px] ">
 						{questionTabs === "General Information" ? <GeneralInformation /> : ""}
+					</div>
+					<div className="flex items-center justify-center shrink-0">
+						<img
+							src="/assets/images/faq-img.svg"
+							alt="faq-img"
+							className="w-[295px] sm:w-[370px] h-[318px] sm:h-[330px]"
+						/>
 					</div>
 				</div>
 			</div>

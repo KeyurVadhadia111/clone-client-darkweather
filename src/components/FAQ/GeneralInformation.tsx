@@ -35,32 +35,32 @@ const GeneralInformation = (): JSX.Element => {
 		setOpenIndex(openIndex === index ? null : index);
 	};
 	return (
-		<div className="flex flex-col w-[706px] items-start gap-4">
+		<div className="flex flex-col w-full sm:w-[706px] items-start gap-2 sm:gap-4">
 			{faqItems.map((item, index) => (
 				<>
 					<div
 						key={index}
-						className={`flex flex-col items-start gap-3 p-4 relative self-stretch w-full flex-[0_0_auto] ${
+						className={`flex flex-col items-start gap-2 sm:gap-3 p-2.5 sm:p-4 w-full flex-[0_0_auto] ${
 							openIndex === index
-								? "bg-neutral-50 rounded-xl"
+								? "bg-fgc dark:bg-fgcDark rounded-lg sm:rounded-xl"
 								: index === faqItems.length - 1
 									? ""
 									: "border-b border-textSecondary/20"
 						}`}>
 						<div
-							className="flex items-center gap-3 relative self-stretch w-full flex-[0_0_auto] cursor-pointer"
+							className="flex items-start sm:items-center gap-3 w-full flex-[0_0_auto] cursor-pointer"
 							onClick={() => toggleFaq(index)}>
-							<p className="font-medium [font-family:'Rubik',Helvetica] text-text dark:text-textDark text-lg">
+							<p className="font-medium text-text dark:text-textDark text-base sm:text-lg">
 								{index + 1}.
 							</p>
-							<div className="flex items-center justify-between relative self-stretch flex-1 cursor-pointer">
-								<p className="[font-family:'Rubik',Helvetica] font-medium text-text dark:text-textDark text-lg">
+							<div className="flex items-center justify-between flex-1 cursor-pointer">
+								<p className=" font-medium text-text dark:text-textDark text-base sm:text-lg w-[230px] sm:w-[500px]">
 									{item.question}
 								</p>
 
 								<Icon
 									icon={openIndex === index ? "minus" : "plus"}
-									className={`relative w-5 h-5 transition-transform text-text dark:text-textDark ${
+									className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform text-text dark:text-textDark shrink-0 ${
 										openIndex === index ? "rotate-180" : ""
 									}`}
 								/>
@@ -69,7 +69,7 @@ const GeneralInformation = (): JSX.Element => {
 						{openIndex === index && (
 							<>
 								<Separator className="bg-textSecondary/20 dark:!bg-textSecondary/30 !bg-none" />
-								<p className="relative w-[684px] mr-[-10.00px] [font-family:'Rubik',Helvetica] font-normal text-text dark:text-textDark text-base tracking-[0] leading-6">
+								<p className="w-full sm:w-[684px] font-normal text-text dark:text-textDark text-sm sm:text-base tracking-[0] leading-6 ">
 									{item.answer}
 								</p>
 							</>
