@@ -49,7 +49,7 @@ const HealthActivities: React.FC = () => {
 			desc: "Keep your windows shut and use your AC or a HEPA purifier to filter allergens.",
 		},
 		{
-			img: "/assets/images/sunny.svg",
+			img: "/assets/images/weather.svg",
 			title: "Check the Weather",
 			desc: "Learn when conditions such as the wind increase pollen levels, so you can prepare.",
 		},

@@ -16,7 +16,7 @@ export default function Header() {
 		{ title: "Weather A.I.", href: "/weather-ai", authRequired: false },
 		{ title: "Go Premium", href: "/premium-plan", authRequired: true },
 		{ title: "Top Stories", href: "/top-stories", authRequired: false },
-		{ title: "Alerts", href: "/alerts", authRequired: false },
+		{ title: "Severe Weather", href: "/severe-weather", authRequired: false },
 	];
 
 	useEffect(() => {

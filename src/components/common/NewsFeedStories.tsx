@@ -39,9 +39,9 @@ export const NewsFeedStories: React.FC<Props> = ({ isVertical }) => {
 		<section className={`sm:p-0 sm:pb-[72px] p-6 w-full mx-auto relative`}>
 			<div className="container !px-0">
 				<div
-					className={`flex items-center justify-between relative self-stretch w-full ${isVertical ? "mb-6 sm:mb-6" : "mb-6 sm:mb-12"}`}>
+					className={`flex items-center justify-between relative self-stretch w-full ${isVertical ? "mb-4 sm:mb-6" : "mb-4 sm:mb-12"}`}>
 					<h2
-						className={`${isVertical ? "font-medium sm:font-semibold !text-2xl" : "font-medium"} text-text dark:text-textDark sm:text-[40px] text-2xl leading-10`}>
+						className={`${isVertical ? "font-medium sm:font-semibold !text-2xl" : "font-medium"} text-text dark:text-textDark sm:text-[40px] text-2xl sm:leading-10`}>
 						Top Stories
 					</h2>
 					{!isVertical ? (

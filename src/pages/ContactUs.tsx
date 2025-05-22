@@ -216,8 +216,6 @@ const ContactUs = (): JSX.Element => {
 				</>
 			)}
 			{Step === 2 && <SuccessfullyMessage />}
-
-			{/* Toast Container */}
 		</div>
 	);
 };

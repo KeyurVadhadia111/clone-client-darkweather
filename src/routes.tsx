@@ -8,7 +8,7 @@ import Register from "pages/Register";
 import LandingPage from "pages/LandingPage";
 import ForecastPage from "pages/ForecastPage";
 import PremiumPlanPage from "pages/PremiumPlanPage";
-import AlertsPage from "pages/AlertsPage";
+import SevereWeather from "pages/SevereWeatherPage";
 import ForgotPasswordPage from "pages/ForgotPasswordPage";
 import WeatherAiPage from "pages/WeatherAiPage";
 import { AirQualityIndexPage } from "pages/AirQualityIndexPage";
@@ -123,10 +123,10 @@ const createRoutes: React.FC = () => {
 								}
 							/>
 							<Route
-								path="/alerts"
+								path="/severe-weather"
 								element={
 									<ProtectedRoute>
-										<AlertsPage />
+										<SevereWeather />
 									</ProtectedRoute>
 								}
 							/>
